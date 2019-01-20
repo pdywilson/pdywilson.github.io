@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+<head>
+  <meta charset="utf-8">
+  <title>{{page.title}}</title>
+  <link rel="stylesheet" href="/css/common.css" >
+<link rel="shortcut icon" type="image/png" href="/images/favicon.png" >
+<script type="text/javascript" src="/deploy/Cindy.js"></script>
+<link rel="stylesheet" href="/deploy/CindyJS.css" >
+  <script type="text/javascript"
+     src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+   <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+                tex2jax: {inlineMath: [['$','$'], ['\\(','\\)'], ['\[','\]']]},
+                TeX: {
+                  Macros: {"\R": "\\mathbb{R}",
+                          "\Z": "\\mathbb{Z}"}
+                }
+              });
+  </script>
+
+</head>
+
+<div id="container">
+<body>
+
+  {{content}}
+
+</body>
+</html>

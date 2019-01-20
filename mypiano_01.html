@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Keyboard Piano</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #CSConsole {
+            background-color: #FAFAFA;
+            border-top: 1px solid #333333;
+            bottom: 0px;
+            height: 200px;
+            overflow-y: scroll;
+            position: fixed;
+            width: 100%;
+        }
+    </style>
+    <link rel="stylesheet" href="deploy/common/CindyJS.css">
+<script type="text/javascript" src="deploy/common/Cindy.js"></script>
+
+<script id="csdraw" type="text/x-cindyscript">
+ls=alllines();
+apply(ls,l,l.selected=false);
+sitar=Text1.pressed;
+if(sitar,harms=[1,1,1,1,1,1,1,1]*0.1;
+  drawtext((0,1), "Sitar");
+  ,
+  harms=[1];
+  drawtext((0,1), "Harp"););
+
+if(German.pressed,
+
+  keys=["A","W","S","E","D","F","T","G","Z","H","U","J","K","O","L","P","º","Þ","Ý","Ü",
+        "Y","X","C","V","B","N","M","¼","¾","¿";];
+        drawtext((-0.9,0.4),"W E    T Z U   O P",size->41);
+        drawtext((-1,0),"A S D F G H J K L Ö Ä",size->40);,
+
+  keys=["A","W","S","E","D","F","T","G","Y","H","U","J","K","O","L","P","º","Þ","Ý","Ü",
+        "Z","X","C","V","B","N","M","¼","¾","¿";];//23+10
+        drawtext((-0.9,0.4),"W E    T Y U   O P",size->41);
+        drawtext((-1,0),"A S D F G H J K L Ö Ä",size->40);
+      );
+
+
+;
+</script>
+
+<script id="cskeydown" type="text/x-cindyscript">
+//err(key());
+repeat(30, i,
+  if(key()==keys_i,play(i);));
+</script>
+
+
+<script id="cstick" type="text/x-cindyscript">
+
+
+</script>
+<script id="csmousedown" type="text/x-cindyscript">
+
+;
+</script>
+<script id="csmousedrag" type="text/x-cindyscript">
+
+
+;
+</script>
+<script id="csmouseup" type="text/x-cindyscript">
+
+</script>
+<script id="csinit" type="text/x-cindyscript">
+
+notes=(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+keys=["A","W","S","E","D","F","T","G","Y","H","U","J","K","O","L","P","º","Þ","Ý","Ü",
+      "Z","X","C","V","B","N","M","¼","¾","¿";];//23+10
+
+sitar=Text1.pressed;
+if(sitar,
+  harms=[1,1,1,1,1,1,1,1,1,1,1]*0.1,
+  harms=[1]);
+
+
+f(n) := 2^((n-49)/12)*440;
+
+num = 20;
+grundton = 51; //52=C but i starts at 1
+repeat(num,i,
+    notes_i=f(i+grundton));
+  ;
+  //grundtoene unten links
+  notes_(num+1)=f(grundton-11);
+  notes_(num+2)=f(grundton-9);
+  notes_(num+3)=f(grundton-7);
+  notes_(num+4)=f(grundton-6);
+  notes_(num+5)=f(grundton-4);
+  notes_(num+6)=f(grundton-2);
+  notes_(num+7)=f(grundton);
+  notes_(num+8)=f(grundton+1);
+  //special:
+  notes_(num+9)=f(grundton+21);
+  notes_(num+10)=f(grundton+22);
+
+
+am=0.4;
+play(i):=playsin(notes_i,amp->100*am/notes_i, damp->4, duration->4, harmonics->harms, line->i);
+
+
+//TODO:draw piano
+
+;
+</script>
+
+    <script type="text/javascript">
+createCindy({
+  scripts: "cs*",
+  defaultAppearance: {
+    dimDependent: 0.7,
+    fontFamily: "sans-serif",
+    lineSize: 1,
+    pointSize: 5.0,
+    textsize: 12.0
+  },
+  angleUnit: "°",
+  geometry: [
+    {name: "Text1", type: "ToggleButton", pos: [-0.4,1], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 1.0], fillalpha: 1.0, alpha: 0.8999999761581421, text: "Click!"},
+    {name: "German", type: "ToggleButton", pos: [-1.8,-1.8], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 1.0], fillalpha: 1.0, alpha: 0.8999999761581421, text: "German Keyboard!"}
+  ],
+  autoplay: true,
+  ports: [{
+    id: "CSCanvas",
+    width: 577,
+    height: 546,
+    transform: [{visibleRect: [-2,2,2,-2]}],
+  }],
+  cinderella: {build: 1847, version: [2, 9, 1847]}
+});
+    </script>
+</head>
+<body>
+    <div id="CSCanvas"></div>
+
+</body>
+</html>

@@ -1,0 +1,1050 @@
+1683468087599	geckodriver	INFO	Listening on 127.0.0.1:51173
+1683468204274	geckodriver	INFO	Listening on 127.0.0.1:51616
+1683468204791	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofilevbu2io"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683468205228	Marionette	INFO	Marionette enabled
+1683468205383	Marionette	INFO	Listening on port 51683
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 51683
+WebDriver BiDi listening on ws://127.0.0.1:51617
+1683468205455	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofilevbu2io/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:51617/devtools/browser/c7ee37db-eaac-4729-b8bd-7f62b5ecc22b
+1683468233385	geckodriver	INFO	Listening on 127.0.0.1:51817
+1683468233388	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofile436nNu"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683468233652	Marionette	INFO	Marionette enabled
+1683468233781	Marionette	INFO	Listening on port 51825
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 51825
+WebDriver BiDi listening on ws://127.0.0.1:51818
+1683468233835	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofile436nNu/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:51818/devtools/browser/53725caa-47b9-45aa-a69a-a328fbdb2fab
+1683468258004	Marionette	INFO	Stopped listening on port 51825
+1683468262513	Marionette	INFO	Stopped listening on port 51683
+1683468348383	geckodriver	INFO	Listening on 127.0.0.1:52318
+1683468348903	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileogXWYE"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683468349195	Marionette	INFO	Marionette enabled
+1683468349327	Marionette	INFO	Listening on port 52328
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:52319
+Read port: 52328
+1683468349463	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileogXWYE/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:52319/devtools/browser/ab0757ef-25d6-4277-8297-c40c81e45a66
+1683468383685	geckodriver	INFO	Listening on 127.0.0.1:52499
+1683468384203	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofile3Yw9Pm"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683468384492	Marionette	INFO	Marionette enabled
+1683468384622	Marionette	INFO	Listening on port 52509
+Read port: 52509
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:52500
+1683468384675	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofile3Yw9Pm/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:52500/devtools/browser/cdef7a59-9f9e-4ba3-9f3a-76b5e72d96b7
+1683468399283	geckodriver	INFO	Listening on 127.0.0.1:52598
+1683468399286	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofile8qrpBZ"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683468399546	Marionette	INFO	Marionette enabled
+1683468399680	Marionette	INFO	Listening on port 52606
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 52606
+WebDriver BiDi listening on ws://127.0.0.1:52599
+1683468399734	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofile8qrpBZ/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:52599/devtools/browser/6e8ffadf-d65c-4319-9c91-9273e00d3695
+1683468437952	Marionette	INFO	Stopped listening on port 52606
+1683468439754	Marionette	INFO	Stopped listening on port 52509
+1683468517279	geckodriver	INFO	Listening on 127.0.0.1:53117
+1683468517283	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofilegHdmOw"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683468517552	Marionette	INFO	Marionette enabled
+1683468517687	Marionette	INFO	Listening on port 53125
+Read port: 53125
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:53118
+1683468517743	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofilegHdmOw/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:53118/devtools/browser/8beb7f8b-0e50-484e-8b95-2ab2e2320cd1
+1683468519347	Marionette	INFO	Stopped listening on port 53125
+1683468552539	geckodriver	INFO	Listening on 127.0.0.1:53289
+1683468552542	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofilePs1s4h"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683468552809	Marionette	INFO	Marionette enabled
+1683468552942	Marionette	INFO	Listening on port 53297
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 53297
+WebDriver BiDi listening on ws://127.0.0.1:53290
+1683468552992	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofilePs1s4h/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:53290/devtools/browser/72592517-f9f7-4471-8758-455ffbdb1b05
+1683468554423	Marionette	INFO	Stopped listening on port 53297
+1683468565621	Marionette	INFO	Stopped listening on port 52328
+1683468898766	geckodriver	INFO	Listening on 127.0.0.1:54718
+1683468899283	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileKj1vcq"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683468899582	Marionette	INFO	Marionette enabled
+1683468899713	Marionette	INFO	Listening on port 54728
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:54719
+Read port: 54728
+1683468899850	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileKj1vcq/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:54719/devtools/browser/c67e358c-1e02-4183-93e7-5251e3f0e545
+1683468901338	Marionette	INFO	Stopped listening on port 54728
+1683468911850	geckodriver	INFO	Listening on 127.0.0.1:54800
+1683468912369	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileGTozoJ"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683468912663	Marionette	INFO	Marionette enabled
+1683468912795	Marionette	INFO	Listening on port 54810
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:54801
+Read port: 54810
+1683468912932	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileGTozoJ/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:54801/devtools/browser/e98ffcc4-86ad-4422-af1c-85ba917d1e19
+1683468914297	Marionette	INFO	Stopped listening on port 54810
+1683469045602	geckodriver	INFO	Listening on 127.0.0.1:55364
+1683469045605	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileCnjVHJ"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683469045869	Marionette	INFO	Marionette enabled
+1683469046000	Marionette	INFO	Listening on port 55368
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 55368
+WebDriver BiDi listening on ws://127.0.0.1:55365
+1683469046052	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileCnjVHJ/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:55365/devtools/browser/ae72c6c8-98e7-4ba9-8590-98b300b4b729
+1683469061268	geckodriver	INFO	Listening on 127.0.0.1:55465
+1683469061271	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofilehr2reo"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683469061538	Marionette	INFO	Marionette enabled
+1683469061668	Marionette	INFO	Listening on port 55473
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 55473
+WebDriver BiDi listening on ws://127.0.0.1:55466
+1683469061719	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofilehr2reo/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:55466/devtools/browser/28121c8f-e6a5-471c-9240-d8d81948f2b8
+1683469081966	Marionette	INFO	Stopped listening on port 55473
+1683469158578	geckodriver	INFO	Listening on 127.0.0.1:55897
+1683469158581	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileTnwyqs"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683469158851	Marionette	INFO	Marionette enabled
+1683469158983	Marionette	INFO	Listening on port 55901
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 55901
+WebDriver BiDi listening on ws://127.0.0.1:55898
+1683469159034	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileTnwyqs/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:55898/devtools/browser/704b8ed5-eb60-47ea-b587-9016e15243bb
+1683469160457	Marionette	INFO	Stopped listening on port 55901
+1683469211036	geckodriver	INFO	Listening on 127.0.0.1:56133
+1683469211040	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileXTsuki"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683469211301	Marionette	INFO	Marionette enabled
+1683469211434	Marionette	INFO	Listening on port 56137
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 56137
+WebDriver BiDi listening on ws://127.0.0.1:56134
+1683469211487	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileXTsuki/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:56134/devtools/browser/87041404-6d36-4f4b-9eea-726287ae2c6b
+1683469219750	Marionette	INFO	Stopped listening on port 56137
+1683469453930	geckodriver	INFO	Listening on 127.0.0.1:57148
+1683469453934	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileRJeKDF"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683469454195	Marionette	INFO	Marionette enabled
+1683469454328	Marionette	INFO	Listening on port 57156
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 57156
+WebDriver BiDi listening on ws://127.0.0.1:57149
+1683469454378	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileRJeKDF/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:57149/devtools/browser/e04458ce-4b57-413d-9340-3697840aaa66
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 1164 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 7225 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 6632 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+console.error: (new TypeError("lazy.AsyncShutdown.profileBeforeChange is undefined", "resource://services-settings/Database.sys.mjs", 599))
+[Child 17139, MediaDecoderStateMachine #1] WARNING: 10c663e90 Could not set cubeb stream name.: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:321
+1683469510485	Marionette	INFO	Stopped listening on port 57156
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+1683469514495	geckodriver::marionette	ERROR	Failed to close browser connection: Socket is not connected (os error 57)
+1683469628545	geckodriver	INFO	Listening on 127.0.0.1:57951
+1683469628548	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofilejybCu6"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683469628812	Marionette	INFO	Marionette enabled
+1683469628946	Marionette	INFO	Listening on port 57959
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 57959
+WebDriver BiDi listening on ws://127.0.0.1:57952
+1683469628998	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofilejybCu6/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:57952/devtools/browser/c374327a-3922-4f4e-9cd4-debf644f898c
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 2253 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 3157 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 5051 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 3891 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1683469653046	geckodriver	INFO	Listening on 127.0.0.1:58129
+1683469653050	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileOhoewB"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683469653303	Marionette	INFO	Marionette enabled
+1683469653433	Marionette	INFO	Listening on port 58133
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 58133
+WebDriver BiDi listening on ws://127.0.0.1:58130
+1683469653493	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileOhoewB/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:58130/devtools/browser/53104dd5-ec29-4cb6-b5a1-7a87dc83a618
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 2452 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 3244 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 3043 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 6351 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1683469689028	geckodriver	INFO	Listening on 127.0.0.1:58348
+1683469689031	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileJwA7Jc"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683469689296	Marionette	INFO	Marionette enabled
+1683469689429	Marionette	INFO	Listening on port 58359
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 58359
+WebDriver BiDi listening on ws://127.0.0.1:58349
+1683469689481	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileJwA7Jc/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:58349/devtools/browser/6a624fbb-445e-4c6e-9f0a-8358be8de913
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 1318 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 2579 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 6134 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 4493 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 7210 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1683469711450	Marionette	INFO	Stopped listening on port 58359
+1683469713615	Marionette	INFO	Stopped listening on port 58133
+1683469715440	Marionette	INFO	Stopped listening on port 57959
+1683469758044	geckodriver	INFO	Listening on 127.0.0.1:58713
+1683469758561	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileHk8g56"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683469758847	Marionette	INFO	Marionette enabled
+1683469758981	Marionette	INFO	Listening on port 58723
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:58714
+Read port: 58723
+1683469759121	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileHk8g56/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:58714/devtools/browser/26b09d39-3b21-4720-bece-77f977def8dd
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 1594 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 5368 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 7204 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 5619 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+[Child 17524, MediaDecoderStateMachine #1] WARNING: 10d229090 Could not set cubeb stream name.: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:321
+1683469778571	Marionette	INFO	Stopped listening on port 58723
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1683469815361	geckodriver::marionette	ERROR	Failed to close browser connection: Socket is not connected (os error 57)
+1683469875006	geckodriver	INFO	Listening on 127.0.0.1:59264
+1683469875522	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofile359pYs"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683469875810	Marionette	INFO	Marionette enabled
+1683469875943	Marionette	INFO	Listening on port 59274
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:59265
+Read port: 59274
+1683469876085	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofile359pYs/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:59265/devtools/browser/2eb45bfb-682e-4825-bf72-63e44a73c53d
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 3561 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 170 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 6193 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 4004 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 211 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1683469885898	Marionette	INFO	Stopped listening on port 59274
+1683470068777	geckodriver	INFO	Listening on 127.0.0.1:60116
+1683470069294	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofilewg1NkN"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683470069585	Marionette	INFO	Marionette enabled
+1683470069717	Marionette	INFO	Listening on port 60126
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:60117
+Read port: 60126
+1683470069860	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofilewg1NkN/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:60117/devtools/browser/abc915de-e7e9-449f-be1d-5269ff306409
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 1916 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 6800 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 696 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 3142 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1683470080898	Marionette	INFO	Stopped listening on port 60126
+1683470126722	geckodriver	INFO	Listening on 127.0.0.1:60435
+1683470126726	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileqBFYrX"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683470126987	Marionette	INFO	Marionette enabled
+1683470127119	Marionette	INFO	Listening on port 60439
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 60439
+WebDriver BiDi listening on ws://127.0.0.1:60436
+1683470127170	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileqBFYrX/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:60436/devtools/browser/a89fb5c2-1b4a-435f-9e7f-1d614bdf313d
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 2376 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 1113 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 5140 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 792 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1683470145186	Marionette	INFO	Stopped listening on port 60439
+1683470178693	geckodriver	INFO	Listening on 127.0.0.1:60716
+1683470178696	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofilewtRI10"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683470178958	Marionette	INFO	Marionette enabled
+1683470179090	Marionette	INFO	Listening on port 60724
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 60724
+WebDriver BiDi listening on ws://127.0.0.1:60717
+1683470179142	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofilewtRI10/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:60717/devtools/browser/98c7f461-368f-4d91-9222-37c1e896fbdf
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 1445 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: "Listener for event 'frame' did not return a promise."
+console.warn: "Listener for event 'frame' did not return a promise."
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 246 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: "Listener for event 'frame' did not return a promise."
+console.error: "Error while calling actor 'domwalker's method 'getEmbedderElement'" "Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [inIDeepTreeWalker.currentNode]"
+console.error: ({})
+console.warn: "Error while destroying front:" "inspector" (new Error("Protocol error (NS_ERROR_FAILURE): Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [inIDeepTreeWalker.currentNode] from: server0.conn0.windowGlobal10737418242/domwalker19 (resource://devtools/server/actors/inspector/document-walker.js:78:0)", "resource://devtools/shared/protocol/Front.js", 383))
+console.error: "Failed to start [root-node] legacy listener for target null" (new Error("Protocol error (NS_ERROR_FAILURE): Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [inIDeepTreeWalker.currentNode] from: server0.conn0.windowGlobal10737418242/domwalker19 (resource://devtools/server/actors/inspector/document-walker.js:78:0)", "resource://devtools/shared/protocol/Front.js", 383))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal10737418244/layout20, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:300:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:47:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:173:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:452:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Listener for event 'frame' did not return a promise."
+JavaScript error: resource://devtools/client/framework/toolbox.js, line 3408: TypeError: data.frameData.id is null
+JavaScript error: resource://devtools/shared/protocol/Front.js, line 383: Error: Protocol error (NS_ERROR_FAILURE): Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [inIDeepTreeWalker.currentNode] from: server0.conn0.windowGlobal10737418242/domwalker19 (resource://devtools/server/actors/inspector/document-walker.js:78:0)
+console.warn: "Listener for event 'frame' did not return a promise."
+console.warn: "Listener for event 'frame' did not return a promise."
+console.warn: "Listener for event 'frame' did not return a promise."
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 3396 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: resource://devtools/client/framework/toolbox.js, line 3408: TypeError: data.frameData.id is null
+console.warn: "Listener for event 'frame' did not return a promise."
+console.warn: "Listener for event 'frame' did not return a promise."
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 5552 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: resource://devtools/client/framework/toolbox.js, line 3408: TypeError: data.frameData.id is null
+console.warn: "Listener for event 'frame' did not return a promise."
+1683470199783	Marionette	INFO	Stopped listening on port 60724
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1683470372913	geckodriver::marionette	ERROR	Failed to close browser connection: Socket is not connected (os error 57)
+1683470510708	geckodriver	INFO	Listening on 127.0.0.1:62123
+1683470510712	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofile1OxP1u"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683470510974	Marionette	INFO	Marionette enabled
+1683470511105	Marionette	INFO	Listening on port 62127
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 62127
+WebDriver BiDi listening on ws://127.0.0.1:62124
+1683470511156	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofile1OxP1u/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:62124/devtools/browser/5d1a694d-7a75-4e1f-b309-17115d81b73b
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 2169 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 4182 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 7371 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 3898 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 5510 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1683470533991	Marionette	INFO	Stopped listening on port 62127
+1683470554113	geckodriver	INFO	Listening on 127.0.0.1:62375
+1683470554628	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileNfmB7w"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683470554917	Marionette	INFO	Marionette enabled
+1683470555049	Marionette	INFO	Listening on port 62385
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:62376
+Read port: 62385
+1683470555187	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileNfmB7w/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:62376/devtools/browser/75260961-9c44-4f0f-a1a8-b711171f655d
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 6169 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 5878 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 1389 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 2726 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1683470567468	Marionette	INFO	Stopped listening on port 62385
+1683470689905	geckodriver	INFO	Listening on 127.0.0.1:62993
+1683470690422	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileCdosPh"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683470690711	Marionette	INFO	Marionette enabled
+1683470690844	Marionette	INFO	Listening on port 63003
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:62994
+Read port: 63003
+1683470690984	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileCdosPh/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:62994/devtools/browser/48179f93-9b46-4a9b-a8a5-8a915b315935
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 2917 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 1321 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 5512 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 2004 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 6945 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+[Child 18498, MediaDecoderStateMachine #1] WARNING: 10f738680 Could not set cubeb stream name.: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:321
+1683470756746	Marionette	INFO	Stopped listening on port 63003
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1683470849055	geckodriver	INFO	Listening on 127.0.0.1:63717
+1683470849578	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofilexNcqYy"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683470849879	Marionette	INFO	Marionette enabled
+1683470850011	Marionette	INFO	Listening on port 63727
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:63718
+Read port: 63727
+1683470850151	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofilexNcqYy/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:63718/devtools/browser/0f7c312e-3533-4451-b763-1dede4bc7e15
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 7325 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 4476 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 1842 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1683471148336	geckodriver	INFO	Listening on 127.0.0.1:64992
+1683471148339	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofilesIYVbb"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683471148605	Marionette	INFO	Marionette enabled
+1683471148736	Marionette	INFO	Listening on port 64996
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 64996
+WebDriver BiDi listening on ws://127.0.0.1:64993
+1683471148790	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofilesIYVbb/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:64993/devtools/browser/d76b9063-2fc4-4c02-9bfa-55e8182e67e2
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 7093 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 4132 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 5069 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 7567 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1683471172565	geckodriver	INFO	Listening on 127.0.0.1:65187
+1683471172568	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileFy7Zhj"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683471172792	Marionette	INFO	Marionette enabled
+1683471172900	Marionette	INFO	Listening on port 65191
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:65188
+Read port: 65191
+1683471173022	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileFy7Zhj/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:65188/devtools/browser/db2e72ff-43ab-492b-b644-7c1775990834
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 4559 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 7161 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 5665 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 778 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 910 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1683471194977	Marionette	INFO	Stopped listening on port 65191
+1683471196688	Marionette	INFO	Stopped listening on port 64996
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1683471198083	Marionette	INFO	Stopped listening on port 63727
+1683471199720	Marionette	INFO	Stopped listening on port 55368
+1683471202165	geckodriver::marionette	ERROR	Failed to close browser connection: Socket is not connected (os error 57)
+1683471212078	geckodriver	INFO	Listening on 127.0.0.1:65420
+1683471212081	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileHlLjUT"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683471212345	Marionette	INFO	Marionette enabled
+1683471212477	Marionette	INFO	Listening on port 65428
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 65428
+WebDriver BiDi listening on ws://127.0.0.1:65421
+1683471212528	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileHlLjUT/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:65421/devtools/browser/74f2176d-bdbf-49b0-a818-9707b355e0c3
+1683471214567	Marionette	INFO	Stopped listening on port 65428
+1683471444298	geckodriver	INFO	Listening on 127.0.0.1:50011
+1683471444815	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofilebVBxwG"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683471445111	Marionette	INFO	Marionette enabled
+1683471445242	Marionette	INFO	Listening on port 50021
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:50012
+Read port: 50021
+1683471445378	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofilebVBxwG/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:50012/devtools/browser/4e9b4496-140e-4175-9ed3-5ea7ab05d8b6
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 3262 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 1611 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 3315 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 1479 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 6682 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+[Child 19045, MediaDecoderStateMachine #1] WARNING: 10ce5e060 Could not set cubeb stream name.: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:321
+1683471470862	Marionette	INFO	Stopped listening on port 50021
+1683471476906	geckodriver::marionette	ERROR	Failed to close browser connection: Socket is not connected (os error 57)
+1683471666585	geckodriver	INFO	Listening on 127.0.0.1:50972
+1683471666588	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofiledNFKPG"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683471666851	Marionette	INFO	Marionette enabled
+1683471666982	Marionette	INFO	Listening on port 50980
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 50980
+WebDriver BiDi listening on ws://127.0.0.1:50973
+1683471667033	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofiledNFKPG/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:50973/devtools/browser/298f5465-5c62-4127-aef5-697d06e18a3e
+console.warn: "Listener for event 'frame' did not return a promise."
+console.warn: "Listener for event 'frame' did not return a promise."
+console.warn: "Listener for event 'frame' did not return a promise."
+console.warn: "Listener for event 'frame' did not return a promise."
+console.warn: "Listener for event 'frame' did not return a promise."
+console.warn: "Listener for event 'frame' did not return a promise."
+console.warn: "Listener for event 'frame' did not return a promise."
+console.warn: "Listener for event 'frame' did not return a promise."
+console.warn: "Listener for event 'frame' did not return a promise."
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 3769 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 2815 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: "Listener for event 'frame' did not return a promise."
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 757 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: "Listener for event 'frame' did not return a promise."
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 5327 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: resource://devtools/client/framework/toolbox.js, line 3408: TypeError: data.frameData.id is null
+console.warn: "Listener for event 'frame' did not return a promise."
+console.warn: "Listener for event 'frame' did not return a promise."
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 5019 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: "Listener for event 'frame' did not return a promise."
+1683471713431	Marionette	INFO	Stopped listening on port 50980
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+1683471943613	geckodriver	INFO	Listening on 127.0.0.1:52185
+1683471944130	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileL5FpyV"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683471944432	Marionette	INFO	Marionette enabled
+1683471944564	Marionette	INFO	Listening on port 52195
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:52186
+Read port: 52195
+1683471944698	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileL5FpyV/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:52186/devtools/browser/3a66b9ab-71e3-4c09-956d-1407c5610baf
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 7668 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 5844 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 2019 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+[Child 19307, MediaDecoderStateMachine #1] WARNING: 10b3b6d50 Could not set cubeb stream name.: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:321
+1683471969991	Marionette	INFO	Stopped listening on port 52195
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1683471973855	geckodriver	INFO	Listening on 127.0.0.1:52392
+1683471973859	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileBaFUGw"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683471974135	Marionette	INFO	Marionette enabled
+1683471974274	Marionette	INFO	Listening on port 52400
+Read port: 52400
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:52393
+1683471974328	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileBaFUGw/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:52393/devtools/browser/0fd1156d-7f2a-4499-a6c4-bb970a7c8798
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 6778 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 6420 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 3908 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+[Child 19380, MediaDecoderStateMachine #1] WARNING: 10d7cfbb0 Could not set cubeb stream name.: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:321
+1683471988420	Marionette	INFO	Stopped listening on port 52400
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1683471990249	geckodriver::marionette	ERROR	Failed to close browser connection: Socket is not connected (os error 57)
+1683471993592	geckodriver	INFO	Listening on 127.0.0.1:52556
+1683471993595	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileXtkCjW"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683471993867	Marionette	INFO	Marionette enabled
+1683471993999	Marionette	INFO	Listening on port 52564
+Read port: 52564
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:52557
+1683471994050	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileXtkCjW/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:52557/devtools/browser/ce36ff08-449e-4121-94ad-7093514af1f2
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 3564 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 6883 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 4218 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 2718 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+[Child 19453, MediaDecoderStateMachine #1] WARNING: 109e32340 Could not set cubeb stream name.: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:321
+1683472009230	Marionette	INFO	Stopped listening on port 52564
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1683472016333	geckodriver	INFO	Listening on 127.0.0.1:52728
+1683472016853	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileBP8BMv"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683472017148	Marionette	INFO	Marionette enabled
+1683472017281	Marionette	INFO	Listening on port 52738
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:52729
+Read port: 52738
+1683472017418	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileBP8BMv/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:52729/devtools/browser/bd1ed230-0f82-4f2e-93eb-627368d33b8a
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 2273 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 442 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 2237 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 3315 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+[Child 19527, MediaDecoderStateMachine #1] WARNING: 10d2464b0 Could not set cubeb stream name.: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:321
+1683472025260	Marionette	INFO	Stopped listening on port 52738
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1683472031017	geckodriver::marionette	ERROR	Failed to close browser connection: Socket is not connected (os error 57)
+1683472211018	geckodriver	INFO	Listening on 127.0.0.1:53574
+1683472211537	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileUrsYD1"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683472211839	Marionette	INFO	Marionette enabled
+1683472211889	Marionette	INFO	Listening on port 53584
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:53575
+Read port: 53584
+1683472212046	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileUrsYD1/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:53575/devtools/browser/7168a15b-a38d-40dc-9d47-f7fb5e5c06de
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 2149 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 6937 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 3366 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 1088 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+[Child 19659, MediaDecoderStateMachine #1] WARNING: 10f246d50 Could not set cubeb stream name.: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:321
+1683472239115	Marionette	INFO	Stopped listening on port 53584
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1683472242172	geckodriver	INFO	Listening on 127.0.0.1:53775
+1683472242175	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileAzCA58"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683472242446	Marionette	INFO	Marionette enabled
+1683472242579	Marionette	INFO	Listening on port 53779
+Read port: 53779
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:53776
+1683472242630	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileAzCA58/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:53776/devtools/browser/1dea6472-ce3d-4902-a5f6-1b518dfb1c82
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 4235 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 6973 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 7512 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 4786 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 6082 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+[Child 19738, MediaDecoderStateMachine #1] WARNING: 10c711090 Could not set cubeb stream name.: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:321
+1683472263835	Marionette	INFO	Stopped listening on port 53779
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1683472295986	geckodriver::marionette	ERROR	Failed to close browser connection: Socket is not connected (os error 57)
+1683473208634	geckodriver	INFO	Listening on 127.0.0.1:58283
+1683473208637	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileIwyoUD"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683473208988	Marionette	INFO	Marionette enabled
+1683473209043	Marionette	INFO	Listening on port 58291
+Read port: 58291
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:58284
+1683473209116	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileIwyoUD/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:58284/devtools/browser/771cd977-1054-4d24-82f9-aed3236c8a0f
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 6362 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 6743 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 5482 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 280 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 3808 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1683473224714	Marionette	INFO	Stopped listening on port 58291
+1683473285248	geckodriver::marionette	ERROR	Failed to close browser connection: Socket is not connected (os error 57)
+1683473367791	geckodriver	INFO	Listening on 127.0.0.1:58989
+1683473367794	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofile7K9VTO"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683473368059	Marionette	INFO	Marionette enabled
+1683473368191	Marionette	INFO	Listening on port 58998
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 58998
+WebDriver BiDi listening on ws://127.0.0.1:58990
+1683473368241	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofile7K9VTO/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:58990/devtools/browser/552599b1-8332-4325-b859-6e52502b3e88
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 864 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 210 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://cdn.jsdelivr.net/gh/SkylineWebcams/web@main/playerj.js, line 1: NotAllowedError: The play method is not allowed by the user agent or the platform in the current context, possibly because the user denied permission.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 3316 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1683473381274	Marionette	INFO	Stopped listening on port 58998
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1683473490756	geckodriver	INFO	Listening on 127.0.0.1:59567
+1683473490759	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofilemPj1am"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683473491026	Marionette	INFO	Marionette enabled
+1683473491157	Marionette	INFO	Listening on port 59575
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 59575
+WebDriver BiDi listening on ws://127.0.0.1:59568
+1683473491210	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofilemPj1am/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:59568/devtools/browser/5d9b3d40-bda8-4a4f-bf9f-a0a9c9e8fe88
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 7320 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 2287 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://cdn.jsdelivr.net/gh/SkylineWebcams/web@main/playerj.js, line 1: NotAllowedError: The play method is not allowed by the user agent or the platform in the current context, possibly because the user denied permission.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 4651 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1683473556539	geckodriver	INFO	Listening on 127.0.0.1:59921
+1683473557057	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofilek6Fzim"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683473557344	Marionette	INFO	Marionette enabled
+1683473557474	Marionette	INFO	Listening on port 59931
+Read port: 59931
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:59922
+1683473557524	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofilek6Fzim/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:59922/devtools/browser/a17317d9-5abe-4f90-882a-5f069ad02aa5
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 7130 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 4759 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 7771 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 4551 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+[Child 21423, MediaDecoderStateMachine #1] WARNING: 10f1254e0 Could not set cubeb stream name.: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:321
+1683473578901	Marionette	INFO	Stopped listening on port 59931
+1683473580000	geckodriver::marionette	ERROR	Failed to close browser connection: Socket is not connected (os error 57)
+1683473597115	geckodriver	INFO	Listening on 127.0.0.1:60163
+1683473597633	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofiler7Lkxw"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683473597922	Marionette	INFO	Marionette enabled
+1683473598054	Marionette	INFO	Listening on port 60173
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:60164
+Read port: 60173
+1683473598191	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofiler7Lkxw/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:60164/devtools/browser/da87bc3f-4325-42dc-84a7-42cbff1e2a90
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 3792 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 6399 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 5359 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 5404 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+[Child 21526, MediaDecoderStateMachine #1] WARNING: 10e7217c0 Could not set cubeb stream name.: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:321
+1683473609164	Marionette	INFO	Stopped listening on port 60173
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1683473680803	geckodriver	INFO	Listening on 127.0.0.1:60576
+1683473680806	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofilez0pfLk"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683473681068	Marionette	INFO	Marionette enabled
+1683473681200	Marionette	INFO	Listening on port 60580
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 60580
+WebDriver BiDi listening on ws://127.0.0.1:60577
+1683473681250	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofilez0pfLk/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:60577/devtools/browser/905f772a-00c0-4313-a86a-fead0bc7ae0e
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 1059 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 6536 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 3376 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 2908 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 5032 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+[Child 21631, MediaDecoderStateMachine #1] WARNING: 11002d930 Could not set cubeb stream name.: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:321
+1683473690016	Marionette	INFO	Stopped listening on port 60580
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1683473717849	geckodriver	INFO	Listening on 127.0.0.1:60803
+1683473718365	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofile1SK7sN"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683473718653	Marionette	INFO	Marionette enabled
+1683473718785	Marionette	INFO	Listening on port 60813
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:60804
+Read port: 60813
+1683473718921	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofile1SK7sN/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:60804/devtools/browser/8d4b9ed9-bfda-4df8-9b7b-261412b350e9
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 2525 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 65 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 4566 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 1189 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 5720 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+[Child 21735, MediaDecoderStateMachine #1] WARNING: 10a90abe0 Could not set cubeb stream name.: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:321
+1683473731600	Marionette	INFO	Stopped listening on port 60813
+1683473777730	geckodriver	INFO	Listening on 127.0.0.1:61119
+1683473778248	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofilemddsw6"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683473778537	Marionette	INFO	Marionette enabled
+1683473778669	Marionette	INFO	Listening on port 61129
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:61120
+Read port: 61129
+1683473778808	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofilemddsw6/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:61120/devtools/browser/29960e4b-3d88-4528-8158-8087d9d5bfa8
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 2690 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 7436 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 6926 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 4638 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+[Child 21839, MediaDecoderStateMachine #1] WARNING: 10d0bbd20 Could not set cubeb stream name.: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:321
+1683473865997	Marionette	INFO	Stopped listening on port 61129
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+[Child 21319, MediaDecoderStateMachine #1] WARNING: 10ac32900 Could not set cubeb stream name.: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:321
+1683474025687	Marionette	INFO	Stopped listening on port 59575
+1683477342159	geckodriver	INFO	Listening on 127.0.0.1:59159
+1683477342163	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofile4S7YkC"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683477342533	Marionette	INFO	Marionette enabled
+1683477342593	Marionette	INFO	Listening on port 59167
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:59160
+Read port: 59167
+1683477342771	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofile4S7YkC/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:59160/devtools/browser/c419d64a-435e-4adc-b339-c2552468eb93
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 1564 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 6560 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 979 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 493 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+[Child 22207, MediaDecoderStateMachine #1] WARNING: 10e8b1ef0 Could not set cubeb stream name.: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:321
+1683477351424	Marionette	INFO	Stopped listening on port 59167
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1683477354111	geckodriver::marionette	ERROR	Failed to close browser connection: Socket is not connected (os error 57)
+1683485727255	geckodriver	INFO	Listening on 127.0.0.1:60364
+1683485727259	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileIlLIeX"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683485727627	Marionette	INFO	Marionette enabled
+1683485727688	Marionette	INFO	Listening on port 60372
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:60365
+Read port: 60372
+1683485727868	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofileIlLIeX/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:60365/devtools/browser/2f8b5b2a-8126-4e51-8636-acdc0c37844f
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 7377 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+[Child 23011, MediaDecoderStateMachine #1] WARNING: 10c989200 Could not set cubeb stream name.: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:321
+1683485816699	Marionette	INFO	Stopped listening on port 60372
+1683488098204	geckodriver::marionette	ERROR	Failed to close browser connection: Socket is not connected (os error 57)
+1683491717320	geckodriver	INFO	Listening on 127.0.0.1:51863
+1683491717324	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofilealVTbA"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683491717693	Marionette	INFO	Marionette enabled
+1683491717750	Marionette	INFO	Listening on port 51867
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:51864
+Read port: 51867
+1683491717916	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m5/5s4l6wjj0851n2qqrn3f25dc0000gn/T/rust_mozprofilealVTbA/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:51864/devtools/browser/86caa545-8639-44f0-a0fb-2b84df7a440e
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 6584 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 622 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 2686 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/HFuUK9PmT_Lq_5RJk8JSvLsboBRSyXeRIfQWcOegxFw.js line 2 > eval line 6381 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+[Child 23820, MediaDecoderStateMachine #1] WARNING: 10ad107f0 Could not set cubeb stream name.: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:321
+1683491806558	Marionette	INFO	Stopped listening on port 51867

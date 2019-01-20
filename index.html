@@ -1,1 +1,165 @@
-# cool
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Portfolio - Patrick Wilson</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="scss/grayscale.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <!--
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#projects">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#signup">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+-->
+
+  <!-- Header -->
+  <header class="masthead">
+    <div id="cycler">
+      <a href="https://google.com" target="_blank"><img class="cyclerimg" src="img/cycler.png" alt="" style="max-width: 6%;
+      height: auto; margin-left: -10%; ">
+    </div></a>
+    <div class="container d-flex h-100 align-items-center">
+      
+      <div class="mx-auto text-center">
+        <h1 class="mx-auto my-0 text-uppercase gsap1">Patrick Wilson</h1>
+        <h2 class="text-white-50 mx-auto mt-2 mb-5 gsap2">Welcome to my website (:</h2>
+        <a href="#projects" class="btn btn-primary js-scroll-trigger gsap3" style="opacity:0.66">My work</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section bg-light">
+    <div class="container">
+
+      <!-- Project One Row -->
+      <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+        <div class="col-lg-6 project1">
+          <a href="https://pdywilson.github.io/jambuddy.html" target="_blank"><img class="img-fluid img1" src="img/jambud1.png" alt=""></a>
+        </div>
+        <div class="col-lg-6">
+          <div class="bg-black text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-justify">
+                <h4 class="text-white"><a href="https://pdywilson.github.io/jambuddy.html" target="_blank">JamBuddy</a></h4>
+                <p class="mb-0 text-white-50">An <a href="https://pdywilson.github.io/jambuddy.html" target="_blank">interactive AI music generation tool</a>. The front-end of the application is written in <a href="https://cindyjs.org/" target="_blank">CindyJS</a>, the back-end is in pure JavaScript and the Machine Learning model is deployed with <a href="https://www.tensorflow.org/js" target="_blank">TensorflowJS</a>. I trained the model (LSTM-based) to predict monophonic melodies relative to a harmonic context. Check it out on <a href="https://github.com/pdywilson/jambuddy" target="_blank">GitHub</a> or read my <a href="https://pdywilson.github.io/img/thesis.pdf" target="_blank">master's thesis</a>.</p>
+                <hr class="d-none d-lg-block mb-0 ml-0">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Project Two Row -->
+      <div class="row justify-content-center no-gutters">
+        <div class="col-lg-6 project2">
+          <a href="https://github.com/pdywilson/rentcrawler/" target="_blank">
+            <img class="img-fluid img2" src="img/dub.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-lg-6 order-lg-first">
+          <div class="bg-black text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-justify" >
+                <h4 class="text-white text-lg-right"><a href="https://github.com/pdywilson/rentcrawler/" target="_blank">RentCrawler</a></h4>
+                <p class="mb-0 text-white-50">In my <a href="https://github.com/pdywilson/rentcrawler" target="_blank">rentcrawler project</a>, I set up a minimal Data Engineering pipeline on GCP. The goal is to answer the question: "What is the average rent in Dublin?". My solution crawls the web for rent prices in an automated fashion and calculates the current average rent. I implemented it in both <a href="https://www.python.org/" target="_blank">Python</a> and <a href="https://www.scala-lang.org/" target="_blank">Scala</a> and explored differences in Speed and Scalability of each approach. Check it out on <a href="https://github.com/pdywilson/rentcrawler" target="_blank">GitHub</a>.</p>
+                <hr class="d-none d-lg-block mb-0 mr-0">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section bg-black">
+    <div class="container">
+      <div class="social d-flex justify-content-center">
+        <a href="https://github.com/pdywilson" class="mx-2" target = "_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black small text-center text-white-50">
+    <div class="container">
+      Copyright &copy; Patrick Wilson 2019 - <script>document.write(new Date().getFullYear())</script> | Photo by <a href="https://unsplash.com/@gozlukluf?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target = "_blank">Fatih</a> on <a href="https://unsplash.com/" target="_blank">Unsplash</a> | Template by <a href="https://startbootstrap.com/themes/grayscale/" target="_blank">startbootstramp</a> under <a href="https://github.com/BlackrockDigital/startbootstrap-grayscale/blob/master/LICENSE" target="_blank">MIT License</a> | Animations with <a href="https://greensock.com/gsap/" target="_blank">GSAP</a>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/grayscale.min.js"></script>
+
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>	
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from('.img1', {scrollTrigger: {trigger: '.project1', toggleActions: "restart pause none pause"}, opacity: 0, duration: 1, x: -150});
+    gsap.from('.img2', {scrollTrigger: {trigger: '.project2', toggleActions: "restart pause none pause"}, opacity: 0, duration: 1, x: 150});
+    gsap.from('.gsap2', {opacity: 0, duration: 3, x: 150});
+    gsap.from('.gasp3', {opacity: 0, duration: 3, x: -150});
+
+    // gsap.from('.cyclerimg', {duration: 10, x: document.getElementById('cycler').offsetWidth*1.09, ease:Linear.easeNone, rotation:90, transformOrigin:"left 50%"}).repeat(-1);
+
+    gsap.from('.cyclerimg', {duration: 10, x: document.getElementById('cycler').offsetWidth*1.09, ease:Linear.easeNone, rotation:720, transformOrigin:"left 50%"}).repeat(-1);
+    
+  
+  </script>
+
+</body>
+
+</html>

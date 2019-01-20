@@ -1,0 +1,17 @@
+#pint {
+    display: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.button-container {
+  margin-left: 10px;
+}
+
+.button-container button {
+  margin-left: 5px;
+}

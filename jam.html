@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Jam Buddy</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #CSConsole {
+            background-color: #FAFAFA;
+            border-top: 1px solid #333333;
+            bottom: 0px;
+            height: 200px;
+            overflow-y: scroll;
+            position: fixed;
+            width: 100%;
+        }
+    </style>
+    <link rel="stylesheet" href="deploy/common/CindyJS.css">
+<script type="text/javascript" src="deploy/common/Cindy.js"></script>
+
+<script id="csdraw" type="text/x-cindyscript">
+
+ls=alllines();
+apply(ls,l,l.selected=false);
+sitar=Text1.pressed;
+if(sitar,
+  harms=[10,1,0,1,1,1]*0.1;
+  drawtext((0,1), "Sitar");
+  ,
+  harms=[1];
+  drawtext((0,1), "Harp"););
+
+if(German.pressed,
+
+  keys=["A","W","S","E","D","F","T","G","Z","H","U","J","K","O","L","P","º","Þ","Ý","Ü",
+        "Y","X","C","V","B","N","M","¼","¾","¿";];
+        drawtext((-0.9,0.4),"W E    T Z U   O P",size->41);
+        drawtext((-1,0),"A S D F G H J K L Ö Ä",size->40);,
+
+  keys=["A","W","S","E","D","F","T","G","Y","H","U","J","K","O","L","P","º","Þ","Ý","Ü",
+        "Z","X","C","V","B","N","M","¼","¾","¿";];//23+10
+        drawtext((-0.9,0.4),"W E    T Y U   O P",size->41);
+        drawtext((-1,0),"A S D F G H J K L Ö Ä",size->40);
+);
+
+keypos(n) := (
+    c = 0;
+    if(n==0,c=0);
+    if(n==1,c=0);
+    if(n==2,c=1);
+    if(n==3,c=1);
+    if(n==4,c=2);
+    if(n==5,c=3);
+    if(n==6,c=3);
+    if(n==7,c=4);
+    if(n==8,c=4);
+    if(n==9,c=5);
+    if(n==10,c=5);
+    if(n==11,c=6);
+    //if(n<5,c=floor(n/2),c=ceil(n/2));
+    c;
+);
+
+blackkeys = [2,4,7,9,11];
+drawkeyw(n) := (
+    if(!contains(blackkeys,mod(n,12)),
+        octave = floor(n/12);
+        keynr = keypos(mod(n,12)+1);
+        pos = (octave*7+keynr)/3-2.8;
+        if (keyson_n == 1, c = .5;, c = .3;);
+        kh = -0.5;
+        w = 0.3;
+        l = 1;
+        fillpoly(((pos-w,kh),(pos,kh),(pos,kh-l),(pos-w,kh-l)),color->[1,1,1]*c);
+    );
+);
+
+drawkeyb(n) := (
+    if(contains(blackkeys, mod(n,12)),
+        octave = floor(n/12);
+        keynr = keypos(mod(n,12));
+        pos = ((octave*7+keynr)+0.35)/3-2.8;
+        if (keyson_n == 1, c = .4;, c = .1;);
+        kh = -0.5;
+        w = 0.2;
+        l = 0.6;
+        fillpoly(((pos-w,kh),(pos,kh),(pos,kh-l),(pos-w,kh-l)),color->[1,1,1]*c);
+    );
+);
+
+forall(keylist,drawkeyw(#););
+forall(keylist,drawkeyb(#););
+
+;
+</script>
+
+<script id="cskeydown" type="text/x-cindyscript">
+
+repeat(30, i,
+  if(key() == keys_i & keyson_i == 0,
+    play(i);
+    keyson_i=1;
+  )
+);
+
+</script>
+
+
+<script id="cskeyup" type="text/x-cindyscript">
+repeat(30, i,
+  if(key()==keys_i,
+    playdamp(i);
+    keyson_i=0;
+  )
+);
+
+</script>
+<script id="csmousedown" type="text/x-cindyscript">
+
+;
+</script>
+<script id="csmousedrag" type="text/x-cindyscript">
+
+
+;
+</script>
+<script id="csmouseup" type="text/x-cindyscript">
+
+</script>
+<script id="csinit" type="text/x-cindyscript">
+
+notes=(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+keys=["A","W","S","E","D","F","T","G","Y","H","U","J","K","O","L","P","º","Þ","Ý","Ü",
+      "Z","X","C","V","B","N","M","¼","¾","¿";];//23+10
+keyson = (0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+keylist = 1..27;
+
+f(n) := 2^((n-49)/12)*440;
+
+num = 20;
+grundton = 39; //52=C but i starts at 1
+repeat(num,i,
+    notes_i=f(i+grundton));
+  ;
+  //grundtoene unten links
+  notes_(num+1)=f(grundton-11);
+  notes_(num+2)=f(grundton-9);
+  notes_(num+3)=f(grundton-7);
+  notes_(num+4)=f(grundton-6);
+  notes_(num+5)=f(grundton-4);
+  notes_(num+6)=f(grundton-2);
+  notes_(num+7)=f(grundton);
+  notes_(num+8)=f(grundton+1);
+  //special:
+  notes_(num+9)=f(grundton+21);
+  notes_(num+10)=f(grundton+22);
+
+
+am=0.4;
+play(i):=playsin(notes_i,amp->100*am/notes_i, damp->1, duration->4, harmonics->harms, line->i);
+playdamp(i):=playsin(notes_i,amp->100*am/notes_i, damp->4, duration->4, harmonics->harms, line->i, restart->false);
+
+//play(i):=playtone(i);
+//playdamp(i):=
+
+
+//TODO:draw piano
+
+;
+</script>
+
+    <script type="text/javascript">
+createCindy({
+  scripts: "cs*",
+  defaultAppearance: {
+    dimDependent: 0.7,
+    fontFamily: "sans-serif",
+    lineSize: 1,
+    pointSize: 5.0,
+    textsize: 12.0
+  },
+  angleUnit: "°",
+  geometry: [
+    {name: "Text1", type: "ToggleButton", pos: [-0.4,1], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 1.0], fillalpha: 1.0, alpha: 0.8999999761581421, text: "Click!"},
+    {name: "German", type: "ToggleButton", pos: [-1.8,-1.8], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 1.0], fillalpha: 1.0, alpha: 0.8999999761581421, text: "German Keyboard!"}
+  ],
+  autoplay: true,
+  keylistener: true,
+  ports: [{
+    id: "CSCanvas",
+    virtualwidth: 1920,
+    virtualheight: 1440,
+    fill: "window",
+    transform: [{visibleRect: [-2,2,2,-2]}],
+    background: "rgb(50,50,50)"
+  }],
+  cinderella: {build: 1847, version: [2, 9, 1847]}
+});
+    </script>
+</head>
+<body>
+    <div id="CSCanvas"></div>
+
+</body>
+</html>

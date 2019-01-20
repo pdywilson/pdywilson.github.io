@@ -1,0 +1,78 @@
+html {
+  margin: 0;
+  padding: 0;
+
+  font-family: Trebuchet MS, Tahoma, Arial, Helvetica, sans-serif;
+}
+body {
+  margin: 0px;
+  color: #454545;
+}
+@media only screen and (max-width: 800px) {
+    body {
+        background-color: lightblue;
+    }
+}
+
+div.courses {
+  margin: 16px;
+  margin-left: 64px;
+  margin-right: 64px;
+}
+div.course_description {
+  margin-left: 16px;
+}
+div.course_container {
+  width: 800px;
+}
+
+div#content {
+  padding: 5%;
+  padding-top: 1%;
+  padding-bottom: 10%;
+  max-width: 1000px;
+  line-height: 1.2;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+div#pagebottom {
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+}
+div#navigation {
+  font-size: 13px;
+  background-color: #E5E5E5;
+  border-bottom: solid;
+  border-bottom-color: #D0D0D0;
+  padding-left: 5px;
+  padding-top: 3px;
+}
+div#footer {
+  font-size: 10px;
+  height: 8px;
+  bottom: 2px;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: #E5E5E5;
+}
+
+
+a:link {
+  text-decoration: none;
+  font-weight: bold;
+  color: #0072bd;
+}
+a:visited {
+  color: #0072bd;
+}
+a:hover{
+  color: inherit;
+}
+
+iframe {
+  border: 0px;
+}

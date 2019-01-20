@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+<head>
+  <meta charset="utf-8">
+  <title>paddy</title>
+  <link rel="stylesheet" href="/css/common.css" >
+<link rel="shortcut icon" type="image/png" href="/images/favicon.png" >
+<script type="text/javascript" src="/deploy/Cindy.js"></script>
+<link rel="stylesheet" href="/deploy/CindyJS.css" >
+  <script type="text/javascript"
+     src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+   <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+                tex2jax: {inlineMath: [['$','$'], ['\\(','\\)'], ['\[','\]']]},
+                TeX: {
+                  Macros: {"\R": "\\mathbb{R}",
+                          "\Z": "\\mathbb{Z}"}
+                }
+              });
+  </script>
+
+</head>
+
+<div id="container">
+<body>
+
+  <div id="content">
+  <h1 id="a-collection-of-cool-python-code">a collection of cool python code</h1>
+
+<h4 id="definitions">Definitions.</h4>
+<ul>
+  <li>Data Mining = ML + other techniques (not just learning), Data Science = full process of working with data</li>
+  <li>Good Data Science: Overfitting, model selection, cross validation, significance of results, error bars, touch test set once</li>
+</ul>
+
+<h2 id="general">General.</h2>
+
+<h1 id="import-data">import data</h1>
+<p>import pandas as pd
+from sklearn.model_selection import train_test_split
+df = pd.read_csv(‘data/ozone.csv’)
+data = df.as_matrix().astype(np.float32)
+X, y = data[:, 1:], data[:, 0]
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.90, random_state=798)</p>
+
+<h1 id="pairwise-distances">pairwise distances</h1>
+<p>from scipy.spatial.distance import pdist</p>
+
+<h1 id="randomness">randomness</h1>
+<p>#v = (np.random.rand(25000,r) - 0.5) * 2
+#v = np.random.normal(0, 1, (X.shape[1],r))
+#v = np.reshape(v, (X.shape[1], r))
+#fastest:
+v = (np.random.randint(0,2,size=(25000,r)) - 0.5) * 2
+#v = np.random.uniform(-1, 1, (25000, r))
+#v = (np.random.randn(25000,r) - 0.5) * 2
+x = X @ v</p>
+
+<h1 id="hashbuckets">hashbuckets</h1>
+<p>signatureMatrix = (x &gt;= 0) * 1</p>
+
+<p>powersTwo = 1 « np.arange(r - 1, -1, -1)</p>
+
+<p>hashedBuckets = signatureMatrix @ powersTwo</p>
+
+<h1 id="anything-sparse---task02-mmd">anything sparse -&gt; task02 mmd</h1>
+
+<h1 id="vector-multiplies-matrix-rows-easily">vector multiplies matrix rows easily:</h1>
+<p>np.diag(a) @ A @ np.diag(b * c)</p>
+
+<h2 id="images">images</h2>
+
+<h1 id="open-image">open image</h1>
+<p>import imageio
+import matplotlib.pyplot as plt
+impath = ‘./images/p1.png’
+I1 = np.array(imageio.imread(impath1)).astype(np.float64)
+#plt.imshow(I1)</p>
+
+<h1 id="open-all-images-greyscale">open all images GREYSCALE</h1>
+<p>c = 0
+l = []
+for fname in os.listdir(curr_folder):
+    c = c+1
+    l.append(np.array(imageio.imread(curr_folder+fname)).flatten())
+    if c&gt;999:
+        c=0
+        break
+data = np.array(l)
+data = data/255</p>
+
+<h1 id="lots-of-color-labels-numbers--number-of-classes-eg-3-for-first-three-mnist-numbers-n-is--samples">lots of color labels, numbers = number of classes (e.g. 3 for first three mnist numbers), N is # samples</h1>
+<p>rgb_label = np.array([[0, 0, 1], [0, 1, 0], [1, 0, 0], [1, 1, 0], [1, 0, 1], [0, 1, 1], [0.3, 0.1, 0], [1, 1, 0.3], [0.25, 1, 1], [1, 0.7, 0.9]])
+C = np.repeat(rgb_label[:numbers,:],np.repeat(N,numbers),axis=0)</p>
+<h1 id="example-pltscatters0s1cc">example: plt.scatter(S[0],S[1],c=C)</h1>
+
+<h1 id="rgb-to-grey">rgb to grey</h1>
+<p>def rgb2gray(rgb):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>r, g, b = rgb[:,:,0], rgb[:,:,1], rgb[:,:,2]
+gray = 0.2989 * r + 0.5870 * g + 0.1140 * b
+
+return gray
+</code></pre></div></div>
+
+<h2 id="sound">sound</h2>
+
+<h1 id="load-sound">load sound</h1>
+<p>y, sr = librosa.load(“scary_indie.mp3”, sr = None)
+segment = y[24<em>sr:25</em>sr]
+IPython.display.display(IPython.display.Audio(segment, rate=sr))</p>
+
+</div>
+
+
+</body>
+</html>

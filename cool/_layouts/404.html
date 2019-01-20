@@ -1,0 +1,80 @@
+---
+layout: default
+---
+
+<body>
+
+
+<div id="content">
+  {{content}}
+</div>
+
+{% assign url = page.path | split: "/" %}
+{% assign category = url[1] | split: "." %}
+{{category}}
+
+    <div id="navigation" >
+  <a href="/{{site.baseurl}}">MatheVital</a>
+  > <a href="/{{category}}">{{category}}</a>
+  > <a href="{{page.url}}">{{page.title}}</a>
+
+&emsp; || &emsp;
+  {% assign url = page.url | split: "/" %}
+  {% assign url1 = url[-1] | split: "." %}
+  {% assign url2 = url1[0] | split: "-" %}
+  {% assign chapter = url2[0] | plus: 0 %}
+  {% assign iMinusOne = url2[1] | minus: 1 %}
+  {% if iMinusOne > 0 %}
+    <a href="/{{category}}/{{chapter}}-{{iMinusOne}}.html" accesskey="j">Previous <</a>
+  {% elsif chapter > 1 %}
+    {% assign lastChapter = chapter | minus: 1 %}
+    {% assign maxPageNr = 1 %}
+    {% capture prevUrl %} {{category}}/{{lastChapter}}- {% endcapture %}
+    {% assign prevUrl = prevUrl | strip %}
+    {% for currPage in site.pages %}
+      {% if currPage.path contains prevUrl %}
+        {% assign currUrl = currPage.path | split: '/' %}
+        {% assign currUrl1 = currUrl[-1] | split: "." %}
+        {% assign currUrl2 = currUrl1[0] | split: "-" %}
+        {% assign currPageNr = currUrl2[1] | plus: 0 %}
+        {% if currPageNr > maxPageNr %}
+          {% assign maxPageNr = currPageNr %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+    <a href="/{{category}}/{{lastChapter}}-{{maxPageNr}}.html" accesskey="j">Previous <</a>
+  {% endif %}
+
+
+  {% assign iPlusOne = iMinusOne | plus: 2 %}
+  {% capture nextUrl %} {{category}}/{{chapter}}-{{iPlusOne}}.html {% endcapture %}
+  {% assign gotNext = 0 %}
+  {% for currPage in site.pages %}
+    {% if nextUrl contains currPage.path %}
+      <a href="/{{category}}/{{chapter}}-{{iPlusOne}}.html" accesskey="l">> Next</a>
+      {% assign gotNext = 1 %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+  {% if gotNext == 0 %}
+    {% assign chapter = chapter | plus: 1 %}
+    {% capture nextUrl %} {{category}}/{{chapter}}-{{1}}.html {% endcapture %}
+    {% for currPage in site.pages %}
+      {% if nextUrl contains currPage.path %}
+        <a href="/{{category}}/{{chapter}}-{{1}}.html" accesskey="l">> Next</a>
+        {% assign gotNext = 1 %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
+
+
+
+    </div>
+
+    <div id="footer">
+    <div style="float: left; font-size: 10px"><a href="/bin/view/Lehrstuhl/Impressum">Impressum</a> &#124; <a href="http://www.ma.tum.de/Mathematik/DatenschutzErklaerung" target="_top">Datenschutzerklärung</a> &#124; <a href="/bin/view/MatheVital/Lizenz">Lizenz</a></div>
+    <div style="float: right; font-size: 10px">Copyright &copy; 2009 - 2018 Lehrstuhl f&uuml;r Geometrie und Visualisierung</div>
+  </div>
