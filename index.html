@@ -51,7 +51,7 @@ if(German.pressed,
 
 <script id="cskeydown" type="text/x-cindyscript">
 //err(key());
-repeat(27, i,
+repeat(30, i,
   if(key()==keys_i,play(i);));
 </script>
 
@@ -87,7 +87,7 @@ if(sitar,
 f(n) := 2^((n-49)/12)*440;
 
 num = 20;
-grundton = 51; //51=C
+grundton = 51; //52=C but i starts at 1
 repeat(num,i,
     notes_i=f(i+grundton));
   ;
@@ -98,8 +98,11 @@ repeat(num,i,
   notes_(num+4)=f(grundton-6);
   notes_(num+5)=f(grundton-4);
   notes_(num+6)=f(grundton-2);
-  notes_(num+7)=f(grundton-1);
-  notes_(num+8)=f(grundton);
+  notes_(num+7)=f(grundton);
+  notes_(num+8)=f(grundton+1);
+  //special:
+  notes_(num+9)=f(grundton+21);
+  notes_(num+10)=f(grundton+22);
 
 
 am=0.4;
