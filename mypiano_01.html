@@ -19,8 +19,8 @@
             width: 100%;
         }
     </style>
-    <link rel="stylesheet" href="http://cinderella.de/CindyJS/latest/CindyJS.css">
-<script type="text/javascript" src="../../build/js/Cindy.js"></script>
+    <link rel="stylesheet" href="deploy/CindyJS.css">
+<script type="text/javascript" src="deploy/Cindy.js"></script>
 
 <script id="csdraw" type="text/x-cindyscript">
 ls=alllines();
@@ -50,24 +50,14 @@ if(German.pressed,
 </script>
 
 <script id="cskeydown" type="text/x-cindyscript">
-
+//err(key());
 repeat(30, i,
-  if(key() == keys_i & keyson_i == 0,
-    play(i);
-    keyson_i=1;
-  )
-);
-
+  if(key()==keys_i,play(i);));
 </script>
 
 
-<script id="cskeyup" type="text/x-cindyscript">
-repeat(30, i,
-  if(key()==keys_i,
-    playdamp(i);
-    keyson_i=0;
-  )
-);
+<script id="cstick" type="text/x-cindyscript">
+
 
 </script>
 <script id="csmousedown" type="text/x-cindyscript">
@@ -87,7 +77,6 @@ repeat(30, i,
 notes=(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 keys=["A","W","S","E","D","F","T","G","Y","H","U","J","K","O","L","P","º","Þ","Ý","Ü",
       "Z","X","C","V","B","N","M","¼","¾","¿";];//23+10
-keyson = (0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 
 sitar=Text1.pressed;
 if(sitar,
@@ -117,8 +106,7 @@ repeat(num,i,
 
 
 am=0.4;
-play(i):=playsin(notes_i,amp->100*am/notes_i, damp->1, duration->4, harmonics->harms, line->i);
-playdamp(i):=playsin(notes_i,amp->100*am/notes_i, damp->4, duration->4, harmonics->harms, line->i, restart->false);
+play(i):=playsin(notes_i,amp->100*am/notes_i, damp->4, duration->4, harmonics->harms, line->i);
 
 
 //TODO:draw piano
