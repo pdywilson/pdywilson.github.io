@@ -22,7 +22,63 @@
     <link rel="stylesheet" href="deploy/CindyJS.css">
 <script type="text/javascript" src="deploy/Cindy.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/@magenta/music@1.0.0"></script>
+<script src="tonal.min.js"></script>
+
+
+<script type="text/javascript" >
+/*
+    let rnn = new mm.MusicRNN('https://storage.googleapis.com/download.magenta.tensorflow.org/tfjs_checkpoints/music_rnn/chord_pitches_improv');
+
+    const { midi, Note } = Tonal;
+    const sequence = {
+        ticksPerQuarter: 220,
+        totalTime: 58,
+        timeSignatures: [
+        {
+          time: 0,
+          numerator: 4,
+          denominator: 4
+        }
+        ],
+        tempos: [
+        {
+          time: 0,
+          qpm: 120
+        }
+        ],
+        notes: [
+        { pitch: midi('Gb4'), startTime: 0, endTime: 1 },
+        { pitch: midi('F4'), startTime: 1, endTime: 3.5 },
+        { pitch: midi('Ab4'), startTime: 3.5, endTime: 4 },
+        { pitch: midi('C5'), startTime: 4, endTime: 4.5 },
+        { pitch: midi('Eb5'), startTime: 4.5, endTime: 5 },
+        { pitch: midi('Gb5'), startTime: 5, endTime: 6 },
+        { pitch: midi('F5'), startTime: 6, endTime: 7 }
+        ]
+    }
+    const quantizedSequence = mm.sequences.quantizeNoteSequence(sequence, 1);
+
+    const startProgram = async () => {
+        try {
+            await rnn.initialize();
+            let improvisedMelody = await rnn.continueSequence(quantizedSequence, 60, 1.1, ['Bm', 'Bbm', 'Gb7', 'F7', 'Ab', 'Ab7', 'G7', 'Gb7', 'F7', 'Bb7', 'Eb7', 'AM7']);
+
+            cdy.evokeCS('melody = improvisedMelody;');
+        } catch (error) {
+            console.error(error)
+        }
+    }
+    */
+</script>
+
 <script id="csdraw" type="text/x-cindyscript">
+if(seconds()-floor(seconds()) <= 0.05,
+    continueSequence(
+        melody=m;
+        errc(melody);
+    );
+);
 
 ls=alllines();
 apply(ls,l,l.selected=false);
@@ -89,6 +145,11 @@ forall(1..30,drawkeyw(#););
 forall(1..30,drawkeyb(#););
 
 ;
+
+
+//call continueSequence here and with callback? get continued sequence.
+//ToDo: function that plays sequence (in sequencer?) maybe use midi for that
+
 </script>
 
 <script id="cskeydown" type="text/x-cindyscript">
@@ -140,6 +201,7 @@ forall(specialkeyslist,
 
 </script>
 <script id="csinit" type="text/x-cindyscript">
+
 
 notes=(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 keys=["A","W","S","E","D","F","T","G","Y","H","U","J","K","O","L","P","º","Þ","Ý","Ü"];
@@ -204,6 +266,7 @@ var cdy = CindyJS({
   ],
   autoplay: true,
   keylistener: true,
+  use: ["improvrnn"],
   ports: [{
     id: "CSCanvas",
     width: 1920,

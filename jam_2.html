@@ -19,13 +19,45 @@
             width: 100%;
         }
     </style>
-    <link rel="stylesheet" href="deploy/CindyJS.css">
-<script type="text/javascript" src="deploy/Cindy.js"></script>
+    <link rel="stylesheet" href="https://cindyjs.org/dist/latest/CindyJS.css">
+<script type="text/javascript" src="https://cindyjs.org/dist/latest/Cindy.js"></script>
 
 <script id="csdraw" type="text/x-cindyscript">
 
+/*
+if (loadinstruments([0, 12]) & !played,
+  played = true;
+  g=.6;
+  mel=[[62,2-g],[67,2+g],[69,2-g],[71,2+g],[72,2-g],[74,2+g],
+       [71,2-g],[72,2+g],[74,2-g],[71,2+g],[67,3],[-1,9],
+       [62,2-g],[67,2+g],[69,2-g],[70,2+g],[72,2-g],[74,2+g],
+       [76,4],[77,4],[67,2-g],[69,2+g],[70,8],[74,2-g],
+       [72,2+g],[69,4],[65,2-g],[70,2+g],[68,2-g],[69,2+g],
+       [65,13],[-1,3]
+  ];
+
+  drum=44;
+  beat=[[-1,2-g]];
+  apply(1..11,beat=beat++[[-1,4],[drum,4]]);
+  beat=beat++[[-1,4],[drum,4-2+g]];
+  playmelody(
+    [["channel", 2]] ++ mel ++
+    [["goto", 0], ["channel", 9], ["vel", 0.5]] ++ beat,
+    speed->700);
+)
+*/
+
+///////
+
 ls=alllines();
 apply(ls,l,l.selected=false);
+sitar=Text1.pressed;
+if(sitar,
+  harms=[10,1,0,1,1,1]*0.1;
+  drawtext((0,1), "Sitar");
+  ,
+  harms=[1];
+  drawtext((0,1), "Harp"););
 
 if(German.pressed,
 
@@ -85,46 +117,33 @@ drawkeyb(n) := (
     );
 );
 
-forall(1..30,drawkeyw(#););
-forall(1..30,drawkeyb(#););
+forall(keylist,drawkeyw(#););
+forall(keylist,drawkeyb(#););
 
 ;
 </script>
 
 <script id="cskeydown" type="text/x-cindyscript">
 
-
-forall(keylist,
-    if(key() == keys_# & keyson_# == 0,
-      play(#);
-      keyson_#=1;
-    );
-);
-
-forall(specialkeyslist,
-    if(key() == specialkeys_# & specialkeyson_# == 0,
-      playchord(#);
-      specialkeyson_#=1;
-  );
+forall(keylist, i,
+  if(key() == keys_i & keyson_i == 0,
+    play(i+grundton);
+    keyson_i=1;
+  )
 );
 
 </script>
 
 
 <script id="cskeyup" type="text/x-cindyscript">
-forall(keylist,
-    if(key()==keys_#,
-        playdamp(#);
-        keyson_#=0;
-    );
+
+forall(keylist, i,
+    if(key()==keys_i,
+    play(i+grundton);
+    keyson_i=0;
+  )
 );
 
-forall(specialkeyslist,
-    if(key()==specialkeys_#,
-        playdampchord(#);
-        specialkeyson_#=0;
-    );
-);
 
 </script>
 <script id="csmousedown" type="text/x-cindyscript">
@@ -141,55 +160,49 @@ forall(specialkeyslist,
 </script>
 <script id="csinit" type="text/x-cindyscript">
 
-notes=(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
-keys=["A","W","S","E","D","F","T","G","Y","H","U","J","K","O","L","P","º","Þ","Ý","Ü"];
-specialkeys=["Z","X","C","V","B","N","M","¼","¾","¿";];
-keyson = (0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
-specialkeyson = (0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
-harms=[1];
+//midichannel(2,instrument->25);
 
-num = 20;
-keylist = 1..20;
-specialkeyslist = 1..10; //zxcvbnm,./
+notes=(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+keys=["A","W","S","E","D","F","T","G","Y","H","U","J","K","O","L","P","º","Þ","Ý","Ü",
+      "Z","X","C","V","B","N","M","¼","¾","¿";];//23+10
+keyson = (0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+keylist = 1..27;
 
 f(n) := 2^((n-49)/12)*440;
-grundton = 39; //52=C but i starts at 1
+
+num = 20;
+grundton = 59; //52=C but i starts at 1
 repeat(num,i,
-    notes_i=f(i+grundton)
-);
-//grundtoene unten links
-notes_(num+1)=f(grundton-11);
-notes_(num+2)=f(grundton-9);
-notes_(num+3)=f(grundton-7);
-notes_(num+4)=f(grundton-6);
-notes_(num+5)=f(grundton-4);
-notes_(num+6)=f(grundton-2);
-notes_(num+7)=f(grundton);
-notes_(num+8)=f(grundton+1);
-//special:
-notes_(num+9)=f(grundton+21);
-notes_(num+10)=f(grundton+22);
+    notes_i=f(i+grundton));
+  ;
+  //grundtoene unten links
+  notes_(num+1)=f(grundton-11);
+  notes_(num+2)=f(grundton-9);
+  notes_(num+3)=f(grundton-7);
+  notes_(num+4)=f(grundton-6);
+  notes_(num+5)=f(grundton-4);
+  notes_(num+6)=f(grundton-2);
+  notes_(num+7)=f(grundton);
+  notes_(num+8)=f(grundton+1);
+  //special:
+  notes_(num+9)=f(grundton+21);
+  notes_(num+10)=f(grundton+22);
 
 
 am=0.4;
-play(i):=playsin(notes_i,amp->100*am/notes_i, damp->1, duration->4, line->i);
-playdamp(i):=playsin(notes_i,amp->100*am/notes_i, damp->4, duration->4, harmonics->harms, line->i, restart->false);
-playchord(i):=(
-    playsin(notes_i,amp->100*am/notes_i, damp->1, duration->4, line->i+"a");
-    playsin(notes_i*2^(7/12),amp->100*am/notes_i, damp->1, duration->4, line->i+"b");
-    playsin(notes_i*2^(10/12),amp->100*am/notes_i, damp->1, duration->4, line->i+"c");
-);
-playdampchord(i):=(
-    playsin(notes_i,amp->100*am/notes_i, damp->4, duration->4, line->i+"a", restart->false);
-    playsin(notes_i*2^(7/12),amp->100*am/notes_i, damp->4, duration->4, line->i+"b", restart->false);
-    playsin(notes_i*2^(10/12),amp->100*am/notes_i, damp->4, duration->4, line->i+"c", restart->false);
-);
+
+ch = 0;
+play(i):=playtone(i,channel->ch, duration->10);
+playdamp(i):=playtone(i,channel->ch, duration->.5);
+
+
+//TODO:draw piano
 
 ;
 </script>
 
     <script type="text/javascript">
-var cdy = CindyJS({
+createCindy({
   scripts: "cs*",
   defaultAppearance: {
     dimDependent: 0.7,
@@ -200,14 +213,15 @@ var cdy = CindyJS({
   },
   angleUnit: "°",
   geometry: [
+    {name: "Text1", type: "ToggleButton", pos: [-0.4,1], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 1.0], fillalpha: 1.0, alpha: 0.8999999761581421, text: "Click!"},
     {name: "German", type: "ToggleButton", pos: [-1.8,-1.8], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 1.0], fillalpha: 1.0, alpha: 0.8999999761581421, text: "German Keyboard!"}
   ],
   autoplay: true,
   keylistener: true,
   ports: [{
     id: "CSCanvas",
-    width: 1920,
-    height: 1440,
+    virtualwidth: 1920,
+    virtualheight: 1440,
     fill: "window",
     transform: [{visibleRect: [-2,2,2,-2]}],
     background: "rgb(50,50,50)"
