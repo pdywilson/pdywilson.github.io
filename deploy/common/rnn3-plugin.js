@@ -196,8 +196,12 @@ CindyJS.registerPlugin(1, "rnn3", function(api) {
             model = await tf.loadLayersModel('tfjs/model3/model.json');
             modelLoaded = true;
         }
-
+        
+        let d = new Date();
+        let t = d.getTime();
         const output = model.predict(input);
+        d = new Date();
+        console.log("time",d.getTime()-t);
         const pitch = await output.argMax(axis = 1).data();
         //try sampling
         // const pitch = await output[0].data();
@@ -330,6 +334,8 @@ CindyJS.registerPlugin(1, "rnn3", function(api) {
 
     let processrunning = false;
     async function getMelody(inputmelody, durations, chords, bars, cdycallback) {
+        let d = new Date();
+        let t = d.getTime();
         if (processrunning) return;
         processrunning = true;
 
@@ -412,7 +418,8 @@ CindyJS.registerPlugin(1, "rnn3", function(api) {
         api.evaluate(recreplace(cdycallback, {
             'm': cdymelody
         }));
-
+        d = new Date();
+        console.log("Time: getMelody",d.getTime()-t);
         processrunning = false;
     };
 
@@ -428,8 +435,9 @@ CindyJS.registerPlugin(1, "rnn3", function(api) {
         let bars = unwrap(api.evaluate(args[3]));
         //console.log('durations',durations);
         console.log('inputmelody',inputmelody);
-
+        
         getMelody(inputmelody, durations, chords, bars, cloneExpression(args[4]));
+        
         return api.nada;
     });
 });

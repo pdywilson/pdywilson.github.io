@@ -43,6 +43,27 @@ bars = round((C.x-1.4)*10);
 C.x = 1.4+bars/10;
 drawtext((C.x-0.3,C.y+0.07),"Trade "+bars+" bars",size->20);
 
+//instrument
+D.x = 1.8;
+if(D.y<0.5,D.y=0.5);
+if(D.y>1.2,D.y=1.2);
+draw((D.x,0.5),(D.x,1.2),color->(0,0,0));
+apply(0..7,v,
+    y = 0.5+v*0.1;
+    draw((D.x+0.03,y),(D.x-0.03,y),color->(0,0,0));
+);
+instrum = round((D.y-0.5)*10) + 1;
+D.y = 0.5+(instrum-1)/10;
+drawtext((D.x+0.1,D.y),instrumentnameslist_instrum,size->20);
+instr = instrumentlist_instrum;
+//print(instrumentnames());
+if(currinstr != instr & instrumentinited_instrum == 0,
+    print("playing");
+    currinstr = instr;
+    playmelody([["ppp"],[60,0.1]],instrument->currinstr);
+    instrumentinited_instrum=1;,);
+
+
 //chords
 Ah = 1.7;
 Bh = 1.4;
@@ -104,19 +125,6 @@ drawtext((B2.x,B2.y+0.1),chordnames_B2chord, size->25););
 
 
 
-D.x = 1.8;
-if(D.y<0.5,D.y=0.5);
-if(D.y>1.2,D.y=1.2);
-draw((D.x,0.5),(D.x,1.2),color->(0,0,0));
-apply(0..7,v,
-    y = 0.5+v*0.1;
-    draw((D.x+0.03,y),(D.x-0.03,y),color->(0,0,0));
-);
-instrum = round((D.y-0.5)*10);
-D.y = 0.5+instrum/10;
-drawtext((D.x+0.1,D.y),instrumentnameslist_(instrum+1),size->20);
-instr = instrumentlist_(instrum+1);
-//print(instrumentnames());
 
 
 
@@ -460,7 +468,7 @@ makemusic() := (
             );
         );
         print(melody);
-        playmelody(melody,channel->2,instrument->instr,speed->bpm);
+        playmelody(melody,instrument->instr,speed->bpm);
     );
     inputmelody=[];
 );
@@ -478,6 +486,9 @@ playtone(60);
 //instruments
 instrumentlist = [1,28,45,74,80,81,99,128];
 instrumentnameslist = ["piano","guitar","strings","flute","ocarina","squarewave","crystal","gunshots"];
+instrumentinited = [1,0,0,0,0,0,0,0];
+currinstrument = instrumentlist_1;
+
 //27 jazz guitar
 //45 strings
 //74 flute
