@@ -1,7 +1,5 @@
 CindyJS.registerPlugin(1, "rnn3", function(api) {
     //inspired by https://github.com/montaga/montaga.github.io/blob/master/posenet/posenet-plugin.js
-    //also adapted from Tero Parviainen's https://codepen.io/teropa/pen/ddqEwj
-
 
     //CindyJS Helpers
     var cloneExpression = function(obj) {
@@ -111,7 +109,6 @@ CindyJS.registerPlugin(1, "rnn3", function(api) {
 
     // GLOBALS
     let modelLoaded = false;
-    let bars = 2;
     const LOW = 48; // C2=48, C3=60, C4=72, C5=84, C6=96
     const HIGH = 84; //range(48,84) = 36 notes
     const MELODY = 37;
