@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Jam Buddy</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #CSConsole {
+            background-color: #FAFAFA;
+            border-top: 1px solid #333333;
+            bottom: 0px;
+            height: 200px;
+            overflow-y: scroll;
+            position: fixed;
+            width: 100%;
+        }
+    </style>
+
+    <script type="text/javascript" src="common/Cindy.js"></script>
+
+    <!-- Load TensorFlow.js -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>
+    <script src="common/tonal.min.js"></script>
+
+<script id="csdraw" type="text/x-cindyscript">
+//bars
+Ch = 1.8;
+C.y=Ch;
+if(C.x<1.5,C.x=1.5);
+if(C.x>1.8,C.x=1.8);
+draw((1.5,Ch),(1.8,Ch),color->(0,0,0));
+apply(0..3,v,
+    x = 1.5+0.1*v;
+    draw((x,Ch+0.03),(x,Ch-0.03),color->(0,0,0));
+);
+bars = round((C.x-1.4)*10);
+C.x = 1.4+bars/10;
+drawtext((C.x-0.3,C.y+0.07),"Trade "+bars+" bars",size->20);
+
+//chords
+Ah = 1.7;
+Bh = 1.4;
+A2h = 1.1;
+B2h = 0.8;
+B.visible=false;
+A2.visible=false;
+B2.visible=false;
+
+
+A.y=Ah;
+B.y=Bh;
+A2.y=A2h;
+B2.y=B2h;
+if(A.x<-1,A.x=-1);
+if(B.x<-1,B.x=-1);
+if(A.x>1,A.x=1);
+if(B.x>1,B.x=1);
+if(A2.x<-1,A2.x=-1);
+if(B2.x<-1,B2.x=-1);
+if(A2.x>1,A2.x=1);
+if(B2.x>1,B2.x=1);
+
+A.x=round(A.x*12)/12;
+B.x=round(B.x*12)/12;
+A2.x=round(A2.x*12)/12;
+B2.x=round(B2.x*12)/12;
+
+Achord = round((A.x+1)*12)+1;
+Bchord = round((B.x+1)*12)+1;
+A2chord = round((A2.x+1)*12)+1;
+B2chord = round((B2.x+1)*12)+1;
+chords = [Achord,Bchord,A2chord,B2chord];
+apply(0..24,v,
+    x = (v-12)/12;
+    draw((x,Ah+0.03),(x,Ah-0.03),color->(0,0,0));
+    if(bars>1,draw((x,Bh+0.03),(x,Bh-0.03),color->(0,0,0)));
+    if(bars>2,draw((x,A2h+0.03),(x,A2h-0.03),color->(0,0,0)));
+    if(bars>3,draw((x,B2h+0.03),(x,B2h-0.03),color->(0,0,0)));
+);
+draw((-1,Ah),(1,Ah),color->(0,0,0),size->2);
+drawtext((A.x,A.y+0.1),chordnames_Achord, size->25);
+if(bars>1,
+B.visible=true;
+draw((-1,Bh),(1,Bh),color->(0,0,0),size->2);
+drawtext((B.x,B.y+0.1),chordnames_Bchord, size->25););
+if(bars>2,
+A2.visible=true;
+draw((-1,A2h),(1,A2h),color->(0,0,0),size->2);
+drawtext((A2.x,A2.y+0.1),chordnames_A2chord, size->25););
+if(bars>3,
+B2.visible=true;
+draw((-1,B2h),(1,B2h),color->(0,0,0),size->2);
+drawtext((B2.x,B2.y+0.1),chordnames_B2chord, size->25););
+
+
+//END chords
+
+
+
+
+D.x = 1.8;
+if(D.y<0.5,D.y=0.5);
+if(D.y>1.2,D.y=1.2);
+draw((D.x,0.5),(D.x,1.2),color->(0,0,0));
+apply(0..7,v,
+    y = 0.5+v*0.1;
+    draw((D.x+0.03,y),(D.x-0.03,y),color->(0,0,0));
+);
+instrum = round((D.y-0.5)*10);
+D.y = 0.5+instrum/10;
+drawtext((D.x+0.1,D.y),instrumentnameslist_(instrum+1),size->20);
+instr = instrumentlist_(instrum+1);
+//print(instrumentnames());
+
+
+
+
+/////////
+
+if(inited==1,
+    drawtext((1.4,text),floor(floor((beat-1)/4)+1), size->25);
+    drawtext((1.4,text-0.1),"bar", size->15);
+    drawtext((1.6,text),floor(mod(beat-1,4)+1), size->25);
+    drawtext((1.6,text-0.1),"beat", size->15);
+    drawtext((1.8,text),bpm, size->25);
+    drawtext((1.8,text-0.1),"Tempo(bpm)", size->15);
+
+    drawtext((-1.9,0.3),
+        if(computersturn == 0,
+            "Generating melody.  "+(4*bars-beat+1) ,
+            "Your turn.  "+(4*bars-beat+1)),
+            size->20);
+);
+
+timestep = bpm/60*(seconds() - timeatstart);
+
+
+if(beatcounted > 0,
+    beatcounted = beatcounted + 1;
+    if(beatcounted > 5,
+        beatcounted = 0;
+    );
+);
+////////////
+//makesound
+if(on & beatcounted == 0 & timestep - floor(timestep) <= 0.05,
+    beatcounted = beatcounted + 1;
+    beat = mod(beat, bars*4) + 1;
+    measure = ceil(beat / 4);
+
+    if(beat == 1 & computersturn == 0,
+        durations=[0]; timestepfirstbeat=timestep;);
+
+    if(mod(beat,2)==1,
+            playmelody([["ppp"],[getChord(chords_measure),1]],instrument->1););
+
+    if(beat == 1,
+        if(computersturn == 1,
+            computersturn = 0;
+            if(inputmelody != [],
+                makemusic(););
+
+        ,//else
+            computersturn = 1;
+            inited = 1;
+        );
+    );
+);
+
+
+///////////////
+//UX
+
+forall(1..30,
+    if(keyson_#==1,
+        currentkeys_# = currentkeys_#+1/24;,
+        if(currentkeys_#!=0,
+            inputmelody=inputmelody++[[#+59,seconds()-timeatstart,seconds()-timeatstart+currentkeys_#]];
+            currentkeys_#=0,
+        );
+    );
+);
+
+
+ls=alllines();
+apply(ls,l,l.selected=false);
+
+
+if(help,
+    drawtext(helpPos+(0,0.1),"Press play to start. ", size->20);
+    drawtext(helpPos,"Use Computer Keyboard ", size->20);
+    drawtext(helpPos-(0,0.1),"to play the piano.", size->20);
+    drawtext(helpPos-(0,0.2),"Keyboard mapping:", size->20);
+
+
+
+    if(help, //German.pressed,
+
+    keys=["A","W","S","E","D","F","T","G","Z","H","U","J","K","O","L","P","º","Þ","Ý","Ü",
+        "Y","X","C","V","B","N","M","¼","¾","¿";];
+        drawtext(helpPos-(0,0.4),"W E    T Z U   O P",size->21);
+        drawtext(helpPos-(0,0.5),"A S D F G H J K L Ö Ä",size->20);,
+
+    keys=["A","W","S","E","D","F","T","G","Y","H","U","J","K","O","L","P","º","Þ","Ý","Ü",
+        "Z","X","C","V","B","N","M","¼","¾","¿";];//23+10
+        drawtext((-1.95,text-0.4),"W E    T Y U   O P",size->21);
+        drawtext((-2,text-0.5),"A S D F G H J K L Ö Ä",size->20);
+    );
+    ,//else
+    drawtext(helpPos,"Help?",size->20);
+);
+
+keypos(n) := (
+    c = 0;
+    if(n==0,c=0);
+    if(n==1,c=0);
+    if(n==2,c=1);
+    if(n==3,c=1);
+    if(n==4,c=2);
+    if(n==5,c=3);
+    if(n==6,c=3);
+    if(n==7,c=4);
+    if(n==8,c=4);
+    if(n==9,c=5);
+    if(n==10,c=5);
+    if(n==11,c=6);
+    //if(n<5,c=floor(n/2),c=ceil(n/2));
+    c;
+);
+
+blackkeys = [2,4,7,9,11];
+drawkeyw(n) := (
+    if(!contains(blackkeys,mod(n,12)),
+        octave = floor(n/12);
+        keynr = keypos(mod(n,12)+1);
+        pos = (octave*7+keynr)/3-hoffset-0.035;
+        if (keyson_n == 1, c = .5;, c = .3;);
+        kh = voffset;
+        w = 0.3;
+        l = 1;
+        fillpoly(((pos-w,kh),(pos,kh),(pos,kh-l),(pos-w,kh-l)),color->[1,1,1]*c);
+    );
+);
+
+drawkeyb(n) := (
+    if(contains(blackkeys, mod(n,12)),
+        octave = floor(n/12);
+        keynr = keypos(mod(n,12));
+        pos = ((octave*7+keynr)+0.35)/3-hoffset-0.035;
+        if (keyson_n == 1, c = .4;, c = .1;);
+        kh = voffset+0.002;
+        w = 0.2;
+        l = 0.6;
+        fillpoly(((pos-w,kh),(pos,kh),(pos,kh-l),(pos-w,kh-l)),color->[1,1,1]*c);
+    );
+);
+
+forall(1..numkeys,drawkeyw(#););
+forall(1..numkeys,drawkeyb(#););
+
+;
+
+drawimage(speakerPos,if(on,"on","off"),scale->0.15);
+
+</script>
+
+<script id="cskeydown" type="text/x-cindyscript">
+
+
+forall(keylist,
+    if(key() == keys_# & keyson_# == 0,
+      play(#);
+      keyson_#=1;
+      durations = durations ++ timestep - timestepfirstbeat;
+    );
+);
+
+forall(specialkeyslist,
+    if(key() == specialkeys_# & specialkeyson_# == 0,
+      playchord(#);
+      specialkeyson_#=1;
+  );
+);
+
+if(key()==" ",on=!on;);
+
+</script>
+
+
+<script id="cskeyup" type="text/x-cindyscript">
+forall(keylist,
+    if(key()==keys_#,
+        playdamp(#);
+        keyson_#=0;
+    );
+);
+
+forall(specialkeyslist,
+    if(key()==specialkeys_#,
+        playdampchord(#);
+        specialkeyson_#=0;
+    );
+);
+
+</script>
+<script id="csmousedown" type="text/x-cindyscript">
+    if(|mouse().xy,speakerPos|<0.2,on=!on;);
+    if(|mouse().xy,helpPos|<0.4,help=!help;);
+
+    isOnBlackKey(x) := (
+        keyarea = floor((x+2)*3 - 0.3) + 1;
+        rightedge = (keyarea+0.3)/3 - 2;
+        leftedge = rightedge - 0.2;
+        if(x<rightedge & x > leftedge,c = true;,c = false;);
+        if(keyarea == 0 % keyarea == 3 % keyarea == 7 % keyarea == 10 % keyarea == 12, c=false;);
+        c;
+    );
+
+    if(mouse().y<0 & mouse().y>-1 & mouse().x<2 & mouse().x>-2,
+        print("hi");
+        if(mouse().y>-0.6 & isOnBlackKey(mouse().x),
+            keynr = getChromaBlack(floor((mouse().x + 2)*3 + 0.3));
+            print(keynr);
+        ,//else
+            //for x coord get key nr
+            keynr = getChromaWhite(floor((mouse().x + 2)*3) + 1);
+        );
+        play(keynr);
+        keyson_keynr=1;
+        durations = durations ++ timestep - timestepfirstbeat;
+            
+    );
+;print(mouse());
+</script>
+<script id="csmouseup" type="text/x-cindyscript">
+    forall(keylist,
+        if(keyson_#==1,
+            playdamp(#);
+            keyson_#=0;
+        );
+    );
+</script>
+
+
+<script id="csinit" type="text/x-cindyscript">
+bars = 2;
+inited=0;
+on=false;
+speakerPos = (0,0.5);
+
+//helptext
+help = false;
+text = 1.5;
+helpPos = (-2.2,text);
+
+//DrawKeyboard
+hoffset=2;
+voffset=0;
+numkeys=20;
+
+//Sound
+instr = 10;
+
+//harmony
+durations = [];
+Achord = 0;
+Bchord = 0;
+chords = [Achord,Bchord];
+chordnames=["C-","C#-","D-","D#-","E-","F-","F#-","G-","G#-","A-","A#-","B-","C","C#","D","D#","E","F","F#","G","G#","A","A#","B","C"];
+major = [48,52,55];
+minor = [48,51,55];
+
+//Achord nr between 0,24
+getChord(nr):=(
+    if(nr<13,
+        //minor
+        tonic=mod(nr-1,12);
+        third=mod(nr+2,12);
+        fifth=mod(nr+6,12);
+        ,
+        //major
+        tonic=mod(nr-1,12);
+        third=mod(nr+3,12);
+        fifth=mod(nr+6,12);
+    );
+    ch=[48+tonic,48+third,48+fifth];
+);
+
+getChromaWhite(n):=(
+    if(n==1,c=1);
+    if(n==2,c=3);
+    if(n==3,c=5);
+    if(n==4,c=6);
+    if(n==5,c=8);
+    if(n==6,c=10);
+    if(n==7,c=12);
+    if(n==8,c=13);
+    if(n==9,c=15);
+    if(n==10,c=17);
+    if(n==11,c=18);
+    if(n==12,c=20);
+    c;
+);
+getChromaBlack(n):=(
+    if(n==1,c=2);
+    if(n==2,c=4);
+    if(n==4,c=7);
+    if(n==5,c=9);
+    if(n==6,c=11);
+    if(n==8,c=14);
+    if(n==9,c=16);
+    if(n==11,c=19);
+    c;
+);
+
+
+
+
+bpm = 120;
+computersturn = 0;
+beat = 0;
+beatcounted = 0;
+timeatstart = floor(seconds());
+timestep = bpm/60*(seconds() - timeatstart);
+timestepfirstbeat=timestep;
+
+
+makemusic() := (
+    secs = seconds();
+    durationsrel = [];
+    repeat(length(durations)-1,
+        durationsrel = durationsrel ++ (durations_(#+1) - durations_#);
+        print(durations_1);
+    );
+    durationsrel = durationsrel ++ durations_1+4*bars - durations_(-1);
+    print(durationsrel);
+    continueSequence(
+        inputmelody,
+        durationsrel,
+        chords,
+        bars,
+        melody = m;
+        delay = seconds()-secs+0.3;
+        print(delay);
+        forall(1..length(melody),v,
+            if(delay > 0, 
+                if(delay < melody_v_2,
+                    melody_v_2 = melody_v_2 - delay;
+                    delay = 0;,
+                    //else delay > melody_v_2
+                    delay = delay - melody_v_2;
+                    melody_v_2 = 0;
+                );
+            );
+        );
+        print(melody);
+        playmelody(melody,channel->2,instrument->instr,speed->bpm);
+    );
+    inputmelody=[];
+);
+
+//init NN
+inputmelody=[["p",1,2],[60,2,3]];
+durations = [0,1];
+makemusic();
+
+//init midi.js
+playtone(60);
+
+
+
+//instruments
+instrumentlist = [1,28,45,74,80,81,99,128];
+instrumentnameslist = ["piano","guitar","strings","flute","ocarina","squarewave","crystal","gunshots"];
+//27 jazz guitar
+//45 strings
+//74 flute
+//80 ocarina
+//81 square wave!
+//99 spacey
+//128 gun shots
+//33 acoustic bass ganz ok
+//66 alto sax naja
+
+currentkeys=(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+
+
+notes=(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+keys=["A","W","S","E","D","F","T","G","Y","H","U","J","K","O","L","P","º","Þ","Ý","Ü"];
+specialkeys=["Z","X","C","V","B","N","M","¼","¾","¿";];
+keyson = (0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+specialkeyson = (0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+harms=[1];
+
+num = 20;
+keylist = 1..20;
+specialkeyslist = 1..10; //zxcvbnm,./
+
+f(n) := 2^((n-49)/12)*440;
+grundton = 39; //52=C but i starts at 1
+repeat(num,i,
+    notes_i=f(i+grundton)
+);
+//grundtoene unten links
+notes_(num+1)=f(grundton-11);
+notes_(num+2)=f(grundton-9);
+notes_(num+3)=f(grundton-7);
+notes_(num+4)=f(grundton-6);
+notes_(num+5)=f(grundton-4);
+notes_(num+6)=f(grundton-2);
+notes_(num+7)=f(grundton);
+notes_(num+8)=f(grundton+1);
+//special:
+notes_(num+9)=f(grundton+21);
+notes_(num+10)=f(grundton+22);
+
+
+am=0.4;
+play(i):=playsin(notes_i,amp->100*am/notes_i, damp->1, duration->4, line->i);
+playdamp(i):=playsin(notes_i,amp->100*am/notes_i, damp->4, duration->4, harmonics->harms, line->i, restart->false);
+playchord(i):=(
+    playsin(notes_i,amp->100*am/notes_i, damp->1, duration->4, line->i+"a");
+    playsin(notes_i*2^(7/12),amp->100*am/notes_i, damp->1, duration->4, line->i+"b");
+    playsin(notes_i*2^(10/12),amp->100*am/notes_i, damp->1, duration->4, line->i+"c");
+);
+playdampchord(i):=(
+    playsin(notes_i,amp->100*am/notes_i, damp->4, duration->4, line->i+"a", restart->false);
+    playsin(notes_i*2^(7/12),amp->100*am/notes_i, damp->4, duration->4, line->i+"b", restart->false);
+    playsin(notes_i*2^(10/12),amp->100*am/notes_i, damp->4, duration->4, line->i+"c", restart->false);
+);
+
+
+
+
+guess(a):=(
+    p=guess(a,10);
+    p_1+"/"+p_2;
+);
+
+guess(a,n):=(
+   regional(pp,fl,fr);
+   fl=floor(a+0.000001);
+
+   fr=a-fl;
+   if(n==0,(fl,1),
+     if(|a-round(a)|<0.0001,(fl,1),
+         pp=guess(1/fr,n-1);
+         [fl*pp_1+pp_2,pp_1];
+
+     );
+   );
+
+);
+
+;
+</script>
+
+    <script type="text/javascript">
+        var cdy = CindyJS({
+            scripts: "cs*",
+            defaultAppearance: {
+                dimDependent: 0.7,
+                fontFamily: "sans-serif",
+                lineSize: 1,
+                pointSize: 5.0,
+                textsize: 12.0
+            },
+            angleUnit: "°",
+            geometry: [
+                //{name: "German", type: "ToggleButton", pos: [20,20], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 1.0], fillalpha: 1.0, alpha: 0.8999999761581421, text: "German Keyboard!"},
+                {name: "A", type: "Free", pos: [0, 1.3], color: [1,.5,.5], alpha: 0.8999999761581421, textsize: 0.0, size: 6.0, narrow: 40},
+                {name: "B", type: "Free", pos: [-0.7, 1.5], visible: false, color: [.5,1,.5], alpha: 0.8999999761581421, textsize: 0.0, size: 6.0, narrow: 40},
+                {name: "A2", type: "Free", pos: [0, 1.1], visible: false, color: [1,.5,.5], alpha: 0.8999999761581421, textsize: 0.0, size: 6.0, narrow: 40},
+                {name: "B2", type: "Free", pos: [-0.7, 0.9], visible: false, color: [.5,1,.5], alpha: 0.8999999761581421, textsize: 0.0, size: 6.0, narrow: 40},
+                {name: "C", type: "Free", pos: [1.6, 1.8], color: [.5,.5,1], alpha: 0.8999999761581421, textsize: 0.0, size: 6.0, narrow: 40},
+                {name: "D", type: "Free", pos: [1.8, 0.5], color: [.5,.5,1], alpha: 0.8999999761581421, textsize: 0.0, size: 6.0, narrow: 40},
+            ],
+            autoplay: true,
+            keylistener: true,
+            use: ["midi", "rnn3"],
+            images: {
+                on: "common/Pause.png",
+                off: "common/Play.png"
+            },
+            ports: [{
+                fill: "window",
+                id: "CSCanvas",
+                transform: [{
+                    visibleRect: [-2.2, 2, 2.2, -1]
+                }],
+                background: "rgb(50,50,50)"
+            }],
+            cinderella: {
+                build: 1847,
+                version: [2, 9, 1847]
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="CSCanvas"></div>
+
+</body>
+
+</html>
