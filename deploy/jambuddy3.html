@@ -345,17 +345,7 @@ if(help,
     drawtext(helpPos-(0,0.2),"Keyboard mapping:", size->10);
 
     
-    if(german,
-        keys=["A","W","S","E","D","F","T","G","Z","H","U","J","K","O","L","P","À","Þ","»","¿",
-            "Y","X","C","V","B","N","M","¼","¾","¿";];
-            drawtext(helpPos-(-0.1,0.4),"W E    T Z U   O P",size->15);
-            drawtext(helpPos-(0,0.6),"A S D F G H J K L Ö Ä",size->15);
-    ,//else
-        keys=["A","W","S","E","D","F","T","G","Y","H","U","J","K","O","L","P","º","Þ","Ý","Ü",
-            "Z","X","C","V","B","N","M","¼","¾","¿";];//23+10
-            drawtext(helpPos-(-0.1,0.4),"W E    T Y U   O P",size->15);
-            drawtext(helpPos-(0,0.6),"A S D F G H J K L ; '",size->15);
-    );
+    setkeys();
     
     drawtext(germanPos, "Help. I have a german keyboard!",size->10);
     drawtext(germanPosClick, "-> Click here",size->10);
@@ -470,7 +460,7 @@ forall(specialkeyslist,
     if(|mouse().xy,speakerPos|<0.2,toggleOn(););
     if(|mouse().xy,helpPosSymbol|<0.1,help=!help;on=false;settingson=false;);
     if(|mouse().xy,settingsPos|<0.2,settingson=!settingson;help=false;);
-    if(help & |mouse().xy,germanPosClick|<0.4,german=!german;);
+    if(help & |mouse().xy,germanPosClick|<0.4,german=!german;help=false;);
 
     if(|mouse().xy,ch1midpoint|<0.2,ch1mode=!ch1mode;);
     if(|mouse().xy,ch2midpoint|<0.2,ch2mode=!ch2mode;);
@@ -733,9 +723,21 @@ playtone(60);
 
 currentkeys=(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 
-
+setkeys():=(
+if(german,
+        keys=["A","W","S","E","D","F","T","G","Z","H","U","J","K","O","L","P","À","Þ","»","¿",
+            "Y","X","C","V","B","N","M","¼","¾","¿";];
+            drawtext(helpPos-(-0.1,0.4),"W E    T Z U   O P",size->15);
+            drawtext(helpPos-(0,0.6),"A S D F G H J K L Ö Ä",size->15);
+    ,//else
+        keys=["A","W","S","E","D","F","T","G","Y","H","U","J","K","O","L","P","º","Þ","Ý","Ü",
+            "Z","X","C","V","B","N","M","¼","¾","¿";];//23+10
+            drawtext(helpPos-(-0.1,0.4),"W E    T Y U   O P",size->15);
+            drawtext(helpPos-(0,0.6),"A S D F G H J K L ; '",size->15);
+    );
+);
+setkeys();
 notes=(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
-keys=["A","W","S","E","D","F","T","G","Y","H","U","J","K","O","L","P","º","Þ","Ý","Ü"];
 specialkeys=["Z","X","C","V","B","N","M","¼","¾","¿";];
 keyson = (0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 specialkeyson = (0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
