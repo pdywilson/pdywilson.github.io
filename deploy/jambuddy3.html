@@ -346,7 +346,7 @@ if(help,
 
     
     if(german,
-        keys=["A","W","S","E","D","F","T","G","Z","H","U","J","K","O","L","P","º","Þ","Ý","Ü",
+        keys=["A","W","S","E","D","F","T","G","Z","H","U","J","K","O","L","P","À","Þ","»","¿",
             "Y","X","C","V","B","N","M","¼","¾","¿";];
             drawtext(helpPos-(-0.1,0.4),"W E    T Z U   O P",size->15);
             drawtext(helpPos-(0,0.6),"A S D F G H J K L Ö Ä",size->15);
@@ -354,7 +354,7 @@ if(help,
         keys=["A","W","S","E","D","F","T","G","Y","H","U","J","K","O","L","P","º","Þ","Ý","Ü",
             "Z","X","C","V","B","N","M","¼","¾","¿";];//23+10
             drawtext(helpPos-(-0.1,0.4),"W E    T Y U   O P",size->15);
-            drawtext(helpPos-(0,0.6),"A S D F G H J K L Ö Ä",size->15);
+            drawtext(helpPos-(0,0.6),"A S D F G H J K L ; '",size->15);
     );
     
     drawtext(germanPos, "Help. I have a german keyboard!",size->10);
@@ -527,7 +527,7 @@ firstinstr = instrumentlist_1;
 //instruments background
 instrb = 1;
 instrumentblist = [5,1,2];
-instrumentbnameslist = ["e-piano","piano","piano"];
+instrumentbnameslist = ["e-piano","piano 1","piano 2"];
 dynamics = [["p"],["ppp"],["pp"]];
 instrumentsbinited = 0;
 firstinstrb = instrumentblist_1;
@@ -683,12 +683,11 @@ rhythm = 2;
 settingson = false;
 bpm = 120;
 
-getLanguage(lang = m);
-if(lang == "en-US",
-    print(lang);
-);
-print(lang);
 german = false;
+getLanguage(lang = m);
+if(lang == "de-DE",
+    german = true;
+);
 
 /////////Startconfigurations/////////
 majorminormodes(bool1,bool2,bool3,bool4):=(
@@ -707,12 +706,12 @@ C4.xy = (2,.3);
 
 //basic
 settingson = true;
-majorminormodes(true,true,true,true);
+majorminormodes(true,true,false,true);
 C.xy = (0.8,2); //bars
 G.xy = (1,2); //rhythm
 C1.xy = (-1.3,2);
 C2.xy = (0,1.5); 
-C3.xy = (0.2,1.5);
+C3.xy = (1.5,.5);
 C4.xy = (2,1.5);
 
 
