@@ -393,4 +393,17 @@ CindyJS.registerPlugin(1, "rnn3", function(api) {
         
         return api.nada;
     });
+
+
+    api.defineFunction("getLanguage", 1,function(args,modifs) {
+        let lang = window.navigator.userLanguage || window.navigator.language;
+        console.log('language', lang); //works IE/SAFARI/CHROME/FF
+
+        cdylang = wrap(lang);
+        cdycallback = cloneExpression(args[0]);
+
+        api.evaluate(recreplace(cdycallback, {
+            'm': cdylang
+        }));
+    });
 });

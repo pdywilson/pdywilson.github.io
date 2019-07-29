@@ -102,7 +102,7 @@ if(settingson,
         drawtext((x1left-0.015,C.y+0.09),"trade "+bars+" bar",size->10);,
         drawtext((x1left-0.015,C.y+0.09),"trade "+bars+" bars",size->10);
     );
-    drawtext((x1left-0.01,D.y-0.15),"how many bars", color->(.5,.5,.5),size->8);,
+    drawtext((x1left-0.01,C.y-0.15),"how many bars", color->(.5,.5,.5),size->8);,
     C.visible = false;
 );
 
@@ -126,7 +126,7 @@ if(settingson,
         draw((x,G.y+0.03),(x,G.y-0.03),color->(0,0,0));
     );
     drawtext((x4left-0.05,G.y+0.09),rhythms_rhythm,size->10);
-    drawtext((x4left-0.01,D.y-0.15),"rhythm", color->(.5,.5,.5),size->8);,
+    drawtext((x4left-0.01,G.y-0.15),"rhythm", color->(.5,.5,.5),size->8);,
     G.visible = false;
 );
 
@@ -285,7 +285,16 @@ if(on & floor(timestep)>timestepfloor,
                 playmelody([dynamics_instrumb,[getChord(chords_measure),1]],instrument->instrb,speed->bpm););
     );
     if(rhythm == 2,
-                playmelody([dynamics_instrumb,[getChord(chords_measure),1]],instrument->instrb,speed->bpm);
+        if(mod(beat,4)==1,
+                playmelody([dynamics_instrumb,[getChord(chords_measure)_1,.5]],instrument->instrb,speed->bpm);
+        );
+        if(mod(beat,4)==2,
+                playmelody([dynamics_instrumb,[getChord(chords_measure),.75],[getChord(chords_measure),.25]],instrument->instrb,speed->bpm);
+        );
+        if(mod(beat,4)==0,
+                playmelody([dynamics_instrumb,[getChord(chords_measure),.25]],instrument->instrb,speed->bpm);
+        );
+
     );
     if(rhythm == 3,
         if(mod(beat,3)==1,
@@ -414,7 +423,7 @@ drawimage(speakerPos,if(on,"on","off"),scale->0.15);
 </script>
 
 <script id="cskeydown" type="text/x-cindyscript">
-
+print(key());
 
 forall(keylist,
     if(key() == keys_# & keyson_# == 0,
@@ -434,7 +443,7 @@ forall(specialkeyslist,
 );
 */
 
-if(key()==" ",on=!on;);
+if(key()==" ",toggleOn(););
 if(key()=="1",visualization=!visualization;);
 </script>
 
@@ -458,7 +467,7 @@ forall(specialkeyslist,
 
 </script>
 <script id="csmousedown" type="text/x-cindyscript">
-    if(|mouse().xy,speakerPos|<0.2,on=!on;);
+    if(|mouse().xy,speakerPos|<0.2,toggleOn(););
     if(|mouse().xy,helpPosSymbol|<0.1,help=!help;on=false;settingson=false;);
     if(|mouse().xy,settingsPos|<0.2,settingson=!settingson;help=false;);
     if(help & |mouse().xy,germanPosClick|<0.4,german=!german;);
@@ -553,7 +562,7 @@ chordFifths=["F#","C#","G#","D#","A#","F","C","G","D","A","E","B","F#"];
 chordFifthsMinor=["D#m","A#m","F#m","Cm","Gm","Dm","Am","Em","Bm","F#m","C#m","G#m","D#m"];
 
 
-rhythms = ["straight 4","straight 8","walz 3/4"];
+rhythms = ["straight 4","offbeat","walz 3/4"];
 beatsperbarlist = [4,4,3];
 rhythm2bool = true;
 
@@ -577,7 +586,14 @@ speakerPos = (0,.7);
 
 
 /////////////INIT FUNCTIONS////////////
-
+toggleOn():=(
+    on = !on;
+    if(on,
+    beat = 0;
+    durations = [0];
+    inputmelody = [];
+    );
+);
 
 getChord(nr):=(
     if(nr<12,
@@ -658,7 +674,6 @@ makemusic() := (
     inputmelody=[];
 );
 
-
 //adjustable globals
 pressed = false;
 visualization = false;        
@@ -666,9 +681,14 @@ bars = 2;
 beatsperbar = 3;
 rhythm = 2;
 settingson = false;
-german = false;
 bpm = 120;
 
+getLanguage(lang = m);
+if(lang == "en-US",
+    print(lang);
+);
+print(lang);
+german = false;
 
 /////////Startconfigurations/////////
 majorminormodes(bool1,bool2,bool3,bool4):=(
