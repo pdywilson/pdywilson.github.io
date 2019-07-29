@@ -413,7 +413,7 @@ drawimage(speakerPos,if(on,"on","off"),scale->0.15);
 </script>
 
 <script id="cskeydown" type="text/x-cindyscript">
-print(key());
+//print(key());
 
 forall(keylist,
     if(key() == keys_# & keyson_# == 0,
@@ -506,6 +506,12 @@ forall(specialkeyslist,
 use("CindyGL");
 inited=false;
 on=false;
+
+german = false;
+getLanguage(lang = m);
+if(lang == "de-DE",
+    german = true;
+);
 
 //instruments
 instr = 10;
@@ -673,14 +679,7 @@ rhythm = 2;
 settingson = false;
 bpm = 120;
 
-german = false;
-getLanguage(lang = m);
-print(lang);
-print("de-DE");
-print(lang == "de-DE");
-if(lang == "de-DE",
-    german = true;
-);
+
 
 /////////Startconfigurations/////////
 majorminormodes(bool1,bool2,bool3,bool4):=(
