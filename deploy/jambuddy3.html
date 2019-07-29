@@ -290,7 +290,6 @@ if(on & floor(timestep)>timestepfloor,
     if(rhythm == 3,
         if(mod(beat,3)==1,
                 if(rhythm2bool,
-                    print(getChord(chords_measure));
                     playmelody([dynamics_instrumb,[getChord(chords_measure)_1,1],[getChord(chords_measure),1],[getChord(chords_measure),1]],instrument->instrb);
                     ,//else
                     playmelody([dynamics_instrumb,[getChord(chords_measure)_1,.5],[getChord(chords_measure)_2,.5],[getChord(chords_measure)_3,1]],instrument->instrb);
@@ -318,7 +317,8 @@ forall(1..30,
     if(keyson_#==1,
         currentkeys_# = currentkeys_#+1/24;,
         if(currentkeys_#!=0,
-            inputmelody=inputmelody++[[#+59,seconds()-timeatstart,seconds()-timeatstart+currentkeys_#]];
+            //inputmelody=inputmelody++[[#+59,seconds()-timeatstart,seconds()-timeatstart+currentkeys_#]];
+            inputmelody = inputmelody++[#+59];
             currentkeys_#=0,
         );
     );
@@ -410,7 +410,6 @@ forall(1..numkeys,drawkeyb(#););
 
 drawimage(speakerPos,if(on,"on","off"),scale->0.15);
 
-print(german);
 
 </script>
 
@@ -504,24 +503,35 @@ forall(specialkeyslist,
 
 
 <script id="csinit" type="text/x-cindyscript">
-    use("CindyGL");
-    pressed = false;
-    visualization = false;        
-
-
-bars = 2;
+//fixed globals
+use("CindyGL");
 inited=false;
 on=false;
-speakerPos = (0,.7);
 
-//helptext
-help = false;
-text = 1.72;
-helpPosSymbol = (1.8,1.85);
-helpPos = (-1.8,1.74);
-germanPos = (0.5,1.7);
-germanPosClick = germanPos+(0.3,-0.15);
-german = false;
+//instruments
+instr = 10;
+instrumentlist = [5,1,45,74,80,81,99,128];
+instrumentnameslist = ["e-piano","piano","strings","flute","ocarina","squarewave","crystal","gunshots"];
+instrumentsinited = 0;
+firstinstr = instrumentlist_1;
+
+//instruments background
+instrb = 1;
+instrumentblist = [5,1,2];
+instrumentbnameslist = ["e-piano","piano","piano"];
+dynamics = [["p"],["ppp"],["pp"]];
+instrumentsbinited = 0;
+firstinstrb = instrumentblist_1;
+
+//27 jazz guitar
+//45 strings
+//74 flute
+//80 ocarina
+//81 square wave!
+//99 spacey
+//128 gun shots
+//33 acoustic bass ganz ok
+//66 alto sax naja
 
 
 //DrawKeyboard
@@ -542,21 +552,31 @@ chordnames=["C-","C#-","D-","D#-","E-","F-","F#-","G-","G#-","A-","A#-","B-","C"
 chordFifths=["F#","C#","G#","D#","A#","F","C","G","D","A","E","B","F#"];
 chordFifthsMinor=["D#m","A#m","F#m","Cm","Gm","Dm","Am","Em","Bm","F#m","C#m","G#m","D#m"];
 
-ch1mode = false;
-ch2mode = false;
-ch3mode = true;
-ch4mode = false;
 
-major = [48,52,55];
-minor = [48,51,55];
-
-beatsperbar = 3;
 rhythms = ["straight 4","straight 8","walz 3/4"];
 beatsperbarlist = [4,4,3];
-rhythm = 2;
 rhythm2bool = true;
-settingson = false;
+
+bpm = 120;
+beat = 0;
+timeatstart = floor(seconds());
+timestep = bpm/60*(seconds() - timeatstart);
+timestepfirstbeat=timestep;
+timestepfloor = floor(timestep);
+
+
+//PositionsPos
+help = false;
+text = 1.72;
+helpPosSymbol = (1.8,1.85);
+helpPos = (-1.8,1.74);
+germanPos = (0.5,1.7);
+germanPosClick = germanPos+(0.3,-0.15);
 settingsPos = (1.83,1.6);
+speakerPos = (0,.7);
+
+
+/////////////INIT FUNCTIONS////////////
 
 
 getChord(nr):=(
@@ -602,16 +622,6 @@ getChromaBlack(n):=(
 );
 
 
-
-
-bpm = 120;
-beat = 0;
-timeatstart = floor(seconds());
-timestep = bpm/60*(seconds() - timeatstart);
-timestepfirstbeat=timestep;
-timestepfloor = floor(timestep);
-
-
 makemusic() := (
     secs = seconds();
     durationsrel = [];
@@ -648,8 +658,47 @@ makemusic() := (
     inputmelody=[];
 );
 
+
+//adjustable globals
+pressed = false;
+visualization = false;        
+bars = 2;
+beatsperbar = 3;
+rhythm = 2;
+settingson = false;
+german = false;
+bpm = 120;
+
+
+/////////Startconfigurations/////////
+majorminormodes(bool1,bool2,bool3,bool4):=(
+    ch1mode = bool1;
+    ch2mode = bool2;
+    ch3mode = bool3;
+    ch4mode = bool4;
+);
+//zelda
+majorminormodes(false,false,true,false);
+C1.xy = (-1,1);
+C2.xy = (0,0);
+C3.xy = (0.4,1.2);
+C4.xy = (2,.3);
+
+
+//basic
+settingson = true;
+majorminormodes(true,true,true,true);
+C.xy = (0.8,2); //bars
+G.xy = (1,2); //rhythm
+C1.xy = (-1.3,2);
+C2.xy = (0,1.5); 
+C3.xy = (0.2,1.5);
+C4.xy = (2,1.5);
+
+
+
 //init NN
-inputmelody=[["p",1,2],[60,2,3]];
+inputmelody=[60,60];
 durations = [0,1];
 makemusic();
 
@@ -658,30 +707,7 @@ playtone(60);
 
 
 
-//instruments
-instr = 10;
-instrumentlist = [5,1,45,74,80,81,99,128];
-instrumentnameslist = ["e-piano","piano","strings","flute","ocarina","squarewave","crystal","gunshots"];
-instrumentsinited = 0;
-firstinstr = instrumentlist_1;
-
-//instruments background
-instrb = 1;
-instrumentblist = [5,1,2];
-instrumentbnameslist = ["e-piano","piano","piano"];
-dynamics = [["f"],["ppp"],["pp"]];
-instrumentsbinited = 0;
-firstinstrb = instrumentblist_1;
-
-//27 jazz guitar
-//45 strings
-//74 flute
-//80 ocarina
-//81 square wave!
-//99 spacey
-//128 gun shots
-//33 acoustic bass ganz ok
-//66 alto sax naja
+/////////////////////////////
 
 currentkeys=(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 
