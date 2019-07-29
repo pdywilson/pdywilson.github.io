@@ -286,13 +286,13 @@ if(on & floor(timestep)>timestepfloor,
     );
     if(rhythm == 2,
         if(mod(beat,4)==1,
-                playmelody([dynamics_instrumb,[getChord(chords_measure)_1,.5]],instrument->instrb,speed->bpm);
+                playmelody([dynamics_instrumb,[getChord(chords_measure)_1,.33]],instrument->instrb,speed->bpm);
         );
         if(mod(beat,4)==2,
-                playmelody([dynamics_instrumb,[getChord(chords_measure),.75],[getChord(chords_measure),.25]],instrument->instrb,speed->bpm);
+                playmelody([dynamics_instrumb,[getChord(chords_measure),.33],["p",.33],[getChord(chords_measure),.33]],instrument->instrb,speed->bpm);
         );
         if(mod(beat,4)==0,
-                playmelody([dynamics_instrumb,[getChord(chords_measure),.25]],instrument->instrb,speed->bpm);
+                playmelody([dynamics_instrumb,[getChord(chords_measure),.33]],instrument->instrb,speed->bpm);
         );
 
     );
