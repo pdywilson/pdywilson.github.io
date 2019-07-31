@@ -117,6 +117,8 @@ CindyJS.registerPlugin(1, "rnn4", function(api) {
 
 
 
+
+    //Helpers for getFeatureVector
     function oneHot(idx, arraysize) {
         ar = new Array(arraysize).fill(0);
         if (idx >= arraysize) {
@@ -157,7 +159,7 @@ CindyJS.registerPlugin(1, "rnn4", function(api) {
             'key': false
         }
         features = [];
-        for (const [i, note] of notes.slice(0, -1).entries()) {
+        for (const [i, note] of notes.entries()) {
             let feature = [];
             if (encodingDict['melody']) {
                 if (notes[i] < MELODY) { // pitch or pause bit
@@ -178,7 +180,11 @@ CindyJS.registerPlugin(1, "rnn4", function(api) {
             //if (encodingDict['duration']) feature = feature.concat(oneHot(parseInt(times[i], 10), 48));
             if (encodingDict['chordsNormally']) {
                 feature = feature.concat(chords[i]);
-                feature = feature.concat(chords[i + 1]);
+                if (i < notes.length - 1){
+                    feature = feature.concat(chords[i + 1]);
+                } else {
+                    feature = feature.concat(new Array(12).fill(0));
+                }
             }
             if (encodingDict['key']) feature = feature.concat(oneHot(parseInt(key, 10), 24));
             features.push(feature);
@@ -190,70 +196,28 @@ CindyJS.registerPlugin(1, "rnn4", function(api) {
 
     async function getPrediction(input) {
         if (!modelLoaded) {
-            modelfile = 'tfjs/model4/model.json';
+            modelfile = 'tfjs/model6/model.json';
             model = await tf.loadLayersModel(modelfile);
             modelLoaded = true;
             console.log("loaded "+modelfile);
         }
-        
-        let d = new Date();
-        let t = d.getTime();
+
+        // const pitch = tf.tidy(() => {
+        //     const output = model.predict(input);
+        //     const pitch = output.argMax(axis = 1);
+        //     return pitch.dataSync();
+        // });
+
         const output = model.predict(input);
-        d = new Date();
-        //console.log("time",d.getTime()-t);
         const pitch = await output.argMax(axis = 1).data();
-        //try sampling
-        // const pitch = await output[0].data();
-        // const duration = await output[1].data();
-        //
-        // let pitems = [];
-        // for (const [i, elt] of pitch.entries()){pitems.push([i, elt]);}
-        // pitems.sort(function(first, second) {return second[1] - first[1];});
-        //
-        // pitems = pitems.slice(0,5);
-        // let psum = 0;
-        // for (const elt of pitems) { psum += elt[1]; }
-        // for (const [i,elt] of pitems.entries()) { pitems[i][1] = elt[1]/psum;}
-        //
-        //
-        // let ditems = [];
-        // for (const [i, elt] of duration.entries()){ditems.push([i, elt]);}
-        // ditems.sort(function(first, second) {return second[1] - first[1];});
-        //
-        // ditems = ditems.slice(0,5);
-        // let dsum = 0;
-        // for (const elt of ditems) { dsum += elt[1]; }
-        // for (const [i,elt] of ditems.entries()) { ditems[i][1] = elt[1]/dsum;}
-        //
-        // let r1 = Math.random();
-        // let r2 = Math.random();
-        // let s1 = 0;
-        // let i1 = 0;
-        // while(s1 < r1){
-        //     s1 += ditems[i1][1];
-        //     i1 += 1;
-        // }
-        // let s2 = 0;
-        // let i2 = 0;
-        // while(s2 < r2){
-        //     s2 += pitems[i2][1];
-        //     i2 += 1;
-        // }
-        // const duration_i = i1-1;
-        // const pitch_i= i2-1;
-        // const sampled_pitch = pitems[pitch_i][0];
-        // const sampled_duration = ditems[duration_i][0];
-
+        
         const sampled_pitch = pitch[0];
-        const sampled_duration = 23;
 
-        return [sampled_pitch, sampled_duration];
+        return sampled_pitch;
     }
 
-    //let input = getFeatureVectors(notes, times, chords);
-    //input = tf.expandDims(input,0);
-    //const output = getPrediction(input);
 
+    //HELPERS for getMelody
     function time_to_tick(time) {
         return parseInt(time * TIMES, 10);
     }
@@ -262,134 +226,74 @@ CindyJS.registerPlugin(1, "rnn4", function(api) {
         return tick / TIMES;
     }
 
-
-    
-
-
-    function getCindyMelodyFixedDurations(notes, durations) {
-        melody = [];
-        melody.push(["p", durations[0]]);
-        currenttick = 0;
-        for (let [i, note] of notes.entries()) {
-            if (note == MELODY - 1) {
-                note = "p";
-            } else {
-                note = note + LOW;
-            };
-            melody.push([note, durations[i+1]]);
+    const major = [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0];
+    const minor = [1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0];
+    function rotate(arr, n){
+        return arr.slice(n).concat(arr.slice(0,n));
+    }
+    function getChord(ch){
+        if (ch < 12){
+            return rotate(minor,12-ch);
         }
-        return melody;
+        else {
+            ch = ch-12;
+            return rotate(major,12-ch);
+        }
     }
 
-
-
     let processrunning = false;
-    async function getMelody(inputmelody, durations, chords, bars, cdycallback) {
-        let d = new Date();
-        let t = d.getTime();
+    async function getMelody(inputmelody, chords, cdycallback) {
         if (processrunning) return;
         processrunning = true;
 
-        const major = [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0];
-        const minor = [1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0];
-        function rotate(arr, n){
-            return arr.slice(n).concat(arr.slice(0,n));
-        }
-        function getChord(ch){
-            if (ch < 12){
-                return rotate(minor,12-ch);
-            }
-            else {
-                ch = ch-12;
-                return rotate(major,12-ch);
-            }
-        }
-        function getChordArray(chords,bars){
-            let A = getChord(chords[0]);
-            let B = getChord(chords[1]);
-            let C = getChord(chords[2]);
-            let D = getChord(chords[3]);
-            let chordsnew = new Array(4).fill(A);
-            if(bars>1) chordsnew = chordsnew.concat(new Array(4).fill(B));
-            if(bars>2) chordsnew = chordsnew.concat(new Array(4).fill(C));
-            if(bars>3) chordsnew = chordsnew.concat(new Array(4).fill(D));
-            chordsnew = chordsnew.concat(chordsnew.slice(-1));
-            return chordsnew;
-        }
-
-        let chordsnew = getChordArray(chords,bars);
-        
-        let notes = [];
-        for (let elt of inputmelody) {
-            notes.push(elt-LOW);
-        }
-        
         let key = 0;
+        let max_seq_len = 16; //otherwise too slow
+        
+        let notesnew = inputmelody.map(elt => elt[0] - LOW);
+        let chordsnew = inputmelody.map(elt => getChord(chords[elt[1]-1]));
 
-        let predicted_durations = [];
-        let predicted_notes = [];
-        const mel_len = 8 + 1;
+        notesnew = notesnew.slice(-max_seq_len);
+        chordsnew = chordsnew.slice(-max_seq_len);
 
-        notesnew = notes.slice(-mel_len);
-
-        console.log('notesnew before',notesnew);
-
-        //padding Test
-        while (notesnew.length < mel_len) {
-            const fixlength = notesnew.length;
-            for(let i = 0; i < fixlength; i++){
-                notesnew.unshift(notesnew[notesnew.length - 1 - i]);
-            }
-        }
         console.log('notesnew',notesnew);
+        console.log('chordsnew',chordsnew);
 
-        notesnew = notesnew.slice(-mel_len);
+        console.time("predtime");
+        let feat = getFeatureVectors(notesnew, chordsnew, key);
+        let input = tf.expandDims(feat, 0);
+        let note = await getPrediction(input);
+        console.timeEnd("predtime");
 
-        console.log('notesnew after',notesnew);
+        console.log("prednote "+note);  
+        
+        if (note == MELODY - 1) {
+            note = "p";
+        } else {
+            note = note + LOW; // 0 -> 48 C
+        };
 
-        //predict iteratively
-        let currtime = 0;
-        let i = 0;
-        while (i < durations.length - 1) {
-            i+=1;
-            let feat = getFeatureVectors(notesnew, chordsnew, key);
-            let input = tf.expandDims(feat, 0);
-            let pred = await getPrediction(input);
-            predicted_notes.push(pred[0]);
-            predicted_durations.push(pred[1]);
-            notesnew = notesnew.slice(1).concat(pred[0]);
-            let currbeat = parseInt((currtime + pred[1]) / 12, 10) - parseInt(currtime / 12, 10);
-            chordsnew = chordsnew.slice(currbeat).concat(chordsnew.slice(0, currbeat));
-            currtime += pred[1];
-        }
+        let improvisedMelody = [note];
 
-        console.log("predicted notes", predicted_notes);
-        const improvisedMelody = getCindyMelodyFixedDurations(predicted_notes, durations);
-        //console.log("predicted melody", improvisedMelody);
         cdymelody = wrap(improvisedMelody);
 
         api.evaluate(recreplace(cdycallback, {
             'm': cdymelody
         }));
-        d = new Date();
-        console.log("Time: getMelody",d.getTime()-t);
+        
         processrunning = false;
     };
 
-    api.defineFunction("continueSequence", 5, function(args, modifs) {
+    api.defineFunction("continueSequence", 3, function(args, modifs) {
         if (processrunning) {
             console.log("skip continueSequence, because process is already running");
             return api.nada;
         }
 
         let inputmelody = unwrap(api.evaluate(args[0]));
-        let durations = unwrap(api.evaluate(args[1]));
-        let chords = unwrap(api.evaluate(args[2]));
-        let bars = unwrap(api.evaluate(args[3]));
-        //console.log('durations',durations);
+        let chords = unwrap(api.evaluate(args[1]));
+
         console.log('inputmelody',inputmelody);
-        
-        getMelody(inputmelody, durations, chords, bars, cloneExpression(args[4]));
+        getMelody(inputmelody, chords, cloneExpression(args[2]));
         
         return api.nada;
     });
