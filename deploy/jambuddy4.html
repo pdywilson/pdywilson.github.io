@@ -39,7 +39,10 @@
 
 if(!nninited,
     drawtext((-.5,1), "Initializing..."+round((nninitcounter-1)/nninitcountermax*100)+"%", color->(.4,.4,.4), size->20);
-);
+
+
+    ,
+
 
 
 
@@ -248,21 +251,23 @@ chordCircle(P,midpoint,mode):=(
     );
 );
 
-Cmidpointh = 0.7;
-Cmidpointx = -1.5;
-Cmxf = 0.8;
-ch1midpoint = (Cmidpointx+0*Cmxf,Cmidpointh);
-ch2midpoint = (Cmidpointx+1*Cmxf,Cmidpointh);
-ch3midpoint = (Cmidpointx+2*Cmxf+0.6,Cmidpointh);
-ch4midpoint = (Cmidpointx+3*Cmxf+0.6,Cmidpointh);
+if(inited,
+    Cmidpointh = 0.7;
+    Cmidpointx = -1.5;
+    Cmxf = 0.8;
+    ch1midpoint = (Cmidpointx+0*Cmxf,Cmidpointh);
+    ch2midpoint = (Cmidpointx+1*Cmxf,Cmidpointh);
+    ch3midpoint = (Cmidpointx+2*Cmxf+0.6,Cmidpointh);
+    ch4midpoint = (Cmidpointx+3*Cmxf+0.6,Cmidpointh);
 
-ch1 = chordCircle(C1,ch1midpoint,ch1mode);
-if(bars > 1, ch2 = chordCircle(C2,ch2midpoint,ch2mode);, C2.visible=false;);
-if(bars > 2, ch3 = chordCircle(C3,ch3midpoint,ch3mode);
-             ch4 = chordCircle(C4,ch4midpoint,ch4mode);, C3.visible=false; C4.visible=false;);
+    ch1 = chordCircle(C1,ch1midpoint,ch1mode);
+    if(bars > 1, ch2 = chordCircle(C2,ch2midpoint,ch2mode);, C2.visible=false;);
+    if(bars > 2, ch3 = chordCircle(C3,ch3midpoint,ch3mode);
+                ch4 = chordCircle(C4,ch4midpoint,ch4mode);, C3.visible=false; C4.visible=false;);
 
 
-chords = [ch1,ch2,ch3,ch4];
+    chords = [ch1,ch2,ch3,ch4];
+);
 
 
 ///////////
@@ -370,6 +375,7 @@ forall(1..numkeys,drawkeyb(#););
 
 drawimage(speakerPos,if(on,"on","off"),scale->0.15);
 
+);
 
 </script>
 <script id="cstick" type="text/x-cindyscript">
@@ -381,17 +387,10 @@ drawimage(speakerPos,if(on,"on","off"),scale->0.15);
 //NN initialization
 if(!nninited,
     drawtext((-.5,1), "Initialization...", color->(.4,.4,.4), size->20);
-    if(nninitcounter > nninitcountermax, nninited = true;);
 
     if(justpredicted,
-        inputmelody = [[60,1]];
-        durations = [0,.1];
-        forall(1..nninitcounter,
-            inputmelody = inputmelody++[[#+59,1]];
-            durations = durations ++ [.1];
-        );
-        print(inputmelody);
-        print(durations);
+        inputmelody = inputmelody ++ [[60,1]];
+        durations = durations ++ [timestep];
 
         chords = [0,0,0,0];
         predictNextNote();
@@ -399,12 +398,18 @@ if(!nninited,
         justpredicted = false;
         nninitcounter = nninitcounter + 1;
     );
+
+    //clean up
+    if(nninitcounter > nninitcountermax, 
+        nninited = true;
+        inputmelody = [];
+        collectmelody = [];
+        melodystack = [];
+        durations = [0]; 
+        timestepfirstbeat=timestep;
+    );
     
 );
-
-
-
-
 
     /////////////
     //playmelody
@@ -419,7 +424,7 @@ if(!nninited,
             //print("melodystack after " + melodystack);
         );
     );
-    
+
     ////////////
     //make background sound
 
@@ -460,65 +465,34 @@ if(!nninited,
         //make AI sound
         if(beat == 1,
             inited = true;
+            loopcounter=loopcounter+1;
+            print("START "+loopcounter);
 
-            secs = seconds();
-    
-            print("START");
+            if(loopcounter > 1,
+                //sort out durations
+                durationsrel = [];
+                repeat(length(durations)-1,
+                    durationsrel = durationsrel ++ (durations_(#+1) - durations_#);
+                );
+                durationsrel = durationsrel ++ durations_1+4*bars - durations_(-1); //last bit longer
+                print("durations "+durations);
+                print("durationsrel "+durationsrel);
 
-            //sort out durations
-            durationsrel = [];
-            repeat(length(durations)-1,
-                durationsrel = durationsrel ++ (durations_(#+1) - durations_#);
+                //sort out melodylists
+                melodystack = [["p",0,durationsrel_1]];
+                forall(1..length(collectmelody),v,
+                    melodystack = melodystack ++ [[collectmelody_v_1, durations_(v+1), durationsrel_(v+1)]];
+                );
+                print("melodystack "+melodystack);
             );
-            durationsrel = durationsrel ++ durations_1+4*bars - durations_(-1);
-            print("durations "+durations);
-            print("durationsrel "+durationsrel);
 
-            //sort out melodylists
-            melodystack = [["p",0,durationsrel_1]];
-            forall(1..length(collectmelody),v,
-                melodystack = melodystack ++ [[collectmelody_v_1, durations_(v+1), durationsrel_(v+1)]];
-            );
-            print("melodystack "+melodystack);
-
+            //clean up
             collectmelody = [];
             inputmelody = [];
             durations = [0]; 
             timestepfirstbeat=timestep;
         );
     );
-
-    ////////
-    //makemusic
-   
-    
-    /*if(
-        
-        melodystack = [];
-        melodyCounter = 0;
-        forall(1..length(melody),v,
-            melodystack = melodystack ++ [[melody_v_1, melodyCounter, melody_v_2]];
-            melodyCounter = melodyCounter + melody_v_2;
-        );
-        print(melodystack);
-
-        delay = seconds()-secs;
-        print("delay"+delay);
-
-        forall(1..length(melodystack),v,
-            if(delay > 0, 
-                if(delay < melodystack_v_3,
-                    melodystack_v_3 = melodystack_v_3 - delay;
-                    delay = 0;
-                    if(melodystack_v_3 < .1,melodystack_v_1 = "p"; melodystack_v_3 = 0;);,
-                    //else delay > melody_v_3
-                    delay = delay - melodystack_v_3;
-                    melodystack_v_1 = "p";
-                    melodystack_v_3 = 0;
-                );
-            );
-        );
-            */
 
 
 
@@ -572,14 +546,16 @@ forall(specialkeyslist,
 </script>
 <script id="csmousedown" type="text/x-cindyscript">
     if(|mouse().xy,speakerPos|<0.2,toggleOn(););
-    if(|mouse().xy,helpPosSymbol|<0.1,help=!help;on=false;settingson=false;);
-    if(|mouse().xy,settingsPos|<0.2,settingson=!settingson;help=false;);
-    if(help & |mouse().xy,germanPosClick|<0.4,german=!german;help=false;);
+    if(inited,
+        if(|mouse().xy,helpPosSymbol|<0.1,help=!help;on=false;settingson=false;);
+        if(|mouse().xy,settingsPos|<0.2,settingson=!settingson;help=false;);
+        if(help & |mouse().xy,germanPosClick|<0.4,german=!german;help=false;);
 
-    if(|mouse().xy,ch1midpoint|<0.2,ch1mode=!ch1mode;);
-    if(|mouse().xy,ch2midpoint|<0.2,ch2mode=!ch2mode;);
-    if(|mouse().xy,ch3midpoint|<0.2,ch3mode=!ch3mode;);
-    if(|mouse().xy,ch4midpoint|<0.2,ch4mode=!ch4mode;);
+        if(|mouse().xy,ch1midpoint|<0.2,ch1mode=!ch1mode;);
+        if(|mouse().xy,ch2midpoint|<0.2,ch2mode=!ch2mode;);
+        if(|mouse().xy,ch3midpoint|<0.2,ch3mode=!ch3mode;);
+        if(|mouse().xy,ch4midpoint|<0.2,ch4mode=!ch4mode;);
+    );
 
     isOnBlackKey(x) := (
         keyarea = floor((x+2)*3 - 0.3) + 1;
@@ -597,9 +573,10 @@ forall(specialkeyslist,
             //for x coord get key nr
             keynr = getChromaWhite(floor((mouse().x + 2)*3) + 1);
         );
+
         play(keynr);
         keyson_keynr=1;
-        inputmelody = inputmelody++[[#+59,measure]];
+        inputmelody = inputmelody++[[keynr+59,measure]];
         durations = durations ++ timestep - timestepfirstbeat;
         predictNextNote();
             
@@ -627,6 +604,7 @@ nninitcountermax = 14;
 justpredicted = true;
 inited=false;
 on=false;
+loopcounter = 0;
 
 german = false;
 getLanguage(lang = m);
@@ -667,8 +645,10 @@ numkeys=20;
 
 
 //harmony
+inputmelody = [];
+collectmelody = [];
 melodystack = [];
-durations = [];
+durations = [0];
 ch1 = 0;
 ch2 = 0;
 ch3 = 0;
@@ -767,19 +747,7 @@ predictNextNote() := (
 );
 
 
-makemusic() := (
-    continueSequence(
-        inputmelody,
-        durationsrel,
-        chords,
-        bars,
-        beatsperbar,
-        melody = m;
-        melodystack = melodystack ++ [melody];
-        
-        //print(melody);
-        );
-);
+
 
 //adjustable globals
 pressed = false;
@@ -928,10 +896,10 @@ guess(a,n):=(
                 //{name: "B", type: "Free", pos: [-0.7, 1.5], visible: false, color: [.5,1,.5], alpha: 0.8999999761581421, textsize: 0.0, size: 6.0, narrow: 30},
                 //{name: "A2", type: "Free", pos: [0, 1.1], visible: false, color: [1,.5,.5], alpha: 0.8999999761581421, textsize: 0.0, size: 6.0, narrow: 30},
                 //{name: "B2", type: "Free", pos: [-0.7, 0.9], visible: false, color: [.5,1,.5], alpha: 0.8999999761581421, textsize: 0.0, size: 6.0, narrow: 30},
-                {name: "C", type: "Free", pos: [0.9, 1.8], color: [.5,.5,1], alpha: 0.8999999761581421, textsize: 0.0, size: 5.0, narrow: 30},
-                {name: "D", type: "Free", pos: [-2, 0.5], color: [.5,.5,1], alpha: 0.8999999761581421, textsize: 0.0, size: 5.0, narrow: 30},
+                {name: "C", type: "Free", pos: [0.9, 1.8], visible: false, color: [.5,.5,1], alpha: 0.8999999761581421, textsize: 0.0, size: 5.0, narrow: 30},
+                {name: "D", type: "Free", pos: [-2, 0.5], visible: false, color: [.5,.5,1], alpha: 0.8999999761581421, textsize: 0.0, size: 5.0, narrow: 30},
                 {name: "E", type: "Free", pos: [2, 1.5], visible: false, color: [.5,.5,1], alpha: 0.8999999761581421, textsize: 0.0, size: 5.0, narrow: 30},
-                {name: "F", type: "Free", pos: [-2, 0.5], color: [.5,.5,1], alpha: 0.8999999761581421, textsize: 0.0, size: 5.0, narrow: 30},
+                {name: "F", type: "Free", pos: [-2, 0.5], visible: false, color: [.5,.5,1], alpha: 0.8999999761581421, textsize: 0.0, size: 5.0, narrow: 30},
                 {name: "G", type: "Free", pos: [2, 1.5], visible: false, color: [.5,.5,1], alpha: 0.8999999761581421, textsize: 0.0, size: 5.0, narrow: 30},
                 {name: "C1", type: "Free", pos: [-1,1], visible: false, color: [.5,1,.5], alpha: 0.8999999761581421, textsize: 0.0, size: 6.0, narrow: 30},
                 {name: "C2", type: "Free", pos: [0,0], visible: false, color: [.5,1,.5], alpha: 0.8999999761581421, textsize: 0.0, size: 6.0, narrow: 30},
