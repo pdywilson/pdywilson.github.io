@@ -147,13 +147,14 @@ CindyJS.registerPlugin(1, "rnn10", function(api) {
 
 
 
-    function getFeatureVectors(notes, chords, key) {
+    function getFeatureVectors(notes, chords, chordsroot, key) {
         encodingDict = {
             'melody': true,
             'melodyModulo': true,
             'melodyEncoded': false,
             'duration': false,
             'durationEncoded': false,
+            'chordsRoot': true,
             'chordsNormally': true,
             'chordsEncoded': false,
             'key': false
@@ -178,12 +179,19 @@ CindyJS.registerPlugin(1, "rnn10", function(api) {
             }
             if (encodingDict['melodyEncoded']) feature = feature.concat(getCircleOfThirds(note));
             //if (encodingDict['duration']) feature = feature.concat(oneHot(parseInt(times[i], 10), 48));
+            if (encodingDict['chordsRoot']) 
+                feature = feature.concat(chordsroot[i]);
+                if (i < notes.length - 1){
+                    feature = feature.concat(chordsroot[i + 1]);
+                } else {
+                    feature = feature.concat(chordsroot[i]);
+                }
             if (encodingDict['chordsNormally']) {
                 feature = feature.concat(chords[i]);
                 if (i < notes.length - 1){
                     feature = feature.concat(chords[i + 1]);
                 } else {
-                    feature = feature.concat(new Array(12).fill(0));
+                    feature = feature.concat(chords[i]); // experiment: changed this from zeros
                 }
             }
             if (encodingDict['key']) feature = feature.concat(oneHot(parseInt(key, 10), 24));
@@ -196,7 +204,7 @@ CindyJS.registerPlugin(1, "rnn10", function(api) {
 
     async function getPrediction(input) {
         if (!modelLoaded) {
-            modelfile = 'tfjs/model7/model.json';
+            modelfile = 'tfjs/best_model2/model.json';
             model = await tf.loadLayersModel(modelfile);
             modelLoaded = true;
             console.log("loaded "+modelfile);
@@ -240,6 +248,9 @@ CindyJS.registerPlugin(1, "rnn10", function(api) {
             return rotate(major,12-ch);
         }
     }
+    function getRoot(ch){
+        return oneHot(ch % 12,12);
+    }
 
     let processrunning = false;
     async function getMelody(inputmelody, chords, cdycallback) {
@@ -251,15 +262,18 @@ CindyJS.registerPlugin(1, "rnn10", function(api) {
         
         let notesnew = inputmelody.map(elt => elt[0] - LOW);
         let chordsnew = inputmelody.map(elt => getChord(chords[elt[1]-1]));
+        let chordsroot = inputmelody.map(elt => getRoot(chords[elt[1]-1]));
 
         notesnew = notesnew.slice(-max_seq_len);
         chordsnew = chordsnew.slice(-max_seq_len);
+        chordsroot = chordsroot.slice(-max_seq_len);
 
         console.log('notesnew',notesnew);
         console.log('chordsnew',chordsnew);
+        console.log('chordsroot',chordsroot);
 
         console.time("predtime");
-        let feat = getFeatureVectors(notesnew, chordsnew, key);
+        let feat = getFeatureVectors(notesnew, chordsnew, chordsroot, key);
         let input = tf.expandDims(feat, 0);
         let note = await getPrediction(input);
         console.timeEnd("predtime");
