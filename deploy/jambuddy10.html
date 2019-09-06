@@ -239,7 +239,10 @@ chordCircle(P,midpoint,mode):=(
 
         if(mode,
             drawtext((midpoint)-(0.05,0.05),chordFifths_(12-((mod(Pchord-4,12)+1)-1)),size->18,color->(.5,.5,.5));,
-            drawtext((midpoint)-(0.1,0.05),chordFifths_(12-((mod(Pchord-4,12)+1)-1))+"m",size->18,color->(.5,.5,.5));
+            mappp = 12-((mod(Pchord-4,12)+1)-1);
+            if(mappp >= 10 % mappp <= 2, mapoffset = 0.165, mapoffset = 0.105);
+            drawtext((midpoint)-(mapoffset,0.05),chordFifthsMinor_(mappp),size->18,color->(.5,.5,.5));
+            print(mappp);
         );
         
         chordMapping = [3,8,1,6,11,4,9,2,7,0,5,10];
@@ -656,8 +659,8 @@ ch4 = 0;
 chords = [ch1,ch2,ch3,ch4];
 chordnames=["C-","C#-","D-","D#-","E-","F-","F#-","G-","G#-","A-","A#-","B-","C","C#","D","D#","E","F","F#","G","G#","A","A#","B","C"];
 
-chordFifths=["F#","C#","G#","D#","A#","F","C","G","D","A","E","B","F#"];
-chordFifthsMinor=["D#m","A#m","F#m","Cm","Gm","Dm","Am","Em","Bm","F#m","C#m","G#m","D#m"];
+chordFifths=["G"+unicode("266D"),"D"+unicode("266D"),"A"+unicode("266D"),"E"+unicode("266D"),"B"+unicode("266D"),"F","C","G","D","A","E","B","G"+unicode("266D")];
+chordFifthsMinor=["E"+unicode("266D")+"m","B"+unicode("266D")+"m","Fm","Cm","Gm","Dm","Am","Em","Bm","F"+unicode("266F")+"m","C"+unicode("266F")+"m","G"+unicode("266F")+"m","E"+unicode("266D")+"m"];
 
 
 rhythms = ["straight 4","offbeat","walz 3/4"];
