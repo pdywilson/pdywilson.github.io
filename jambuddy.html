@@ -21,12 +21,13 @@
         }
     </style>
 
-    <script type="text/javascript" src="common/Cindy.js"></script>
+    <script type="text/javascript" src="deploy/common/Cindy.js"></script>
 
     <!-- Load TensorFlow.js -->
 
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>
-    <!-- <script src="common/tf.min.js"></script> -->
+    
+    <!-- <script src="deploy/common/tf.min.js"></script> -->
     <!-- <script src="common/tonal.min.js"></script> -->
 
     
@@ -924,10 +925,10 @@ guess(a,n):=(
             keylistener: true,
             use: ["midi", "rnn12"],
             images: {
-                image: "common/image.png",
-                on: "common/Pause.png",
-                off: "common/Play.png",
-                hamburger: "common/hamburger.png",
+                image: "deploy/common/image.png",
+                on: "deploy/common/Pause.png",
+                off: "deploy/common/Play.png",
+                hamburger: "deploy/common/hamburger.png",
             },
             ports: [{
                 fill: "window",

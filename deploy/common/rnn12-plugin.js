@@ -176,8 +176,8 @@ CindyJS.registerPlugin(1, "rnn12", function(api) {
             //if (encodingDict['duration']) feature = feature.concat(oneHot(parseInt(times[i], 10), 48));
             if (encodingDict['chords']) {
                 feature = feature.concat(chordsroot[i]);
-                feature = feature.concat(chords[i]);
                 feature = feature.concat(chordsroot[i + 1]);
+                feature = feature.concat(chords[i]);
                 feature = feature.concat(chords[i + 1]);
             }
             if (encodingDict['key']) feature = feature.concat(oneHot(parseInt(key, 10), 24));
@@ -190,7 +190,7 @@ CindyJS.registerPlugin(1, "rnn12", function(api) {
 
     async function getPrediction(input) {
         if (!modelLoaded) {
-            modelfile = 'tfjs/best_model2/model.json';
+            modelfile = 'deploy/tfjs/best_model2/model.json';
             model = await tf.loadLayersModel(modelfile);
             modelLoaded = true;
             console.log("loaded "+modelfile);
