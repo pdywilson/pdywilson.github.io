@@ -189,6 +189,7 @@
 .projects-section .project-text {
   padding: 3rem;
   font-size: 90%;
+  text-align: justify;
 }
 
 @media (min-width: 992px) {
