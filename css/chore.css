@@ -1,0 +1,19 @@
+.container {
+  display: grid;
+  grid-template-rows: repeat(5, 1fr); /* Divides the container into 5 equal parts */
+  height: 100vh; /* Full viewport height */
+}
+
+.part {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex; /* Use Flexbox to center align content */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  font-size: 40px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
