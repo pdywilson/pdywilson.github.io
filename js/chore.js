@@ -5,8 +5,8 @@ function update(day, value) {
 }
 
 function get(day) {
-    let dayItem = localStorage.getItem(day);
-    return dayItem === "true";
+    let value = localStorage.getItem(day);
+    return value === "true";
 }
 
 function getColor(value) {
@@ -18,18 +18,15 @@ function flip(day) {
     update(day, value);
 }
 
-function getDays() {
-    return document.querySelectorAll('h2');
-}
-
 function init() {
-    let h2Elements = getDays();
-
-    for (let i = 0; i < h2Elements.length; i++) {
-        let day = h2Elements[i].id;
-        let value = get(day)
-        update(day, value)
-    }
+    ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'].forEach((day) => {
+        let value = get(day);
+        if (value) {
+            update(day, value);
+        }
+    });
 }
 
-init()
+document.addEventListener('DOMContentLoaded', () => {
+    init();
+});
