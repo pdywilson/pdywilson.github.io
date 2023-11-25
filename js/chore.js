@@ -29,15 +29,5 @@ function init() {
 
 document.addEventListener('DOMContentLoaded', () => {
     init();
-
-    // fix mobile screen
-    // const setHeight = () => {
-    //     document.getElementById("container").style.minHeight = window.innerHeight + "px"
-    // };
-    // let deviceWidth = window.matchMedia("(max-width: 1024px)");
-    // if (deviceWidth.matches) {
-    //     window.addEventListener("resize", setHeight);
-    //     setHeight();
-    // }
 });
 
