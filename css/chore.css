@@ -2,6 +2,7 @@
   display: grid;
   grid-template-rows: repeat(5, 1fr);
   height: 100vh;
+  height: 100dvh;
   /* mobile viewport bug fix */
   height: -webkit-fill-available;
 }
