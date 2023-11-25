@@ -17,15 +17,13 @@
 }
 
 .container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 0.25fr 0.25fr 1fr;
   align-items: center;
 }
 
-.button-container {
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.button-container button {
-  margin-left: 5px;
+.container2 {
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
+  align-items: center;
 }
