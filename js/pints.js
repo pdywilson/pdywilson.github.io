@@ -48,8 +48,11 @@ function init() {
 
     for (let i = 0; i < h2Elements.length; i++) {
         let day = h2Elements[i].id;
-        let value = 0;
-        update(day, value)
+        let value = get(day);
+        if (value === "true" || value === "false") {
+            value = 0;
+        }
+        update(day, value);
     }
     calc();
 }
