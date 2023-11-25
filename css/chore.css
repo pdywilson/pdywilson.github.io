@@ -2,6 +2,8 @@
   display: grid;
   grid-template-rows: repeat(5, 1fr);
   height: 100vh;
+  /* mobile viewport bug fix */
+  min-height: -webkit-fill-available;
 }
 
 .part {
@@ -16,4 +18,8 @@
 body {
   margin: 0;
   padding: 0;
+}
+
+html {
+  height: -webkit-fill-available;
 }
