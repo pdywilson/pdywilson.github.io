@@ -54,4 +54,6 @@ function init() {
     calc();
 }
 
-init()
+document.addEventListener('DOMContentLoaded', () => {
+    init();
+})
