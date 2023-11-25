@@ -19,7 +19,7 @@ function flip(day) {
 }
 
 function init() {
-    ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'].forEach((day) => {
+    ['c1', 'c2', 'c3', 'c4', 'c5'].forEach((day) => {
         let value = get(day);
         if (value) {
             update(day, value);
