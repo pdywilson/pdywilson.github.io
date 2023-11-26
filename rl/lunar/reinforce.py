@@ -77,6 +77,11 @@ class Agent:
         rewards = torch.tensor(sample_rewards, dtype=torch.float32)
         next_states = torch.tensor(sample_next_states, dtype=torch.float32)
         dones = torch.tensor(sample_dones, dtype=torch.float32)
+        print("states", states.size())
+        print("actions", actions.size())
+        print("rewards", rewards.size())
+        print("next_states", next_states.size())
+        print("dones", dones.size())
         
         next_actions = self.brain_target(next_states).detach().max(1)[0]
         q_targets = rewards + self.gamma * next_actions * (1 - dones)
