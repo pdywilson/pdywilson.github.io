@@ -23,7 +23,8 @@ class Agent:
         self.layer_size = 64
         self.layer_size_last = 32
         
-        self.brain_policy = nn.Sequential(
+        # Policy network is used to predict the next action and is trained with backpropagation
+        self.policy_network = nn.Sequential(
             nn.Linear(self.state_size, self.layer_size),
             nn.ReLU(),
             nn.Linear(self.layer_size, self.layer_size),
@@ -33,7 +34,12 @@ class Agent:
             nn.Linear(self.layer_size_last, self.action_size),
         )
         
-        self.brain_target = nn.Sequential(
+        # Target network is a separate copy of the policy network used to stabilize training.
+        # It helps in the calculation of the target Q-values during the learning process. 
+        # This network is not updated as frequently as the policy network.
+        # The target network's parameters are periodically updated to match those of the policy network 
+        # to provide more stable targets for Q-value estimation.
+        self.target_network = nn.Sequential(
             nn.Linear(self.state_size, self.layer_size),
             nn.ReLU(),
             nn.Linear(self.layer_size, self.layer_size),
@@ -43,22 +49,17 @@ class Agent:
             nn.Linear(self.layer_size_last, self.action_size),
         )
         
-        self.optimizer = torch.optim.AdamW(self.brain_policy.parameters(), lr=self.learning_rate)
-        
-        self.update_brain_target()
+        self.optimizer = torch.optim.AdamW(self.policy_network.parameters(), lr=self.learning_rate)
 
-    def memorize_exp(self, state, action, reward, next_state, done):
+    def memorize_experience(self, state, action, reward, next_state, done):
         self.replay_exp.append((state, action, reward, next_state, done))
-    
-    def update_brain_target(self):
-        self.brain_target.load_state_dict(self.brain_policy.state_dict())
     
     def choose_action(self, state):
         if np.random.uniform(0.0, 1.0) < self.epsilon:
             action = np.random.choice(self.action_size)
         else:
             state_tensor = torch.tensor(state, dtype=torch.float32)
-            q_values = self.brain_policy(state_tensor)
+            q_values = self.policy_network(state_tensor)
             action = torch.argmax(q_values).item()
             
         return action
@@ -72,47 +73,44 @@ class Agent:
         sample_next_states = np.array([exp[3] for exp in mini_batch])
         sample_dones = np.array([exp[4] for exp in mini_batch])
 
-        states = torch.tensor(sample_states, dtype=torch.float32)
-        actions = torch.tensor(sample_actions, dtype=torch.int64)
-        rewards = torch.tensor(sample_rewards, dtype=torch.float32)
-        next_states = torch.tensor(sample_next_states, dtype=torch.float32)
-        dones = torch.tensor(sample_dones, dtype=torch.float32)
-        print("states", states.size())
-        print("actions", actions.size())
-        print("rewards", rewards.size())
-        print("next_states", next_states.size())
-        print("dones", dones.size())
+        states = torch.tensor(sample_states, dtype=torch.float32) # torch.Size([64, 8])
+        actions = torch.tensor(sample_actions, dtype=torch.int64) # torch.Size([64])
+        rewards = torch.tensor(sample_rewards, dtype=torch.float32) # torch.Size([64])
+        next_states = torch.tensor(sample_next_states, dtype=torch.float32) # torch.Size([64, 8])
+        dones = torch.tensor(sample_dones, dtype=torch.float32) # torch.Size([64])
         
-        next_actions = self.brain_target(next_states).detach().max(1)[0]
-        q_targets = rewards + self.gamma * next_actions * (1 - dones)
-        q_expected = self.brain_policy(states).gather(1, actions.unsqueeze(1)).flatten()
+        # Network outputs 4 dim vec, likelihood of each action, we select likelihood of the likeliest action
+        next_action_likelihoods = self.target_network(next_states).detach().max(1)[0] # torch.Size([64])
+        # If action done -> target is reward only, else target is reward + weighted likelihood of predicted action
+        q_targets = rewards + self.gamma * next_action_likelihoods * (1 - dones) # torch.Size([64])
+        # Network outputs 4 dim vec, we gather the index of to the predicted action (.gather(1,...) gives index)
+        q_expected = self.policy_network(states).gather(1, actions.unsqueeze(1)).flatten() # torch.Size([64])
                     
         self.optimizer.zero_grad()
         loss = nn.functional.mse_loss(q_expected, q_targets)
         loss.backward()
         self.optimizer.step()
 
-        # idea: consider only updating the fixed network every n episodes to avoid unstability due to chasing a moving target
-        self.update_fixed_network(self.brain_policy, self.brain_target)
+        # copy the weights from policy_network to target_network, updating the target network
+        # idea for future: consider only updating the fixed network every n episodes to avoid unstability due to chasing a moving target
+        self.update_fixed_network(self.policy_network, self.target_network)
     
-    def update_fixed_network(self, brain_policy, brain_target):
-        for source_parameters, target_parameters in zip(brain_policy.parameters(), brain_target.parameters()):
+    def update_fixed_network(self, policy_network, target_network):
+        for source_parameters, target_parameters in zip(policy_network.parameters(), target_network.parameters()):
             target_parameters.data.copy_(self.TAU * source_parameters.data + (1.0 - self.TAU) * target_parameters.data)
 
 def rungame(agent):
     humanEnv = gym.make("LunarLander-v2", render_mode="human")
     observation, _ = humanEnv.reset(seed=seed)
-
     for _ in range(300):
         action = agent.choose_action(observation)
         observation, reward, terminated, truncated, _ = humanEnv.step(action)
-
         if terminated or truncated:
             observation, _ = humanEnv.reset()
-
     humanEnv.close()
 
-# Initialize Gym environment and optimizer
+
+# Main script
 env = gym.make("LunarLander-v2")
 wrapped_env = gym.wrappers.RecordEpisodeStatistics(env)  # Records episode-reward
 
@@ -126,12 +124,9 @@ torch.manual_seed(seed)
 random.seed(seed)
 np.random.seed(seed)
 
-# Create agent
 agent = Agent(wrapped_env, lr=learning_rate, batch_size=batch_size)
-
 reward_over_episodes = []
 
-# Main script
 for episode in range(episodes):
     state, info = wrapped_env.reset(seed=seed)
     done = False
@@ -140,7 +135,7 @@ for episode in range(episodes):
         action = agent.choose_action(state)
         next_state, reward, terminated, truncated, info = wrapped_env.step(action)
         done = terminated or truncated
-        agent.memorize_exp(state, action, reward, next_state, done)
+        agent.memorize_experience(state, action, reward, next_state, done)
         if len(agent.replay_exp) > agent.batch_size:
             agent.learn()
         state = next_state
@@ -151,13 +146,10 @@ for episode in range(episodes):
 
     if episode % 10 == 0 and episode != 0:
         avg_reward = int(np.mean(wrapped_env.return_queue))
-        print("Episode:", episode, "Average Reward:", avg_reward, "Epsilon", agent.epsilon)
-
-        max_reward = max(reward_over_episodes)
-        print("Max Reward", max_reward)
-
+        max_reward = int(max(reward_over_episodes)[0])
+        print("Episode:", episode, "Epsilon:", "{:.2f}".format(agent.epsilon), "Average Reward:", avg_reward, "Max Reward:", max_reward)
         print("Running game")
-        rungame(agent)
+        #rungame(agent)
         print("Back to training")
 
 rewards_to_plot = [[reward[0] for reward in rewards] for rewards in [reward_over_episodes]]
