@@ -87,6 +87,7 @@ class Agent:
         loss.backward()
         self.optimizer.step()
 
+        # idea: consider only updating the fixed network every n episodes to avoid unstability due to chasing a moving target
         self.update_fixed_network(self.brain_policy, self.brain_target)
     
     def update_fixed_network(self, brain_policy, brain_target):
