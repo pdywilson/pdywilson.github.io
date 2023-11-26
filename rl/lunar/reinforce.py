@@ -149,7 +149,7 @@ for episode in range(episodes):
         max_reward = int(max(reward_over_episodes)[0])
         print("Episode:", episode, "Epsilon:", "{:.2f}".format(agent.epsilon), "Average Reward:", avg_reward, "Max Reward:", max_reward)
         print("Running game")
-        #rungame(agent)
+        rungame(agent)
         print("Back to training")
 
 rewards_to_plot = [[reward[0] for reward in rewards] for rewards in [reward_over_episodes]]
