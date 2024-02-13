@@ -8,7 +8,7 @@ for file in *.mp3; do
         
         # Wrap the audio player into HTML <div>
         echo "  <div><audio controls>"
-        echo "    <source src=\"$file\" type=\"audio/mpeg\">"
+        echo "    <source src=\"bits/$file\" type=\"audio/mpeg\">"
         echo "  </audio></div>"
     fi
 done
