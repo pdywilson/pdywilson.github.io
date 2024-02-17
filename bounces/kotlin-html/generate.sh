@@ -1,5 +1,5 @@
 #!/bin/bash
-
+cd ..
 for folder in */; do
     cd "$folder" || continue
     echo ""

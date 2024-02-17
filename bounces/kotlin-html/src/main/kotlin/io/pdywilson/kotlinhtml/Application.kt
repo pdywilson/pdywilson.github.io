@@ -51,9 +51,9 @@ val page = listOf(
             "magnetizedv4.mp3",
             "nastyv2.mp3",
             "rapmittomate2.mp3",
-            "ride2.mp3",
+            "ride5.mp3",
             "wakeup.mp3",
-        ).map { Song(it) }
+            ).map { Song(it) }
     ),
     Section(
         name = "Bits & Scraps from Spain",
@@ -69,6 +69,7 @@ val page = listOf(
             "dojacatjuicyjdillabeat.mp3",
             "gimmedaticecream.mp3",
             "lilpeep1.mp3",
+            "ride2.mp3",
             "promdress.mp3",
             "pumpbass.mp3",
             "spanklayyoudownbeat.mp3",
