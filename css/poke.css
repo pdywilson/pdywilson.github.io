@@ -1,5 +1,6 @@
 .container {
     margin: 10px;
+    font-weight: bold;
 }
 
 .options {
@@ -12,7 +13,7 @@
 
 table {
     border-collapse: collapse;
-    width: 100%;
+    /* width: 100%; */
 }
 
 table,
@@ -43,6 +44,8 @@ span {
     border-radius: 10px;
     padding: 10px;
     display: inline-block;
+    min-width: 78px;
+        text-align: center;
 }
 
 .Normal {
@@ -117,18 +120,24 @@ span {
     background-color: #D685AD;
 }
 
-.two {
-    background-color: #65ff74;
+.Reset {
+    background-color: #000000;
+}
+
+.All {
+    background-color: #c3b712;
 }
 
 /* .one {
     background-color: #B7B7CE;
 } */
 
-.half {
-    background-color: #ff6565;
+.two {
+    background-color: #17b827;
 }
-
+.half {
+    background-color: #ff3b3b;
+}
 .zero {
     background-color: hsl(248, 29%, 44%);
 }

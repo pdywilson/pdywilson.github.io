@@ -36,6 +36,12 @@ function parseCSV(csv) {
 const { headers, matrix } = parseCSV(csvData);
 
 function updateGrid() {
+    if (document.getElementById(`optionReset`).checked) {
+        location.reload();
+    }
+    if (document.getElementById(`optionAll`).checked) {
+        headers.forEach(header => document.getElementById(`option${header}`).checked = true);
+    }
     const grid = document.getElementById('grid');
     const activeOptions = headers.filter(header => document.getElementById(`option${header}`).checked);
 
