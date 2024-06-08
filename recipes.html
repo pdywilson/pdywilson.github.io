@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe App</title>
+    <link rel="stylesheet" href="css/recipes.css">
+</head>
+<body>
+<div id="app">
+    <div id="login-container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <button id="google-login">Login with Google</button>
+    </div>
+    <div id="recipe-container" class="hidden">
+        <div id="recipe-list-container">
+            <h2>Recipes</h2>
+            <ul id="recipe-list"></ul>
+            <button id="add-recipe">+</button>
+        </div>
+        <div id="recipe-detail-container" class="hidden">
+            <h2>Edit Recipe</h2>
+            <input type="text" id="recipe-name" placeholder="Recipe Name">
+            <textarea id="recipe-instructions" placeholder="Instructions"></textarea>
+            <button id="update-recipe">Update</button>
+        </div>
+    </div>
+</div>
+<script src="js/pocketbase.js"></script>
+<script src="js/recipes.js"></script>
+<script>
+    // Handle OAuth2 callback
+    window.addEventListener('load', async () => {
+        const params = new URLSearchParams(window.location.search);
+        const code = params.get('code');
+        const state = params.get('state');
+        if (code && state) {
+            try {
+                await pb.authWithOAuth2('google', code, state);
+                document.getElementById('login-container').classList.add('hidden');
+                document.getElementById('recipe-container').classList.remove('hidden');
+                fetchRecipes();
+            } catch (error) {
+                console.error('OAuth2 login failed', error);
+            }
+        }
+    });
+</script>
+</body>
+</html>
