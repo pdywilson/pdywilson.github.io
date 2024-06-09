@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const recipeNameInput = document.getElementById('recipe-name');
     const recipeInstructionsInput = document.getElementById('recipe-instructions');
     const saveRecipeButton = document.getElementById('save-recipe');
+    const title = document.getElementById('title');
     let recipes = [];
     // e.g. [{ recipeId: 1, version: 1 }, { recipeId: 1, version: 2 }, { recipeId: 2, version: 1 }]
     let latestRecipes = [];
@@ -138,6 +139,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             recipeNameInput.value = recipe.name;
             recipeInstructionsInput.value = recipe.instructions;
             recipeDetailContainer.classList.remove('hidden');
+            title.innerText = "Recipe version " + currentVersion;
         } else {
             console.error('recipe undefined')
         }

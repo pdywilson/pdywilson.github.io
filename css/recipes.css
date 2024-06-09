@@ -85,11 +85,6 @@ button:hover {
     border: 1px solid #ddd;
 }
 
-#recipe-detail-container {
-    display: flex;
-    flex-direction: column;
-}
-
 #recipe-detail-container input {
     margin-bottom: 10px;
     width: 300px;
