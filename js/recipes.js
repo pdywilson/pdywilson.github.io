@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const recipeNameInput = document.getElementById('recipe-name');
     const recipeInstructionsInput = document.getElementById('recipe-instructions');
     const saveRecipeButton = document.getElementById('save-recipe');
+    const saveNewVersionButton = document.getElementById('new-recipe');
     const title = document.getElementById('title');
     let recipes = [];
     // e.g. [{ recipeId: 1, version: 1 }, { recipeId: 1, version: 2 }, { recipeId: 2, version: 1 }]
@@ -62,17 +63,22 @@ document.addEventListener('DOMContentLoaded', async () => {
     saveRecipeButton.addEventListener('click', async () => {
         const name = recipeNameInput.value;
         const instructions = recipeInstructionsInput.value;
-        const isNewRecipe = currentVersion === getLatestVersion();
         if (currentRecipeId && name && instructions) {
-            if (isNewRecipe) {
-                const newVersion = currentVersion + 1;
-                await pb.addRecipe(currentRecipeId, newVersion, name, instructions);
-                currentVersion = newVersion;
-            } else {
-                const recipe = getCurrentRecipe();
-                await pb.updateRecipe(recipe.id, name, instructions);
-            }
+            const recipe = getCurrentRecipe();
+            await pb.updateRecipe(recipe.id, name, instructions);
             await fetchRecipes();
+        }
+    });
+
+    saveNewVersionButton.addEventListener('click', async () => {
+        const name = recipeNameInput.value;
+        const instructions = recipeInstructionsInput.value;
+        if (currentRecipeId && name && instructions) {
+            const newVersion = currentVersion + 1;
+            await pb.addRecipe(currentRecipeId, newVersion, name, instructions);
+            currentVersion = newVersion;
+            await fetchRecipes();
+            showRecipe(currentRecipeId, currentVersion)
         }
     });
 
@@ -145,8 +151,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
         if (currentVersion === getLatestVersion()) {
             deleteRecipeButton.classList.remove('hidden');
+            saveNewVersionButton.classList.remove('hidden');
         } else {
             deleteRecipeButton.classList.add('hidden');
+            saveNewVersionButton.classList.add('hidden');
         }
     }
 
