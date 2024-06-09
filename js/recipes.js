@@ -61,10 +61,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     saveRecipeButton.addEventListener('click', async () => {
         const name = recipeNameInput.value;
         const instructions = recipeInstructionsInput.value;
-        const newVersion = currentVersion + 1;
+        const isNewRecipe = currentVersion === getLatestVersion();
         if (currentRecipeId && name && instructions) {
-            await pb.addRecipe(currentRecipeId, newVersion, name, instructions);
-            currentVersion = newVersion;
+            if (isNewRecipe) {
+                const newVersion = currentVersion + 1;
+                await pb.addRecipe(currentRecipeId, newVersion, name, instructions);
+                currentVersion = newVersion;
+            } else {
+                const recipe = getCurrentRecipe();
+                await pb.updateRecipe(recipe.id, name, instructions);
+            }
             await fetchRecipes();
         }
     });
@@ -137,10 +143,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
         if (currentVersion === getLatestVersion()) {
             deleteRecipeButton.classList.remove('hidden');
-            saveRecipeButton.classList.remove('hidden');
         } else {
             deleteRecipeButton.classList.add('hidden');
-            saveRecipeButton.classList.add('hidden');
         }
     }
 
@@ -160,5 +164,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     function getLatestVersion() {
         return getLatestVersions(recipes).find(r => r.recipeId === currentRecipeId).version
+    }
+
+    function getCurrentRecipe() {
+        return recipes.find(r => r.recipeId === currentRecipeId && r.version === currentVersion);
     }
 });

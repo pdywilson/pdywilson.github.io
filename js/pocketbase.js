@@ -69,7 +69,9 @@ class PocketBase {
     }
 
     async updateRecipe(id, name, instructions) {
-        return this.request(`collections/recipes/records/${id}`, 'PATCH', { name, instructions });
+        return this.request(`collections/recipes/records/${id}`, 'PATCH', {
+            name, instructions
+        });
     }
 
     async logout() {

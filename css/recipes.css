@@ -98,7 +98,7 @@ button:hover {
 #recipe-detail-container textarea {
     margin-bottom: 10px;
     width: 310px;
-    height: 200px;
+    height: 500px;
 }
 
 #add-recipe {
