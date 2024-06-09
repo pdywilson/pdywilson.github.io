@@ -86,8 +86,8 @@ button:hover {
 }
 
 #recipe-detail-container {
-    /*display: flex;*/
-    /*flex-direction: column;*/
+    display: flex;
+    flex-direction: column;
 }
 
 #recipe-detail-container input {

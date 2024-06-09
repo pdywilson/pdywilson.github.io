@@ -5,15 +5,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
     const googleLoginButton = document.getElementById('google-login');
-    const newRecipeInput = document.getElementById('new-recipe');
+    const previousVersionButton = document.getElementById('previous-version');
+    const nextVersionButton = document.getElementById('next-version');
     const addRecipeButton = document.getElementById('add-recipe');
+    const deleteRecipeButton = document.getElementById('delete-recipe')
     const recipeList = document.getElementById('recipe-list');
     const recipeDetailContainer = document.getElementById('recipe-detail-container');
     const recipeNameInput = document.getElementById('recipe-name');
     const recipeInstructionsInput = document.getElementById('recipe-instructions');
-    const updateRecipeButton = document.getElementById('update-recipe');
+    const saveRecipeButton = document.getElementById('save-recipe');
     let recipes = [];
+    // e.g. [{ recipeId: 1, version: 1 }, { recipeId: 1, version: 2 }, { recipeId: 2, version: 1 }]
+    let latestRecipes = [];
     let currentRecipeId = null;
+    let currentVersion = null;
 
     if (pb.token) {
         loginContainer.classList.add('hidden');
@@ -45,56 +50,115 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     addRecipeButton.addEventListener('click', async () => {
-        const newRecipe = await pb.addRecipe("", "");
-        await pb.getRecipes();
+        const newRecipeId = recipes.reduce((max, recipe) => {
+            return recipe.recipeId > max ? recipe.recipeId : max;
+        }, 0) + 1;
+        const newRecipe = await pb.addRecipe(newRecipeId, 1, "", "");
         await fetchRecipes();
-        showRecipe(newRecipe.id);
+        showRecipe(newRecipe.recipeId, newRecipe.version);
+    });
+
+    saveRecipeButton.addEventListener('click', async () => {
+        const name = recipeNameInput.value;
+        const instructions = recipeInstructionsInput.value;
+        const newVersion = currentVersion + 1;
+        if (currentRecipeId && name && instructions) {
+            await pb.addRecipe(currentRecipeId, newVersion, name, instructions);
+            currentVersion = newVersion;
+            await fetchRecipes();
+        }
+    });
+
+    deleteRecipeButton.addEventListener('click', async () => {
+        const recipe = recipes.find(r => r.recipeId === currentRecipeId && r.version === currentVersion);
+        const id = recipe.id;
+        await pb.deleteRecipe(id);
+        await fetchRecipes();
+        currentVersion = currentVersion - 1;
+        if (currentVersion < 1) {
+            currentVersion = null;
+            recipeDetailContainer.classList.add('hidden');
+        } else {
+            showRecipe(currentRecipeId, currentVersion);
+        }
     });
 
     recipeList.addEventListener('click', async (e) => {
-        if (e.target.tagName === 'BUTTON') {
-            const id = e.target.dataset.id;
-            await pb.deleteRecipe(id);
-            await fetchRecipes();
-        } else if (e.target.tagName === 'LI') {
-            const id = e.target.dataset.id;
+        if (e.target.tagName === 'LI') {
+            const id = parseInt(e.target.dataset.id);
             showRecipe(id);
         }
     });
 
-    updateRecipeButton.addEventListener('click', async () => {
-        const name = recipeNameInput.value;
-        const instructions = recipeInstructionsInput.value;
-        if (currentRecipeId && name && instructions) {
-            await pb.updateRecipe(currentRecipeId, name, instructions);
-            await fetchRecipes();
+    previousVersionButton.addEventListener('click', async () => {
+        if (currentVersion > 1) {
+            currentVersion = currentVersion - 1;
+            showRecipe(currentRecipeId, currentVersion);
+        }
+    });
+
+    nextVersionButton.addEventListener('click', async () => {
+        const latestVersion = getLatestVersion();
+        if (currentVersion < latestVersion) {
+            currentVersion = currentVersion + 1;
+            showRecipe(currentRecipeId, currentVersion);
         }
     });
 
     async function fetchRecipes() {
         const recipeData = await pb.getRecipes();
         recipes = recipeData.items;
+        latestRecipes = getLatestVersions(recipes);
         renderRecipeList();
     }
 
     function renderRecipeList() {
-        recipeList.innerHTML = recipes.map(recipe => `
-      <li data-id="${recipe.id}">
+        recipeList.innerHTML = latestRecipes.map(recipe => `
+      <li data-id="${recipe.recipeId}">
         ${recipe.name}
-        <button data-id="${recipe.id}">Delete</button>
       </li>
     `).join('');
     }
 
-    function showRecipe(id) {
-        const recipe = recipes.find(r => r.id === id);
+    function showRecipe(recipeId, version) {
+        let recipe;
+        if (version)
+            recipe = recipes.find(r => r.recipeId === recipeId && r.version === version);
+        else
+            recipe = latestRecipes.find(r => r.recipeId === recipeId);
         if (recipe) {
-            currentRecipeId = recipe.id;
+            currentRecipeId = recipe.recipeId;
+            currentVersion = recipe.version;
             recipeNameInput.value = recipe.name;
             recipeInstructionsInput.value = recipe.instructions;
             recipeDetailContainer.classList.remove('hidden');
         } else {
             console.error('recipe undefined')
         }
+        if (currentVersion === getLatestVersion()) {
+            deleteRecipeButton.classList.remove('hidden');
+            saveRecipeButton.classList.remove('hidden');
+        } else {
+            deleteRecipeButton.classList.add('hidden');
+            saveRecipeButton.classList.add('hidden');
+        }
+    }
+
+    function getLatestVersions(recipes) {
+        const latestVersions = {};
+
+        recipes.forEach(recipe => {
+            const { recipeId, version } = recipe;
+
+            if (!latestVersions[recipeId] || latestVersions[recipeId].version < version) {
+                latestVersions[recipeId] = recipe;
+            }
+        });
+
+        return Object.values(latestVersions);
+    }
+
+    function getLatestVersion() {
+        return getLatestVersions(recipes).find(r => r.recipeId === currentRecipeId).version
     }
 });

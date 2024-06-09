@@ -58,8 +58,10 @@ class PocketBase {
         return this.request('collections/recipes/records');
     }
 
-    async addRecipe(name, instructions) {
-        return this.request('collections/recipes/records', 'POST', { name, instructions });
+    async addRecipe(recipeId, version, name, instructions) {
+        return this.request('collections/recipes/records', 'POST', {
+            recipeId, version, name, instructions
+        });
     }
 
     async deleteRecipe(id) {
