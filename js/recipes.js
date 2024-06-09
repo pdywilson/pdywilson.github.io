@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let latestRecipes = [];
     let currentRecipeId = null;
     let currentVersion = null;
+    let currentUser = null;
 
     if (pb.token) {
         loginContainer.classList.add('hidden');
@@ -55,7 +56,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const newRecipeId = recipes.reduce((max, recipe) => {
             return recipe.recipeId > max ? recipe.recipeId : max;
         }, 0) + 1;
-        const newRecipe = await pb.addRecipe(newRecipeId, 1, "", "");
+        const newRecipe = await pb.addRecipe(currentUser, newRecipeId, 1, "", "");
         await fetchRecipes();
         showRecipe(newRecipe.recipeId, newRecipe.version);
     });
@@ -75,7 +76,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const instructions = recipeInstructionsInput.value;
         if (currentRecipeId && name && instructions) {
             const newVersion = currentVersion + 1;
-            await pb.addRecipe(currentRecipeId, newVersion, name, instructions);
+            await pb.addRecipe(currentUser, currentRecipeId, newVersion, name, instructions);
             currentVersion = newVersion;
             await fetchRecipes();
             showRecipe(currentRecipeId, currentVersion)
@@ -122,6 +123,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         const recipeData = await pb.getRecipes();
         recipes = recipeData.items;
         latestRecipes = getLatestVersions(recipes);
+        if (recipes && recipes.length > 0)
+            currentUser = recipes[0].user;
         renderRecipeList();
     }
 
