@@ -27,8 +27,8 @@ class PocketBase {
         }
     }
 
-    async authWithPassword(email, password) {
-        const data = await this.request('collections/users/auth-with-password', 'POST', { email, password });
+    async authWithPassword(identity, password) {
+        const data = await this.request('collections/users/auth-with-password', 'POST', { identity, password });
         this.token = data.token;
         this.saveTokenToStorage(this.token);
         return data;
