@@ -44,12 +44,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     googleLoginButton.addEventListener('click', async () => {
-        try {
-            const url = await pb.getOAuth2Url('google');
-            window.location.href = url;
-        } catch (error) {
-            console.error('Google login failed', error);
-        }
+        const authData = await pbv2.collection('users').authWithOAuth2({ provider: 'google' });
+        pb.token = authData.token;
+        localStorage.setItem('pocketbase_token', authData.token);
     });
 
     addRecipeButton.addEventListener('click', async () => {
@@ -125,6 +122,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         latestRecipes = getLatestVersions(recipes);
         if (recipes && recipes.length > 0)
             currentUser = recipes[0].user;
+        else
+            currentUser = (await pbv2.collection('users').authRefresh()).record.id;
         renderRecipeList();
     }
 

@@ -1,4 +1,4 @@
-class PocketBase {
+class PocketBaseV1 {
     constructor(baseURL) {
         this.baseURL = baseURL;
         this.token = this.getTokenFromStorage();
@@ -35,9 +35,18 @@ class PocketBase {
     }
 
     async getOAuth2Url(provider) {
-        const response = await this.request(`collections/users/auth/${provider}/url`, 'GET');
-        return response.url;
+        const response = await this.request(`collections/users/auth-methods`, 'GET');
+        const google = response.authProviders.filter( p => p.name === provider )[0];
+        const { state, codeVerifier, codeChallenge, authUrl } = google;
+        const redirectUrl = authUrl;
+        const code = codeChallenge;
+        debugger;
+        const data = await this.request('collections/users/auth-with-oauth2', 'POST', { provider, code, codeVerifier, redirectUrl });
+        this.token = data.token;
+        this.saveTokenToStorage(this.token);
+        return data;
     }
+
 
     async authWithOAuth2(provider, code, state) {
         const data = await this.request('collections/users/auth-with-oauth2', 'POST', { provider, code, state });
@@ -80,4 +89,4 @@ class PocketBase {
     }
 }
 
-const pb = new PocketBase('https://dinner.pockethost.io/api'); // Replace with your PocketBase URL
+const pb = new PocketBaseV1('https://dinner.pockethost.io/api'); // Replace with your PocketBase URL

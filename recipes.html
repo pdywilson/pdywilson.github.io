@@ -37,24 +37,28 @@
     </div>
 </div>
 <script src="js/pocketbase.js"></script>
+<script src="js/pocketbase.umd.js"></script>
+<script type="text/javascript">
+    const pbv2 = new PocketBase("https://dinner.pockethost.io")
+</script>
 <script src="js/recipes.js"></script>
 <script>
-    // Handle OAuth2 callback
-    window.addEventListener('load', async () => {
-        const params = new URLSearchParams(window.location.search);
-        const code = params.get('code');
-        const state = params.get('state');
-        if (code && state) {
-            try {
-                await pb.authWithOAuth2('google', code, state);
-                document.getElementById('login-container').classList.add('hidden');
-                document.getElementById('recipe-container').classList.remove('hidden');
-                fetchRecipes();
-            } catch (error) {
-                console.error('OAuth2 login failed', error);
-            }
-        }
-    });
+    // // Handle OAuth2 callback
+    // window.addEventListener('load', async () => {
+    //     const params = new URLSearchParams(window.location.search);
+    //     const code = params.get('code');
+    //     const state = params.get('state');
+    //     if (code && state) {
+    //         try {
+    //             await pb.authWithOAuth2('google', code, state);
+    //             document.getElementById('login-container').classList.add('hidden');
+    //             document.getElementById('recipe-container').classList.remove('hidden');
+    //             fetchRecipes();
+    //         } catch (error) {
+    //             console.error('OAuth2 login failed', error);
+    //         }
+    //     }
+    // });
     // Load css
     let cssPath = "css/recipes.css";
     if (screen.width < 400)
