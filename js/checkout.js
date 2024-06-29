@@ -5,7 +5,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     const checkoutButton = document.getElementById('checkout-button');
     const pauseTime = document.getElementById('pause-time');
     const pauseEndTime = document.getElementById('pause-end-time');
+    const extraPauseTime = document.getElementById('extra-pause-time');
+    const extraPauseEndTime = document.getElementById('extra-pause-end-time');
     const workTime = 8 * 60 + 18;
+    const lunchTime = 6 * 60;
+    const lunchEndTime = 6 * 60 + 30;
+    const dinnerTime = 9 * 60 + 30;
+    const dinnerEndTime = 9 * 60 + 45;
 
     checkinButton.addEventListener('click', async () => {
         updateCheckin();
@@ -20,8 +26,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         const inTime = checkinTime.value;
         localStorage.setItem('checkin_time', inTime);
         checkoutTime.value = updateTime(inTime, workTime);
-        pauseTime.value = updateTime(inTime, 6 * 60);
-        pauseEndTime.value = updateTime(pauseTime.value, 30);
+        pauseTime.value = updateTime(inTime, lunchTime);
+        pauseEndTime.value = updateTime(inTime, lunchEndTime);
+        extraPauseTime.value = updateTime(inTime, dinnerTime);
+        extraPauseEndTime.value = updateTime(inTime, dinnerEndTime);
     };
 
     checkoutButton.addEventListener('click', async () => {
