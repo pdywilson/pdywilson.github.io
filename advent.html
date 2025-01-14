@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advent To-Do List</title>
+    <style>
+        body {
+            font-family: "Source Code Pro", monospace;
+            background-color: #0f0f23;
+            margin: 0;
+            padding: 0;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            font-size: 14px;
+            width: 80%;
+            max-width: 1200px;
+            height: 80%;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+
+        .task-list {
+            list-style: none;
+            padding: 0;
+            width: 50%;
+            margin: 0;
+            overflow-y: auto;
+        }
+
+        .task-item {
+            margin: 0;
+            padding: 5px;
+            color: #2b9900;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .task-item span {
+            cursor: pointer;
+        }
+
+        .stars {
+            color: #FFFF66;
+            display: none;
+        }
+
+        .stars.not-done {
+            display: inline;
+        }
+
+        .stars.half-done {
+            display: inline;
+        }
+
+        .stars.done {
+            display: inline;
+        }
+
+        .task-editor {
+            display: none;
+            flex-direction: column;
+            width: 50%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .task-editor input,
+        .task-editor textarea {
+            margin: 10px 0;
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            background: #1a1a3d;
+            color: white;
+        }
+
+        .task-editor button {
+            margin: 5px 0;
+            padding: 10px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            background: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        .task-editor button.not-done {
+            background-color: #eeff00;
+        }
+
+        .task-editor button.half-done {
+            background-color: #FFA500;
+        }
+
+        .task-editor button.done {
+            background-color: #32CD32;
+        }
+
+        .task-editor button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul class="task-list">
+            <!-- Tasks will be dynamically added here -->
+        </ul>
+
+        <div class="task-editor">
+            <input type="text" id="task-name" placeholder="Task Name">
+            <button class="not-done">Mark Half Done</button>
+            <button class="half-done">Mark Half Done</button>
+            <button class="done">Mark Done</button>
+        </div>
+    </div>
+
+    <script>
+        const taskList = document.querySelector('.task-list');
+        const taskEditor = document.querySelector('.task-editor');
+        const taskNameInput = document.getElementById('task-name');
+        const halfDoneButton = document.querySelector('.half-done');
+        const notDoneButton = document.querySelector('.not-done');
+        const doneButton = document.querySelector('.done');
+
+        const xmasTree =
+`.·················································.
+.-------------------------------------------------.
+.-------------------......------------------------.
+.---------------===-:=#%$@@=+---------------------.
+.----------+=##%@+#@@%=:$@@@@=+-------------------.
+.-----%%=.+@+:.@@%+=-$@@@-=+----------------------.
+.---@%-.#@-.:-@@*+@@@=+---------------------------.
+.-%#=.+%@.::+%#%..-=------------------------------.
+.*==-#*@.+++=+.:+---------------------------------.
+.+==+*+#=*++++*+----------------------------------.
+.+++*=**===++*+.----------------------------------.
+.--+*=+*=++++-.-----------------------------------.
+.++*#+=#=#-+*@.-----------------------------------.
+.+==##++=#*==#..-++=-------------===-------+------.
+.++:-#%#+=#+-%#%....-==---.....-==---:-:===-------.
+.+*#..-=##*#%=+@%%%*::%@+%%@@#+==-------:::::::....
+.@@@@@@@@@@@%%%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.`.split('\n');
+
+        const tasks = Array.from({ length: 17 }, (_, i) => ({
+            name: xmasTree[i],
+            desc: '',
+            status: 0, // 0: not done, 1: half done, 2: done
+        }));
+
+        let activeTaskIndex = null;
+
+        function renderTasks() {
+            taskList.innerHTML = '';
+            tasks.forEach((task, index) => {
+                const li = document.createElement('li');
+                li.className = 'task-item';
+
+                const taskSpan = document.createElement('span');
+                taskSpan.textContent = task.name;
+                li.addEventListener('click', () => openEditor(index));
+
+                const stars = document.createElement('span');
+                stars.className = `stars ${task.status === 1 ? 'half-done' : task.status === 2 ? 'done' : ''}`;
+                stars.textContent = '★'.repeat(task.status);
+
+                li.appendChild(taskSpan);
+                li.appendChild(stars);
+                taskList.appendChild(li);
+            });
+        }
+
+        function openEditor(index) {
+            activeTaskIndex = index;
+            const task = tasks[index];
+            taskNameInput.value = task.name;
+            taskNameInput.select();
+            taskNameInput.focus();
+            taskEditor.style.display = 'flex';
+        }
+
+        function closeEditor() {
+            activeTaskIndex = null;
+            taskNameInput.blur();
+            taskEditor.style.display = 'none';
+            renderTasks();
+        }
+
+        notDoneButton.addEventListener('click', () => {
+            if (activeTaskIndex !== null) {
+                tasks[activeTaskIndex].status = 0;
+                save();
+                renderTasks();
+            }
+        });
+
+        halfDoneButton.addEventListener('click', () => {
+            if (activeTaskIndex !== null) {
+                tasks[activeTaskIndex].status = 1;
+                save();
+                renderTasks();
+            }
+        });
+
+        doneButton.addEventListener('click', () => {
+            if (activeTaskIndex !== null) {
+                tasks[activeTaskIndex].status = 2;
+                save();
+                renderTasks();
+            }
+        });
+
+        // Save task on Enter key press in the task name or description fields
+        taskNameInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' && activeTaskIndex !== null) {
+                save();
+                renderTasks();
+            }
+        });
+
+        addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && activeTaskIndex !== null) {
+                save();
+                closeEditor();
+            }
+        });
+
+        function save() {
+            if (activeTaskIndex !== null) {
+                tasks[activeTaskIndex].name = taskNameInput.value;
+            }
+        }
+
+        renderTasks();
+
+        // open tasks with numbers on keyboard
+
+        addEventListener('keydown', (event) => {
+            if (activeTaskIndex === null && ['1','2','3','4','5','6','7','8','9','0'].includes(event.key)) {
+                openEditor(Number(event.key) - 1);
+            }
+        });
+
+        // ask for close window
+        window.onbeforeunload = function() {return true;};
+    </script>
+</body>
+
+</html>
