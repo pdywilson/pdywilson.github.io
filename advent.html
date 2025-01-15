@@ -20,7 +20,7 @@
 
         .container {
             display: flex;
-            font-size: 14px;
+            font-size: 16px;
             width: 80%;
             max-width: 1200px;
             height: 80%;
@@ -188,8 +188,9 @@
             activeTaskIndex = index;
             const task = tasks[index];
             taskNameInput.value = task.name;
-            taskNameInput.select();
+            taskNameInput.blur();
             taskNameInput.focus();
+            taskNameInput.select();
             taskEditor.style.display = 'flex';
         }
 

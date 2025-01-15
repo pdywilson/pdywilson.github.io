@@ -5,6 +5,7 @@ body {
 }
 
 body {
+    background-color: lightpink;
     display: flex;
     flex-direction: column;
     justify-content: center;
