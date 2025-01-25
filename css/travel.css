@@ -1,0 +1,74 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212; /* Dark grey/black background */
+    margin: 0;
+    padding: 0;
+    color: #fff; /* White text for contrast */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.timeline {
+    width: 90%;
+    max-width: 600px;
+    margin: 20px;
+    position: relative;
+}
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, #2c2c31, #241536); /* Cool gradient effect */
+}
+.timeline-item {
+    display: flex;
+    margin: 20px 0;
+    position: relative;
+}
+.year-node {
+    transform: translateX(-10%);
+    justify-content: center;
+}
+.year-node .content {
+    text-align: center;
+    background: transparent;
+    color: #418d32;
+    border: none;
+    box-shadow: none;
+    padding: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.timeline-item:nth-child(odd) {
+    flex-direction: row-reverse;
+}
+.timeline-item .content {
+    background: #1E1E1E; /* Dark grey box background */
+    color: #E0E0E0; /* Light grey text */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Stronger shadow for depth */
+    width: calc(50% - 30px);
+    border: 1px solid #333; /* Subtle border for a polished look */
+}
+.timeline-item img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    object-fit: cover;
+    height: 150px;
+}
+h3 {
+    margin: 0 0 10px;
+    font-size: 1.5rem;
+    color: #685d70; /* Bright color for headings */
+}
+p {
+    margin: 5px 0;
+    font-size: 1rem;
+}
