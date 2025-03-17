@@ -5,7 +5,9 @@ body {
 }
 
 body {
-    background-color: lightpink;
+    /* background-color: rgb(189, 255, 182); */
+    background: url('../img/cherry.png') no-repeat center center fixed;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
