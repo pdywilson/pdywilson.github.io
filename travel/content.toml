@@ -2,7 +2,11 @@
 year = 2025
 
 [[timeline.items]]
-title = "Belgium in July"
+title = "Islantilla w Lily in Aug"
+image = ""
+
+[[timeline.items]]
+title = "Belgium & Oma visit in July"
 image = ""
 
 [[timeline.items]]
@@ -28,6 +32,10 @@ image = "https://images.unsplash.com/photo-1626199749010-cf0f32558395?q=80&w=147
 
 [[timeline]]
 year = 2024
+
+[[timeline.items]]
+title = "Fabio & Lara visit Dub in Dec"
+image = ""
 
 [[timeline.items]]
 title = "Puerto Escondido in Nov"
@@ -113,7 +121,7 @@ image = ""
 year = 2023
 
 [[timeline.items]]
-title = "Portugal w Lis + Paries in Oct"
+title = "Portugal flexin + Paries in Oct"
 image = ""
 
 [[timeline.items]]
@@ -141,9 +149,140 @@ title = "Parents Dub in April"
 image = ""
 
 [[timeline.items]]
+title = "Taghazout w Cesar & Sophia & Stephen in Mar"
+image = ""
+
+[[timeline.items]]
 title = "Lukas Dub in Feb"
 image = ""
 
 [[timeline.items]]
-title = "Portugal w Lis flexin in Jan"
+title = "Northern Spain flexin in Jan"
+image = ""
+
+[[timeline]]
+year = 2022
+
+[[timeline.items]]
+title = "Portugal w Cuzao in Oct"
+image = ""
+
+[[timeline.items]]
+title = "Morocco in Sep"
+image = ""
+
+[[timeline.items]]
+title = "Muc w Lis in July"
+image = ""
+
+[[timeline.items]]
+title = "Rome w Fam in June"
+image = ""
+
+[[timeline.items]]
+title = "Rudi in Dub in June"
+image = ""
+
+[[timeline.items]]
+title = "Sophia in Dub in June"
+image = ""
+
+[[timeline.items]]
+title = "Cancun in May"
+image = ""
+
+[[timeline.items]]
+title = "Dingle in Feb"
+image = ""
+
+[[timeline]]
+year = 2021
+
+[[timeline.items]]
+title = "Malta in Dec"
+image = ""
+
+[[timeline.items]]
+title = "Madeira in Sep"
+image = ""
+
+[[timeline.items]]
+title = "First time Bundoran in June"
+image = ""
+
+[[timeline]]
+year = 2020
+
+[[timeline.items]]
+title = "Extreme Flexin Islantilla Sep"
+image = ""
+
+[[timeline]]
+year = 2019
+
+[[timeline.items]]
+title = "Arrive Dub 12. Nov"
+image = ""
+
+[[timeline.items]]
+title = "Jackdilac trip w Fabio in Sep"
+image = ""
+
+[[timeline.items]]
+title = "Vienna in Jun"
+image = ""
+
+[[timeline]]
+year = 2018
+
+[[timeline.items]]
+title = "Gent w Friends in Sep"
+image = ""
+
+[[timeline]]
+year = 2017
+
+[[timeline.items]]
+title = "Roadtrip Westcoast USA w Lis in July"
+image = ""
+
+[[timeline.items]]
+title = "Cruise and NYC w Fam in Jun"
+image = ""
+
+[[timeline.items]]
+title = "Ski in Mar"
+image = ""
+
+[[timeline]]
+year = 2016
+
+[[timeline.items]]
+title = "Rock am Ring in Jun"
+image = ""
+
+[[timeline.items]]
+title = "Kappl in Mar"
+image = ""
+
+[[timeline]]
+year = 2015
+
+[[timeline.items]]
+title = "Cork Semester"
+image = ""
+
+[[timeline.items]]
+title = "Rock am Ring in Jun"
+image = ""
+
+[[timeline]]
+year = 2014
+
+[[timeline.items]]
+title = "Sms in Aug"
+image = ""
+
+[[timeline.items]]
+title = "Southside in Jun"
 image = ""

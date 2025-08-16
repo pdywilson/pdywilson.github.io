@@ -25,8 +25,14 @@ poetry install
 
 # Run
 
+In travel folder (`cd travel`) run:
 ```
-cd travel
-poetry run python -m toml_site_generator.generate_site
+./run.sh
 ```
+
+
+
+# Update
+
+Simply add to `content.toml` and run above command. This will update `travel.html` in the top level folder.
 
