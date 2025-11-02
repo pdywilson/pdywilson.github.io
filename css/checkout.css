@@ -6,12 +6,17 @@ body {
 
 body {
     /* background-color: rgb(189, 255, 182); */
-    background: url('../img/cherry.png') no-repeat center center fixed;
+    /* spring */
+    /* background: url('../img/cherry.png') no-repeat center center fixed; */
+    /* winter */
+    background: url('../img/snowman.png') no-repeat center center fixed;
     background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: white;
+    font-weight: bold;
 }
 
 div {

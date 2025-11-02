@@ -76,7 +76,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                     }
                 },
                 "color": {
-                    "value": "#FFC0CB"
+                    // spring
+                    // "value": "#FFC0CB"
+                    // winter
+                    "value": "#ffffff"
                 },
                 "opacity": {
                     "value": 0.7,
