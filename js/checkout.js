@@ -74,7 +74,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       } else {
         pauseContainer.style.display = 'none';
         pauseInput.disabled = true;
-        pauseInput.value = "30";
       }
     });
 
