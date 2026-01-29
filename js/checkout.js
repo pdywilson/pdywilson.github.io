@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     function updateCheckin() {
-        lunch = pauseLength.value;
+        lunch = parseInt(pauseLength.value) || 30;
         const inTime = checkinTime.value;
         localStorage.setItem('checkin_time', inTime);
         pauseTime.value = updateTime(inTime, lunchTime, 0);
