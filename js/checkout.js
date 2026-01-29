@@ -70,11 +70,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     checkbox.addEventListener('change', function() {
       if (this.checked) {
         pauseContainer.style.display = 'block';
-        pauseInput.disabled = false; // Ensure it's active
+        pauseInput.disabled = false;
       } else {
         pauseContainer.style.display = 'none';
-        pauseInput.disabled = true;  // Disable so it's not sent in forms
-        pauseInput.value = "";       // Optional: clear the value
+        pauseInput.disabled = true;
+        pauseInput.value = "30";
       }
     });
 
