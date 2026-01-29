@@ -19,6 +19,17 @@ body {
     font-weight: bold;
 }
 
+/* Hide the input by default */
+.hidden-field {
+  display: none;
+  margin-top: 10px;
+}
+
+/* When the checkbox is checked, show the div immediately following it */
+#toggle-pause:checked ~ #pause-container {
+  display: block;
+}
+
 /* Base styles for the background */
 .random-bg {
   background-repeat: no-repeat;

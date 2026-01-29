@@ -5,13 +5,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     const checkoutButton = document.getElementById('checkout-button');
     const pauseTime = document.getElementById('pause-time');
     const pauseEndTime = document.getElementById('pause-end-time');
+    const pauseLength = document.getElementById('pause-length');
     const extraPauseTime = document.getElementById('extra-pause-time');
     const extraPauseEndTime = document.getElementById('extra-pause-end-time');
+    const checkbox = document.getElementById('toggle-pause');
+    const pauseContainer = document.getElementById('pause-container');
+    const pauseInput = document.getElementById('pause-length');
     const workTime = 8 * 60 + 18;
     const lunchTime = 6 * 60;
-    const lunchEndTime = 6 * 60 + 30;
-    const dinnerTime = 9 * 60 + 30;
-    const dinnerEndTime = 9 * 60 + 45;
+    const lunchEndTime = 6 * 60;
+    const dinnerTime = 9 * 60;
+    const dinnerEndTime = 9 * 60 + 15;
 
     checkinButton.addEventListener('click', async () => {
         updateCheckin();
@@ -23,13 +27,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     function updateCheckin() {
+        lunch = pauseLength.value;
         const inTime = checkinTime.value;
         localStorage.setItem('checkin_time', inTime);
-        checkoutTime.value = updateTime(inTime, workTime);
-        pauseTime.value = updateTime(inTime, lunchTime);
-        pauseEndTime.value = updateTime(inTime, lunchEndTime);
-        extraPauseTime.value = updateTime(inTime, dinnerTime);
-        extraPauseEndTime.value = updateTime(inTime, dinnerEndTime);
+        pauseTime.value = updateTime(inTime, lunchTime, 0);
+        checkoutTime.value = updateTime(inTime, workTime, lunch);
+        pauseEndTime.value = updateTime(inTime, lunchEndTime, lunch);
+        extraPauseTime.value = updateTime(inTime, dinnerTime, lunch);
+        extraPauseEndTime.value = updateTime(inTime, dinnerEndTime, lunch);
     };
 
     checkoutButton.addEventListener('click', async () => {
@@ -38,11 +43,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         checkinTime.value = updateTime(outTime, -workTime);
     });
 
-    function updateTime(time, minutes) {
+    function updateTime(time, minutes, lunch) {
         const date = new Date();
         date.setHours(time.substr(0, 2));
         date.setMinutes(time.substr(3, 5));
-        return format(new Date(date.getTime() + minutes * 60000));
+        return format(new Date(date.getTime() + minutes * 60000 + lunch * 60000));
     };
 
     function format(date) {
@@ -61,6 +66,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         this.setTime(this.getTime() + (h * 60 * 60 * 1000));
         return this;
     }
+
+    checkbox.addEventListener('change', function() {
+      if (this.checked) {
+        pauseContainer.style.display = 'block';
+        pauseInput.disabled = false; // Ensure it's active
+      } else {
+        pauseContainer.style.display = 'none';
+        pauseInput.disabled = true;  // Disable so it's not sent in forms
+        pauseInput.value = "";       // Optional: clear the value
+      }
+    });
+
 
     // Random background img
     const cat_num = Math.floor(Math.random() * 4) + 1;

@@ -20,6 +20,16 @@
     <input type="time" id="pause-time" required />
     <input type="time" id="pause-end-time" required />
   </div>
+  <div class="input-group">
+    <label>
+      <input type="checkbox" id="toggle-pause"> Pause anpassen
+    </label>
+
+    <div id="pause-container" class="hidden-field">
+      <label for="pause-length">Pause (in Minuten):</label>
+      <input type="number" id="pause-length" value="30" required />
+    </div>
+  </div>
   <div class="checkout-container">
     Feierabend! &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
     <input type="time" id="checkout-time" required />
