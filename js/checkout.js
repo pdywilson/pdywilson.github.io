@@ -62,6 +62,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         return this;
     }
 
+    // Random background img
+    const cat_num = Math.floor(Math.random() * 4) + 1;
+    document.body.classList.add('random-bg', `bg-${cat_num}`);
+
     // Snow script
     var script = document.createElement('script');
     script.src = 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js';

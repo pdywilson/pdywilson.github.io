@@ -9,7 +9,7 @@ body {
     /* spring */
     /* background: url('../img/cherry.png') no-repeat center center fixed; */
     /* winter */
-    background: url('../img/snowman.png') no-repeat center center fixed;
+    /* background: url('../img/snowman.png') no-repeat center center fixed; */
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -18,6 +18,19 @@ body {
     color: white;
     font-weight: bold;
 }
+
+/* Base styles for the background */
+.random-bg {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.bg-1 { background-image: url('../img/cat1.jpeg'); }
+.bg-2 { background-image: url('../img/cat2.jpeg'); }
+.bg-3 { background-image: url('../img/cat3.jpeg'); }
+.bg-4 { background-image: url('../img/cat4.jpeg'); }
 
 div {
     align-content: center;
