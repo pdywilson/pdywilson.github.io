@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Piano</title>
     <style>
         * { margin: 0; padding: 0; }
@@ -21,6 +21,26 @@
             display: block;
         }
     </style>
+    <script>
+        (function() {
+            var AC = window.AudioContext || window.webkitAudioContext;
+            if (!AC) return;
+            var Patched = function() {
+                var ctx = new AC();
+                var r = function() {
+                    if (ctx.state === 'suspended') ctx.resume().catch(function(){});
+                };
+                r();
+                document.addEventListener('touchstart', r, { once: true });
+                document.addEventListener('mousedown', r, { once: true });
+                document.addEventListener('pointerdown', r, { once: true });
+                return ctx;
+            };
+            Patched.prototype = AC.prototype;
+            window.AudioContext = Patched;
+            if (window.webkitAudioContext) window.webkitAudioContext = Patched;
+        })();
+    </script>
     <script src="deploy/common/Cindy.js"></script>
 
     <script id="csinit" type="text/x-cindyscript">
@@ -95,6 +115,8 @@
             ports: [{
                 id: "CSCanvas",
                 fill: "window",
+                virtualwidth: 400,
+                virtualheight: 600,
                 transform: [{
                     visibleRect: [-2, 3, 2, -3]
                 }],
