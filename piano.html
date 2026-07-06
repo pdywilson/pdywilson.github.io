@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Piano</title>
+    <style>
+        * { margin: 0; padding: 0; }
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #1e1e22;
+            touch-action: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        #CSCanvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+    </style>
+    <script src="deploy/common/Cindy.js"></script>
+
+    <script id="csinit" type="text/x-cindyscript">
+        freq(m) := 440 * 2^((m - 69)/12);
+        notes = [freq(57),freq(58),freq(59),freq(60),freq(61),freq(62),freq(63),freq(64),freq(65),freq(66),freq(67),freq(68),freq(69),freq(70),freq(71),freq(72)];
+
+        am = 0.2;
+        keyson = (0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+        noteNames = ["A3","A#3","B3","C4","C#4","D4","D#4","E4","F4","F#4","G4","G#4","A4","A#4","B4","C5"];
+
+        play(i) := playsin(notes_i, amp->100*am/notes_i, damp->1, duration->4, line->i);
+        playdamp(i) := playsin(notes_i, amp->100*am/notes_i, damp->4, duration->4, line->i, restart->false);
+    </script>
+
+    <script id="csdraw" type="text/x-cindyscript">
+        repeat(16, i,
+            r = floor((i-1)/4);
+            c = mod((i-1), 4);
+            x = c - 2;
+            y = 2 - r;
+
+            if(keyson_i == 1,
+                fillcolor = (.5, .6, .85);,
+                fillcolor = (.22, .22, .26);
+            );
+
+            fillpoly(((x+0.03,y-0.03),(x+0.97,y-0.03),(x+0.97,y-0.97),(x+0.03,y-0.97)), color->fillcolor);
+
+            if(keyson_i == 1,
+                textcolor = (1,1,1);,
+                textcolor = (.6, .6, .65);
+            );
+            drawtext((x+0.5,y-0.5), noteNames_i, color->textcolor, size->22, align->"center");
+        );
+    </script>
+
+    <script id="csmousedown" type="text/x-cindyscript">
+        if(mouse().x > -2 & mouse().x < 2 & mouse().y > -2 & mouse().y < 2,
+            c = floor(mouse().x + 2);
+            r = floor(2 - mouse().y);
+            if(c >= 0 & c < 4 & r >= 0 & r < 4,
+                i = r*4 + c + 1;
+                if(keyson_i == 0,
+                    play(i);
+                    keyson_i = 1;
+                );
+            );
+        );
+    </script>
+
+    <script id="csmouseup" type="text/x-cindyscript">
+        forall(1..16,
+            if(keyson_# == 1,
+                playdamp(#);
+                keyson_# = 0;
+            );
+        );
+    </script>
+
+    <script type="text/javascript">
+        var cdy = CindyJS({
+            scripts: "cs*",
+            defaultAppearance: {
+                dimDependent: 0.7,
+                fontFamily: "sans-serif",
+                lineSize: 1,
+                pointSize: 5.0,
+                textsize: 12.0
+            },
+            animation: {autoplay: true},
+            autoplay: true,
+            ports: [{
+                id: "CSCanvas",
+                fill: "window",
+                transform: [{
+                    visibleRect: [-2, 2, 2, -2]
+                }],
+                background: "rgb(30,30,35)"
+            }],
+            cinderella: {
+                build: 1847,
+                version: [2, 9, 1847]
+            }
+        });
+    </script>
+</head>
+<body>
+    <div id="CSCanvas"></div>
+</body>
+</html>
