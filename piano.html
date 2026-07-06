@@ -25,22 +25,22 @@
 
     <script id="csinit" type="text/x-cindyscript">
         freq(m) := 440 * 2^((m - 69)/12);
-        notes = [freq(57),freq(58),freq(59),freq(60),freq(61),freq(62),freq(63),freq(64),freq(65),freq(66),freq(67),freq(68),freq(69),freq(70),freq(71),freq(72)];
+        notes = [freq(53),freq(54),freq(55),freq(56),freq(57),freq(58),freq(59),freq(60),freq(61),freq(62),freq(63),freq(64),freq(65),freq(66),freq(67),freq(68),freq(69),freq(70),freq(71),freq(72),freq(73),freq(74),freq(75),freq(76)];
 
         am = 0.2;
-        keyson = (0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
-        noteNames = ["A3","A#3","B3","C4","C#4","D4","D#4","E4","F4","F#4","G4","G#4","A4","A#4","B4","C5"];
+        keyson = (0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+        noteNames = ["F3","F#3","G3","G#3","A3","A#3","B3","C4","C#4","D4","D#4","E4","F4","F#4","G4","G#4","A4","A#4","B4","C5","C#5","D5","D#5","E5"];
 
         play(i) := playsin(notes_i, amp->100*am/notes_i, damp->1, duration->4, line->i);
         playdamp(i) := playsin(notes_i, amp->100*am/notes_i, damp->4, duration->4, line->i, restart->false);
     </script>
 
     <script id="csdraw" type="text/x-cindyscript">
-        repeat(16, i,
+        repeat(24, i,
             r = floor((i-1)/4);
             c = mod((i-1), 4);
             x = c - 2;
-            y = 2 - r;
+            y = 3 - r;
 
             if(keyson_i == 1,
                 fillcolor = (.5, .6, .85);,
@@ -58,10 +58,10 @@
     </script>
 
     <script id="csmousedown" type="text/x-cindyscript">
-        if(mouse().x > -2 & mouse().x < 2 & mouse().y > -2 & mouse().y < 2,
+        if(mouse().x > -2 & mouse().x < 2 & mouse().y > -3 & mouse().y < 3,
             c = floor(mouse().x + 2);
-            r = floor(2 - mouse().y);
-            if(c >= 0 & c < 4 & r >= 0 & r < 4,
+            r = floor(3 - mouse().y);
+            if(c >= 0 & c < 4 & r >= 0 & r < 6,
                 i = r*4 + c + 1;
                 if(keyson_i == 0,
                     play(i);
@@ -72,7 +72,7 @@
     </script>
 
     <script id="csmouseup" type="text/x-cindyscript">
-        forall(1..16,
+        forall(1..24,
             if(keyson_# == 1,
                 playdamp(#);
                 keyson_# = 0;
@@ -96,7 +96,7 @@
                 id: "CSCanvas",
                 fill: "window",
                 transform: [{
-                    visibleRect: [-2, 2, 2, -2]
+                    visibleRect: [-2, 3, 2, -3]
                 }],
                 background: "rgb(30,30,35)"
             }],
