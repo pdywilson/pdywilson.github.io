@@ -89,70 +89,76 @@ document.addEventListener('DOMContentLoaded', async () => {
     const cat_num = Math.floor(Math.random() * 4) + 1;
     document.body.classList.add('random-bg', `bg-${cat_num}`);
 
-    // Snow script
-    var script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js';
-    script.onload = function () {
-        particlesJS("snow", {
-            "particles": {
-                "number": {
-                    "value": 200,
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    // spring
-                    // "value": "#FFC0CB"
-                    // winter
-                    "value": "#ffffff"
-                },
-                "opacity": {
-                    "value": 0.7,
-                    "random": false,
-                    "anim": {
-                        "enable": false
-                    }
-                },
-                "size": {
-                    "value": 3,
-                    "random": true,
-                    "anim": {
-                        "enable": false
-                    }
-                },
-                "line_linked": {
-                    "enable": false
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 3,
-                    "direction": "bottom",
-                    "random": true,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false,
-                    "attract": {
-                        "enable": true,
-                        "rotateX": 300,
-                        "rotateY": 1200
-                    }
-                }
-            },
-            "interactivity": {
-                "events": {
-                    "onhover": {
+    let snow_on = false;
+    try {
+        const today = Temporal.Now.plainDateISO();
+        snow_on = [12, 1, 2, 3, 4].includes(today.month);
+    } catch (e) {}
+    if (snow_on) {
+        var script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js';
+        script.onload = function () {
+            particlesJS("snow", {
+                "particles": {
+                    "number": {
+                        "value": 200,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        // spring
+                        // "value": "#FFC0CB"
+                        // winter
+                        "value": "#ffffff"
+                    },
+                    "opacity": {
+                        "value": 0.7,
+                        "random": false,
+                        "anim": {
+                            "enable": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false
+                        }
+                    },
+                    "line_linked": {
                         "enable": false
                     },
-                    "onclick": {
-                        "enable": false
-                    },
-                    "resize": false
-                }
-            },
-            "retina_detect": true
-        });
+                    "move": {
+                        "enable": true,
+                        "speed": 3,
+                        "direction": "bottom",
+                        "random": true,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": true,
+                            "rotateX": 300,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "events": {
+                        "onhover": {
+                            "enable": false
+                        },
+                        "onclick": {
+                            "enable": false
+                        },
+                        "resize": false
+                    }
+                },
+                "retina_detect": true
+            });
+        }
+        document.head.append(script);
     }
-    document.head.append(script);
 });
