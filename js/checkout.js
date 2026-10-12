@@ -95,8 +95,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (e) {}
     // Herbst
     const fall_on = [9, 10, 11].includes(month);
-    // Winter
-    const snow_on = [12, 1, 2, 3, 4].includes(month);
+    // Winter - Dezember bis Februar
+    const snow_on = [12, 1, 2].includes(month);
 
     // Leaf particle shape.
     //
