@@ -93,6 +93,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     try {
         month = Temporal.Now.plainDateISO().month;
     } catch (e) {}
+    // Frühling - Kirschblüte
+    const spring_on = [3, 4, 5].includes(month);
     // Herbst
     const fall_on = [9, 10, 11].includes(month);
     // Winter - Dezember bis Februar
@@ -123,6 +125,27 @@ document.addEventListener('DOMContentLoaded', async () => {
   <path d="M16 29.5 L16 31" stroke="#8a5a2b" stroke-width="1" stroke-linecap="round" />
 </svg>`;
     const leaf_image = 'data:image/svg+xml,' + encodeURIComponent(leaf_svg);
+
+    // Cherry blossom particle shape. Same data URI trick as the leaf - see the
+    // comment above, an encoded SVG always ends with "%3E" so particles.js takes
+    // the plain Image() path and never goes through XMLHttpRequest.
+    // Five notched petals plus stamens.
+    const cherry_svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <g fill="#ffc0cb" stroke="#ef7fa5" stroke-width="0.45">
+    <path d="M16 17 C 9.5 14, 7 8.5, 12.5 4.5 L 16 6.5 L 19.5 4.5 C 25 8.5, 22.5 14, 16 17 Z" />
+    <path d="M16 17 C 9.5 14, 7 8.5, 12.5 4.5 L 16 6.5 L 19.5 4.5 C 25 8.5, 22.5 14, 16 17 Z" transform="rotate(72 16 16)" />
+    <path d="M16 17 C 9.5 14, 7 8.5, 12.5 4.5 L 16 6.5 L 19.5 4.5 C 25 8.5, 22.5 14, 16 17 Z" transform="rotate(144 16 16)" />
+    <path d="M16 17 C 9.5 14, 7 8.5, 12.5 4.5 L 16 6.5 L 19.5 4.5 C 25 8.5, 22.5 14, 16 17 Z" transform="rotate(216 16 16)" />
+    <path d="M16 17 C 9.5 14, 7 8.5, 12.5 4.5 L 16 6.5 L 19.5 4.5 C 25 8.5, 22.5 14, 16 17 Z" transform="rotate(288 16 16)" />
+  </g>
+  <g stroke="#d94f7a" stroke-width="0.6" stroke-linecap="round">
+    <path d="M16 16 L16 11" />
+    <path d="M16 16 L19.5 12" />
+    <path d="M16 16 L12.5 12" />
+  </g>
+  <circle cx="16" cy="16" r="1.5" fill="#ffe066" />
+</svg>`;
+    const cherry_image = 'data:image/svg+xml,' + encodeURIComponent(cherry_svg);
 
     // particles.js sources, tried in order. The vendored copy is the primary one
     // so a CDN outage, an offline visit or a privacy extension blocking
@@ -163,31 +186,32 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.head.append(script);
     }
 
-    // Turn each leaf into a pendulum.
+    // Turn each particle into a pendulum.
     //
     // particles.js 2.0.0 has no rotation support at all - no "tilt", no
     // ctx.rotate, no transform anywhere in the source - so the swing has to be
-    // added by wrapping Particle.prototype.draw.
+    // added by wrapping Particle.prototype.draw. maxDegrees is the peak swing,
+    // so leaves get a firm 40 and the lighter petals a gentler 25.
     //
     // That reaches into undocumented internals, so verify all of them up front
-    // and give up cleanly if any is missing. Degrading to leaves that fall
+    // and give up cleanly if any is missing. Degrading to particles that fall
     // without swinging is a far better failure mode than throwing inside the
     // requestAnimationFrame loop, which would kill the draw loop and leave the
     // canvas stuck on canvasPaint's default black fillRect.
-    function swingLeaves() {
+    function addSwing(maxDegrees) {
         // particlesJS() returns nothing; the instance only lands in the global
-        // pJSDom registry.
+        // pJSDom registry, so this always targets the most recent instance.
         const instance = window.pJSDom && window.pJSDom[window.pJSDom.length - 1];
         const pjs = instance && instance.pJS;
         const proto = pjs && pjs.fn && pjs.fn.particle && pjs.fn.particle.prototype;
 
         if (!proto || typeof proto.draw !== 'function') {
-            console.warn('[checkout] particles.js internals changed; the leaves will fall without swinging.');
+            console.warn('[checkout] particles.js internals changed; the particles will fall without swinging.');
             return;
         }
 
         const drawLeaf = proto.draw;
-        const SWING_MAX = 40 * Math.PI / 180;
+        const SWING_MAX = maxDegrees * Math.PI / 180;
         const started = performance.now();
 
         proto.draw = function () {
@@ -363,11 +387,86 @@ document.addEventListener('DOMContentLoaded', async () => {
                 "retina_detect": true
             });
 
-            swingLeaves();
+            addSwing(40);
+        }
+
+        if (spring_on) {
+            particlesJS("spring", {
+                "particles": {
+                    "number": {
+                        "value": 40,
+                        "density": {
+                            "enable": true,
+                            "value_area": 1000
+                        }
+                    },
+                    "color": {
+                        "value": "#FFC0CB"
+                    },
+                    "opacity": {
+                        "value": 0.9,
+                        "random": true,
+                        "anim": {
+                            "enable": false
+                        }
+                    },
+                    "shape": {
+                        "type": "image",
+                        "image": {
+                            "src": cherry_image,
+                            "width": 32,
+                            "height": 32
+                        }
+                    },
+                    "size": {
+                        "value": 12,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 1.5,
+                            "minimum_value": 7,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": false
+                    },
+                    "move": {
+                        "enable": true,
+                        // petals drift, they do not drop like snow or leaves
+                        "speed": 1.4,
+                        "direction": "bottom",
+                        "random": true,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": true,
+                            "rotateX": 500,
+                            "rotateY": 1400
+                        }
+                    }
+                },
+                "interactivity": {
+                    "events": {
+                        "onhover": {
+                            "enable": false
+                        },
+                        "onclick": {
+                            "enable": false
+                        },
+                        "resize": false
+                    }
+                },
+                "retina_detect": true
+            });
+
+            // A softer sway than the leaves - petals are lighter.
+            addSwing(25);
         }
     }
 
-    if (snow_on || fall_on) {
+    if (snow_on || fall_on || spring_on) {
         // Tried in order: vendored copy first, CDN as a fallback.
         loadParticles(PARTICLES_SOURCES.slice());
     }
