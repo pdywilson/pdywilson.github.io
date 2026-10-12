@@ -89,15 +89,146 @@ document.addEventListener('DOMContentLoaded', async () => {
     const cat_num = Math.floor(Math.random() * 4) + 1;
     document.body.classList.add('random-bg', `bg-${cat_num}`);
 
-    let snow_on = false;
+    let month = new Date().getMonth() + 1;
     try {
-        const today = Temporal.Now.plainDateISO();
-        snow_on = [12, 1, 2, 3, 4].includes(today.month);
+        month = Temporal.Now.plainDateISO().month;
     } catch (e) {}
-    if (snow_on) {
-        var script = document.createElement('script');
-        script.src = 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js';
-        script.onload = function () {
+    // Herbst
+    const fall_on = [9, 10, 11].includes(month);
+    // Winter
+    const snow_on = [12, 1, 2, 3, 4].includes(month);
+
+    // Leaf particle shape.
+    //
+    // particles.js 2.0.0 picks the loader purely from the last three characters
+    // of the src: "svg" routes through XMLHttpRequest (blocked by the browser on
+    // file://, which is what made this effect silently fail), anything else uses
+    // a plain Image(). An SVG source always ends with "</svg>", so an encoded
+    // data URI always ends with "%3E" - never "svg" - so this always takes the
+    // Image() path. No XHR, no Blob, no file:// block, and it also skips the
+    // count_svg >= number.value wait that could deadlock the draw loop and leave
+    // the canvas stuck on its black fill. See debug.txt.
+    const leaf_svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <path d="M16 2 C 9 6, 5 13, 7 20 C 8.6 25.5, 13 29.5, 16 29.5 C 19 29.5, 23.4 25.5, 25 20 C 27 13, 23 6, 16 2 Z"
+        fill="#e07b2a" stroke="#a9531a" stroke-width="0.8" stroke-linejoin="round" />
+  <g stroke="#a9531a" stroke-width="0.7" stroke-linecap="round" fill="none">
+    <path d="M16 5 L16 29" />
+    <path d="M16 8 L10.5 12" />
+    <path d="M16 8 L21.5 12" />
+    <path d="M16 13 L9.5 18" />
+    <path d="M16 13 L22.5 18" />
+    <path d="M16 18 L11.5 23" />
+    <path d="M16 18 L20.5 23" />
+  </g>
+  <path d="M16 29.5 L16 31" stroke="#8a5a2b" stroke-width="1" stroke-linecap="round" />
+</svg>`;
+    const leaf_image = 'data:image/svg+xml,' + encodeURIComponent(leaf_svg);
+
+    // particles.js sources, tried in order. The vendored copy is the primary one
+    // so a CDN outage, an offline visit or a privacy extension blocking
+    // third-party domains cannot take the effect down; the CDN stays as a
+    // fallback. The vendored copy deliberately lives in js/vendor/ rather than
+    // vendor/, because the gulp clean() task deletes ./vendor/ wholesale.
+    //
+    // The fallback carries an SRI hash so a tampered copy is refused instead of
+    // executed. Regenerate with:
+    //   openssl dgst -sha384 -binary js/vendor/particles.min.js | openssl base64 -A
+    const PARTICLES_SOURCES = [
+        'js/vendor/particles.min.js',
+        {
+            src: 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js',
+            integrity: 'sha384-d+UOwmNNIC7V4izkTAKSXzWhjC2GxiS9PTykO1XdOPC3nc2z65UOS7SP6QdKPA70',
+            crossorigin: 'anonymous'
+        }
+    ];
+
+    function loadParticles(remaining) {
+        const source = remaining.shift();
+        if (!source) {
+            console.warn('[checkout] particles.js could not be loaded, skipping the seasonal effect.');
+            return;
+        }
+        const script = document.createElement('script');
+        const url = typeof source === 'string' ? source : source.src;
+        script.src = url;
+        if (typeof source !== 'string') {
+            script.integrity = source.integrity;
+            script.crossOrigin = source.crossorigin;
+        }
+        script.onload = startEffects;
+        script.onerror = () => {
+            script.remove();
+            loadParticles(remaining);
+        };
+        document.head.append(script);
+    }
+
+    // Turn each leaf into a pendulum.
+    //
+    // particles.js 2.0.0 has no rotation support at all - no "tilt", no
+    // ctx.rotate, no transform anywhere in the source - so the swing has to be
+    // added by wrapping Particle.prototype.draw.
+    //
+    // That reaches into undocumented internals, so verify all of them up front
+    // and give up cleanly if any is missing. Degrading to leaves that fall
+    // without swinging is a far better failure mode than throwing inside the
+    // requestAnimationFrame loop, which would kill the draw loop and leave the
+    // canvas stuck on canvasPaint's default black fillRect.
+    function swingLeaves() {
+        // particlesJS() returns nothing; the instance only lands in the global
+        // pJSDom registry.
+        const instance = window.pJSDom && window.pJSDom[window.pJSDom.length - 1];
+        const pjs = instance && instance.pJS;
+        const proto = pjs && pjs.fn && pjs.fn.particle && pjs.fn.particle.prototype;
+
+        if (!proto || typeof proto.draw !== 'function') {
+            console.warn('[checkout] particles.js internals changed; the leaves will fall without swinging.');
+            return;
+        }
+
+        const drawLeaf = proto.draw;
+        const SWING_MAX = 40 * Math.PI / 180;
+        const started = performance.now();
+
+        proto.draw = function () {
+            const leaf = this;
+            // canvas.ctx only exists once init() has run, which happens
+            // asynchronously after the leaf image has loaded.
+            const ctx = pjs.canvas.ctx;
+
+            // Cheap sanity check: if the coordinate fields ever move or the
+            // context is missing, fall through to an unrotated draw instead of
+            // throwing and taking the whole animation down.
+            if (!ctx || typeof leaf.x !== 'number' || typeof leaf.y !== 'number') {
+                return drawLeaf.call(leaf);
+            }
+
+            // Particles are created lazily and re-pushed whenever the density is
+            // recalculated, so seed each leaf the first time it is drawn rather
+            // than up front.
+            if (leaf.swing_phase === undefined) {
+                leaf.swing_phase = Math.random() * Math.PI * 2;
+                leaf.swing_speed = 0.5 + Math.random() * 0.7;
+                leaf.swing_arc = SWING_MAX * (0.8 + Math.random() * 0.2);
+            }
+
+            // A pure sine gives smooth pendulum motion rather than a mechanical
+            // tick. Rotating about the leaf's own centre tilts the leaf left and
+            // right instead of making it orbit that centre.
+            const angle = Math.sin((performance.now() - started) / 1000
+                * leaf.swing_speed + leaf.swing_phase) * leaf.swing_arc;
+
+            ctx.save();
+            ctx.translate(leaf.x, leaf.y);
+            ctx.rotate(angle);
+            ctx.translate(-leaf.x, -leaf.y);
+            drawLeaf.call(leaf);
+            ctx.restore();
+        };
+    }
+
+    function startEffects() {
+        if (snow_on) {
             particlesJS("snow", {
                 "particles": {
                     "number": {
@@ -159,6 +290,85 @@ document.addEventListener('DOMContentLoaded', async () => {
                 "retina_detect": true
             });
         }
-        document.head.append(script);
+
+        if (fall_on) {
+            particlesJS("fall", {
+                "particles": {
+                    "number": {
+                        "value": 50,
+                        "density": {
+                            "enable": true,
+                            "value_area": 900
+                        }
+                    },
+                    "color": {
+                        "value": "#e07b2a"
+                    },
+                    "opacity": {
+                        "value": 0.9,
+                        "random": true,
+                        "anim": {
+                            "enable": false
+                        }
+                    },
+                    // particles.js 2.x flattens the shape options onto "shape"
+                    // (no "options" wrapper like in 1.x)
+                    "shape": {
+                        "type": "image",
+                        "image": {
+                            "src": leaf_image,
+                            "width": 32,
+                            "height": 32
+                        }
+                    },
+                    "size": {
+                        "value": 14,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 2,
+                            "minimum_value": 8,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": false
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "bottom",
+                        "random": true,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": true,
+                            "rotateX": 400,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "events": {
+                        "onhover": {
+                            "enable": false
+                        },
+                        "onclick": {
+                            "enable": false
+                        },
+                        "resize": false
+                    }
+                },
+                "retina_detect": true
+            });
+
+            swingLeaves();
+        }
+    }
+
+    if (snow_on || fall_on) {
+        // Tried in order: vendored copy first, CDN as a fallback.
+        loadParticles(PARTICLES_SOURCES.slice());
     }
 });

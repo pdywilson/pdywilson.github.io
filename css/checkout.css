@@ -65,7 +65,8 @@ button {
 }
 
 
-#snow {
+#snow,
+#fall {
     position: fixed;
     top: 0;
     left: 0;
