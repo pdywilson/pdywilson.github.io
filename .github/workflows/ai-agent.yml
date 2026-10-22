@@ -53,7 +53,7 @@ jobs:
           FULL_PROMPT="Task Title: $ISSUE_TITLE. Task Details/Description: $ISSUE_BODY. Additional Instruction: $CLEAN_COMMENT"
 
           # Run Aider with Gemini
-          aider --model gemini/gemini-flash --message "$FULL_PROMPT" --yes --no-auto-commits
+          aider --model gemini/gemini-2.5-flash --message "$FULL_PROMPT" --yes --no-auto-commits
 
           # ONLY create a branch and PR if Aider actually edited files
           if [ -n "$(git status --porcelain)" ]; then
