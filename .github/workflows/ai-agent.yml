@@ -6,7 +6,7 @@ on:
 
 jobs:
   run-aider:
-    # ONLY run if pdywilson comments "@agent <task>" on an Issue
+    # ONLY run if YOU (pdywilson) comment "@agent <task>" on an Issue
     if: |
       github.event.issue.pull_request == null &&
       contains(github.event.comment.body, '@agent') &&
@@ -41,14 +41,21 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Extract prompt text after '@agent'
-          RAW_PROMPT="${{ github.event.comment.body }}"
-          CLEAN_PROMPT=$(echo "$RAW_PROMPT" | sed 's/@agent//g')
+          # Combine Issue Context (Title + Description + Comment)
+          ISSUE_TITLE="${{ github.event.issue.title }}"
+          ISSUE_BODY="${{ github.event.issue.body }}"
+          RAW_COMMENT="${{ github.event.comment.body }}"
+          
+          # Remove '@agent' trigger word from comment
+          CLEAN_COMMENT=$(echo "$RAW_COMMENT" | sed 's/@agent//g')
 
-          # Run Aider on the codebase
-          aider --model gemini --message "$CLEAN_PROMPT" --yes --no-auto-commits
+          # Build combined prompt passed to Aider
+          FULL_PROMPT="Task Title: $ISSUE_TITLE. Task Details/Description: $ISSUE_BODY. Additional Instruction: $CLEAN_COMMENT"
 
-          # ONLY create a branch and PR if Aider actually edited repository files
+          # Run Aider with Gemini
+          aider --model gemini --message "$FULL_PROMPT" --yes --no-auto-commits
+
+          # ONLY create a branch and PR if Aider actually edited files
           if [ -n "$(git status --porcelain)" ]; then
             BRANCH_NAME="ai-fix-issue-${{ github.event.issue.number }}-${{ github.run_id }}"
             git checkout -b $BRANCH_NAME
