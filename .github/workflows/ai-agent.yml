@@ -6,8 +6,11 @@ on:
 
 jobs:
   run-aider:
-    # Triggers whenever someone comments "@agent <task>" on a GitHub Issue
-    if: github.event.issue.pull_request == null && contains(github.event.comment.body, '@agent')
+    # Triggers ONLY when YOU (pdywilson) comment "@agent <task>" on a GitHub Issue
+    if: |
+      github.event.issue.pull_request == null &&
+      contains(github.event.comment.body, '@agent') &&
+      github.actor == 'pdywilson'
     runs-on: ubuntu-latest
 
     permissions:
