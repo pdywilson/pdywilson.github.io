@@ -53,8 +53,8 @@ jobs:
           FULL_PROMPT="Task Title: $ISSUE_TITLE. Task Details/Description: $ISSUE_BODY. Additional Instruction: $CLEAN_COMMENT"
 
           # Run Aider with Gemini
-          aider --model gemini/gemini-3.8-flash --message "$FULL_PROMPT" --yes --no-auto-commits
-
+          find . -maxdepth 2 -type f \( -name "*.html" -o -name "*.js" -o -name "*.css" -o -name "*.md" \) ! -path "*/.*" | xargs aider --model gemini/gemini-3.8-flash --message "$FULL_PROMPT" --yes --no-auto-commits
+          
           # ONLY create a branch and PR if Aider actually edited files
           if [ -n "$(git status --porcelain)" ]; then
             BRANCH_NAME="ai-fix-issue-${{ github.event.issue.number }}-${{ github.run_id }}"
